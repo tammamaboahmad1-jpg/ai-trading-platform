@@ -1,118 +1,129 @@
-<!-- 🔥 FIREBASE STYLE + ONLINE USERS + LIVE CHAT -->
+<!-- 🔥 ADVANCED VIP + PROFITS + OWNER PANEL -->
 
-<div class="app">
+<div class="main-box">
 
-<div class="header">
+<h1 class="main-title">🚀 T AI PLATFORM</h1>
 
-<h1>🚀 T AI PLATFORM</h1>
+<div class="top-stats">
 
-<div class="online-box">
+<div class="stat green">
+<h3>💰 Total Profit</h3>
+<p>$ 128,450</p>
+</div>
 
-🟢 Online Users:
-<span id="users">
-1,284
-</span>
+<div class="stat blue">
+<h3>👤 Active Users</h3>
+<p>1,284</p>
+</div>
 
+<div class="stat gold">
+<h3>📈 Win Rate</h3>
+<p>91%</p>
 </div>
 
 </div>
 
-<!-- 🔔 LIVE SIGNAL -->
-
-<div class="signal-box">
-
-<h2>📈 LIVE SIGNAL</h2>
-
-<div class="signal-card buy">
-
-BTC / USDT
-
-<br><br>
-
-ENTRY: 64,250
-
-<br><br>
-
-TARGET: +420$
-
-</div>
-
-</div>
-
-<!-- 👑 VIP SECTION -->
+<!-- VIP -->
 
 <div class="vip-section">
 
-<h2>👑 VIP ACCESS</h2>
+<h2>👑 VIP Membership</h2>
 
-<p>
-اختر الاشتراك المناسب
-</p>
+<div class="vip-card">
+
+<h3>🔥 VIP Weekly</h3>
+
+<p>7 أيام وصول كامل</p>
 
 <a href="https://buy.stripe.com/test_6oUaEZ64F6ccbDx3rq1Nu00">
-<button>
-🔥 Weekly VIP
+<button class="vip-btn">
+اشتراك أسبوعي - 9 AED
 </button>
 </a>
+
+</div>
+
+<div class="vip-card">
+
+<h3>💎 VIP Monthly</h3>
+
+<p>وصول احترافي شهري</p>
 
 <a href="https://buy.stripe.com/test_28E6oJ50B8kkgXRgec1Nu01">
-<button>
-🚀 Monthly VIP
+<button class="vip-btn">
+اشتراك شهري - 30 AED
 </button>
 </a>
+
+</div>
+
+<div class="vip-card">
+
+<h3>🏆 VIP Yearly</h3>
+
+<p>أفضل قيمة للمحترفين</p>
 
 <a href="https://buy.stripe.com/test_5kQ14pct3fMMfTN9PO1Nu02">
-<button>
-💎 Yearly VIP
+<button class="vip-btn">
+اشتراك سنوي - 300 AED
 </button>
 </a>
 
 </div>
 
-<!-- 💰 PROFITS -->
+</div>
 
-<div class="profit-box">
+<!-- LIVE PROFITS -->
 
-<h2>
-💰 LIVE PROFITS
-</h2>
+<div class="profits-box">
 
-<div id="profit">
+<h2>💸 Live Profit Sharing</h2>
 
-+ 42,850 USD
+<div class="profit-item">
+✅ User Profit: +420 USD
+<br>
+💰 Platform Commission: +42 USD
+</div>
 
+<div class="profit-item">
+✅ User Profit: +860 USD
+<br>
+💰 Platform Commission: +86 USD
+</div>
+
+<div class="profit-item">
+✅ User Profit: +120 USD
+<br>
+💰 Platform Commission: +12 USD
 </div>
 
 </div>
 
-<!-- 💬 LIVE CHAT -->
+<!-- OWNER PANEL -->
 
-<div class="chat-box">
+<div class="admin-panel">
 
-<h2>
-💬 LIVE SUPPORT
-</h2>
+<h2>⚙️ Owner Dashboard</h2>
 
-<div class="messages" id="messages">
-
-<div class="msg admin">
-👑 Admin:
-Welcome to T AI Platform
+<div class="admin-box">
+📢 Send Signals
 </div>
 
-<div class="msg user">
-🔥 User:
-Signals are amazing
+<div class="admin-box">
+👥 Manage Users
 </div>
 
+<div class="admin-box">
+💳 Subscription Control
 </div>
 
-<input type="text" id="chatInput"
-placeholder="Write message...">
+<div class="admin-box">
+📈 View Platform Profits
+</div>
 
-<button onclick="sendMessage()">
-Send
-</button>
+<div class="admin-box">
+🔔 Send Notifications
+</div>
 
 </div>
 
@@ -120,191 +131,100 @@ Send
 
 <style>
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Cairo;
-}
-
 body{
-background:#030712;
+background:#07111f;
+font-family:Cairo;
 color:white;
 padding:20px;
 }
 
-.app{
-max-width:900px;
-margin:auto;
+.main-title{
+text-align:center;
+font-size:38px;
+margin-bottom:30px;
+color:#00ffd5;
 }
 
-.header{
-display:flex;
-justify-content:space-between;
-align-items:center;
+.top-stats{
+display:grid;
+grid-template-columns:1fr;
+gap:15px;
 margin-bottom:30px;
 }
 
-.header h1{
-color:#00e5ff;
-font-size:35px;
-}
-
-.online-box{
-background:#111827;
-padding:12px 20px;
-border-radius:15px;
-font-size:18px;
-}
-
-#users{
-color:#00ff95;
-font-weight:bold;
-}
-
-.signal-box,
-.vip-section,
-.profit-box,
-.chat-box{
-background:#111827;
-padding:30px;
+.stat{
+padding:20px;
 border-radius:20px;
-margin-top:25px;
-}
-
-.signal-card{
-margin-top:20px;
-padding:25px;
-border-radius:15px;
 font-size:24px;
 font-weight:bold;
 text-align:center;
 }
 
-.buy{
-background:#052e16;
-color:#00ff95;
+.green{
+background:#00c853;
 }
 
-.vip-section button{
+.blue{
+background:#1565ff;
+}
+
+.gold{
+background:#ff9800;
+}
+
+.vip-section{
+margin-top:20px;
+}
+
+.vip-card{
+background:#101c2e;
+padding:20px;
+border-radius:20px;
+margin-bottom:20px;
+border:2px solid #00ffd5;
+}
+
+.vip-card h3{
+margin-bottom:10px;
+}
+
+.vip-btn{
 width:100%;
-padding:18px;
-margin-top:18px;
+padding:15px;
 border:none;
 border-radius:15px;
+background:#00ffd5;
 font-size:20px;
 font-weight:bold;
-background:linear-gradient(45deg,#7c3aed,#06b6d4);
-color:white;
-}
-
-#profit{
-font-size:45px;
-margin-top:20px;
-font-weight:bold;
-color:#00ff95;
-text-align:center;
-animation:pulse 2s infinite;
-}
-
-.messages{
-margin-top:20px;
-max-height:250px;
-overflow:auto;
-}
-
-.msg{
-padding:15px;
-border-radius:12px;
+cursor:pointer;
 margin-top:15px;
-font-size:18px;
 }
 
-.admin{
-background:#1e293b;
+.profits-box{
+margin-top:30px;
 }
 
-.user{
-background:#052e16;
+.profit-item{
+background:#132238;
+padding:20px;
+border-radius:15px;
+margin-bottom:15px;
+font-size:20px;
+border-left:5px solid lime;
 }
 
-.chat-box input{
-width:100%;
-padding:15px;
-margin-top:20px;
-border:none;
-border-radius:12px;
-background:#1f2937;
-color:white;
-font-size:18px;
+.admin-panel{
+margin-top:40px;
 }
 
-.chat-box button{
-width:100%;
-padding:15px;
-margin-top:15px;
-border:none;
-border-radius:12px;
-background:#06b6d4;
-color:white;
+.admin-box{
+background:#1a2740;
+padding:20px;
+border-radius:15px;
+margin-bottom:15px;
 font-size:20px;
 font-weight:bold;
-}
-
-@keyframes pulse{
-0%{
-transform:scale(1);
-}
-50%{
-transform:scale(1.04);
-}
-100%{
-transform:scale(1);
-}
+border:1px solid #00ffd5;
 }
 
 </style>
-
-<script>
-
-setInterval(()=>{
-
-let users =
-document.getElementById("users");
-
-let random =
-Math.floor(Math.random()*100);
-
-users.innerHTML =
-1284 + random;
-
-},3000);
-
-function sendMessage(){
-
-let input =
-document.getElementById("chatInput");
-
-let messages =
-document.getElementById("messages");
-
-if(input.value != ""){
-
-messages.innerHTML +=
-`
-<div class="msg user">
-🔥 User:
-${input.value}
-</div>
-`;
-
-input.value="";
-
-messages.scrollTop =
-messages.scrollHeight;
-
-}
-
-}
-
-</script>
