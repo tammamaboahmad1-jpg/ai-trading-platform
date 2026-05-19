@@ -1,68 +1,104 @@
-<!-- 🔥 AI BOT + LIVE CHART + MOBILE APP STYLE -->
+<!-- 🔥 VIP LOCK + REALTIME NOTIFICATION + APP UI -->
 
-<div class="app-container">
+<div class="phone-app">
 
-<h1 class="logo">
-🚀 T AI PLATFORM
-</h1>
+<div class="top-bar">
 
-<div class="chart-box">
+<h1>🚀 T AI</h1>
 
-<h2>📈 LIVE BTC/USDT</h2>
-
-<div class="chart">
-↗️ BTC Pump Signal Active
+<div class="online">
+🟢 LIVE
 </div>
 
 </div>
 
-<div class="signal-container">
+<!-- VIP ACCESS -->
 
-<h2>🤖 AI BOT SIGNALS</h2>
+<div class="vip-lock">
 
-<div class="signal buy">
+<h2>👑 VIP ACCESS</h2>
+
+<p>
+Only VIP members can access premium AI signals
+</p>
+
+<button class="unlock-btn">
+🔓 UNLOCK VIP
+</button>
+
+</div>
+
+<!-- SIGNALS -->
+
+<div class="signals">
+
+<h2>🤖 LIVE AI SIGNALS</h2>
+
+<div class="card green">
 ✅ BUY BTC/USDT
+<br><br>
+Entry: 64,880
 <br>
-Entry: 64,250
-<br>
-TP: 66,900
+Target: 67,200
 </div>
 
-<div class="signal sell">
+<div class="card red">
 📉 SELL ETH/USDT
+<br><br>
+Entry: 3,410
 <br>
-Entry: 3,440
-<br>
-TP: 3,180
+Target: 3,120
 </div>
 
-<div class="signal gold">
+<div class="card gold">
 🏆 VIP GOLD SIGNAL
-<br>
+<br><br>
 WIN RATE 96%
 </div>
 
 </div>
 
-<div class="notification-box">
+<!-- NOTIFICATION -->
 
-🔔 LIVE NOTIFICATION:
+<div class="notify">
+
+🔔 LIVE UPDATE
 <br><br>
 
-User Ahmed earned +820 USD 💸
+Ahmed made +1,240 USD profit 💸
 
 </div>
 
-<div class="mobile-style">
+<!-- PROFIT SHARE -->
 
-📱 APP VERSION READY
+<div class="profit-share">
+
+<h2>💰 Profit Sharing</h2>
+
+<div class="share-box">
+
+User Profit:
+<br>
++ 2,000 USD
+
+<hr>
+
+Platform Fee:
+<br>
++ 200 USD
 
 </div>
 
-<div class="download-box">
+</div>
+
+<!-- DOWNLOAD -->
+
+<div class="download">
 
 <button class="download-btn">
-⬇️ DOWNLOAD APP
+
+📱 DOWNLOAD APP
+
 </button>
 
 </div>
@@ -72,43 +108,61 @@ User Ahmed earned +820 USD 💸
 <style>
 
 body{
-background:#050d18;
+background:#040b16;
 font-family:Cairo;
+padding:20px;
 color:white;
-padding:20px;
 }
 
-.logo{
-text-align:center;
-font-size:38px;
-margin-bottom:30px;
-color:#00ffd5;
+.phone-app{
+max-width:450px;
+margin:auto;
 }
 
-.chart-box{
-background:#101b2d;
-padding:20px;
-border-radius:20px;
-margin-bottom:25px;
-border:2px solid #00ffd5;
-}
-
-.chart{
-height:180px;
-background:linear-gradient(135deg,#00c853,#1565ff);
-border-radius:15px;
+.top-bar{
 display:flex;
-justify-content:center;
+justify-content:space-between;
 align-items:center;
-font-size:24px;
+margin-bottom:25px;
+}
+
+.top-bar h1{
+color:#00ffd5;
+font-size:34px;
+}
+
+.online{
+background:#00c853;
+padding:10px 18px;
+border-radius:15px;
 font-weight:bold;
 }
 
-.signal-container{
-margin-top:20px;
+.vip-lock{
+background:#101b2d;
+padding:25px;
+border-radius:25px;
+text-align:center;
+border:2px solid gold;
+margin-bottom:25px;
 }
 
-.signal{
+.unlock-btn{
+margin-top:20px;
+padding:15px 30px;
+border:none;
+border-radius:15px;
+background:gold;
+font-size:20px;
+font-weight:bold;
+cursor:pointer;
+}
+
+.signals h2{
+margin-bottom:20px;
+}
+
+.card{
 padding:20px;
 border-radius:20px;
 margin-bottom:20px;
@@ -116,11 +170,11 @@ font-size:22px;
 font-weight:bold;
 }
 
-.buy{
+.green{
 background:#00c853;
 }
 
-.sell{
+.red{
 background:#d50000;
 }
 
@@ -128,31 +182,35 @@ background:#d50000;
 background:#ff9800;
 }
 
-.notification-box{
+.notify{
+margin-top:25px;
 background:#16253d;
 padding:25px;
 border-radius:20px;
 font-size:22px;
-margin-top:30px;
-border-left:6px solid #00ffd5;
+border-left:5px solid #00ffd5;
 }
 
-.mobile-style{
+.profit-share{
 margin-top:30px;
-text-align:center;
-font-size:28px;
-font-weight:bold;
-color:#00ffd5;
 }
 
-.download-box{
-margin-top:25px;
+.share-box{
+background:#101b2d;
+padding:25px;
+border-radius:20px;
+font-size:22px;
+border:2px solid #00ffd5;
+}
+
+.download{
 text-align:center;
+margin-top:35px;
 }
 
 .download-btn{
-padding:18px 35px;
-font-size:22px;
+padding:18px 40px;
+font-size:24px;
 font-weight:bold;
 border:none;
 border-radius:20px;
