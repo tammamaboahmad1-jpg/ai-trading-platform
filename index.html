@@ -1,143 +1,217 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>AI Trading Platform</title>
+<title>AI Trading Platform</title>
 
-  <style>
-    body{
-      margin:0;
-      background:#020b2d;
-      color:white;
-      font-family:Arial;
-      text-align:center;
-    }
+<style>
 
-    h1{
-      font-size:55px;
-      margin-top:40px;
-    }
+body{
+margin:0;
+background:#020b2d;
+color:white;
+font-family:Arial;
+text-align:center;
+}
 
-    .box{
-      background:#111827;
-      width:85%;
-      max-width:500px;
-      margin:30px auto;
-      padding:30px;
-      border-radius:20px;
-    }
+h1{
+font-size:55px;
+margin-top:40px;
+}
 
-    input{
-      width:90%;
-      padding:15px;
-      margin:10px 0;
-      border:none;
-      border-radius:10px;
-      font-size:18px;
-    }
+.box{
+background:#111827;
+width:85%;
+max-width:500px;
+margin:30px auto;
+padding:30px;
+border-radius:20px;
+}
 
-    button{
-      padding:15px 30px;
-      border:none;
-      border-radius:12px;
-      font-size:20px;
-      cursor:pointer;
-      margin-top:15px;
-    }
+input{
+width:90%;
+padding:15px;
+margin:10px 0;
+border:none;
+border-radius:10px;
+font-size:18px;
+}
 
-    .green{
-      background:#00c853;
-      color:white;
-    }
+button{
+padding:15px 30px;
+border:none;
+border-radius:12px;
+font-size:20px;
+cursor:pointer;
+margin-top:15px;
+}
 
-    .red{
-      background:#ff1744;
-      color:white;
-    }
+.green{
+background:#00c853;
+color:white;
+}
 
-    .signal{
-      font-size:35px;
-      margin-top:20px;
-      font-weight:bold;
-    }
+.red{
+background:#ff1744;
+color:white;
+}
 
-    .price{
-      font-size:28px;
-      margin-top:10px;
-    }
+.signal{
+font-size:35px;
+margin-top:20px;
+font-weight:bold;
+}
 
-    .hidden{
-      display:none;
-    }
-  </style>
+.price{
+font-size:28px;
+margin-top:10px;
+}
+
+.hidden{
+display:none;
+}
+
+.topbar{
+background:#111827;
+padding:20px;
+font-size:22px;
+font-weight:bold;
+}
+
+.menu{
+display:flex;
+justify-content:center;
+gap:15px;
+flex-wrap:wrap;
+margin-top:20px;
+}
+
+.card{
+background:#111827;
+padding:25px;
+border-radius:20px;
+width:85%;
+max-width:450px;
+margin:20px auto;
+}
+
+.small{
+font-size:18px;
+opacity:0.8;
+}
+
+.big{
+font-size:40px;
+font-weight:bold;
+margin-top:10px;
+}
+
+</style>
 </head>
 
 <body>
 
-<h1>AI Trading Platform</h1>
+<div class="topbar">
+🚀 AI Trading Platform
+</div>
 
 <div id="loginBox" class="box">
 
-  <h2>Login / Register</h2>
+<h2>Login / Register</h2>
 
-  <input id="email" placeholder="Email">
+<input id="email" placeholder="Email">
 
-  <input id="password" type="password" placeholder="Password">
+<input id="password" type="password" placeholder="Password">
 
-  <br>
+<br>
 
-  <button onclick="enterPlatform()">
-    Enter Platform
-  </button>
+<button class="green" onclick="enterPlatform()">
+Enter Platform
+</button>
 
 </div>
 
 <div id="platform" class="hidden">
 
-  <div class="box">
+<h1>📈 Trading Dashboard</h1>
 
-    <h2>💰 Balance</h2>
+<div class="card">
+<div class="small">Balance</div>
+<div class="big">$10,000</div>
+</div>
 
-    <div class="price">$10,000</div>
+<div class="card">
 
-  </div>
+<h2>🤖 AI Signal</h2>
 
-  <div class="box">
+<div id="signal" class="signal">
+WAITING...
+</div>
 
-    <h2>🤖 AI Signal</h2>
+<button class="green" onclick="generateSignal()">
+Generate Signal
+</button>
 
-    <div id="signal" class="signal">
-      WAITING...
-    </div>
+</div>
 
-    <button class="green" onclick="generateSignal()">
-      Generate Signal
-    </button>
+<div class="card">
 
-  </div>
+<h2>📉 Open Trade</h2>
 
-  <div class="box">
+<button class="green">
+BUY
+</button>
 
-    <h2>📈 Open Trade</h2>
+<button class="red">
+SELL
+</button>
 
-    <button class="green">
-      BUY
-    </button>
+</div>
 
-    <button class="red">
-      SELL
-    </button>
+<div class="card">
 
-  </div>
+<h2>💳 Subscription</h2>
 
-  <div class="box">
+<div class="price">
+Premium Plan - $99
+</div>
 
-    <h2>💳 Premium Subscription</h2>
+<button class="green" onclick="buyPremium()">
+Upgrade Premium
+</button>
 
-    <button onclick="buyPremium()">
-      Upgrade Premium
-    </button>
+</div>
 
-  </div>
+<div class="card">
+
+<h2>🎓 AI Academy</h2>
+
+<p>
+Learn Trading + AI Analysis
+</p>
+
+<button class="green">
+Open Academy
+</button>
+
+</div>
+
+<div class="card">
+
+<h2>👤 User Wallet</h2>
+
+<p>
+Deposit / Withdraw / Manage Funds
+</p>
+
+<button class="green">
+Deposit
+</button>
+
+<button class="red">
+Withdraw
+</button>
+
+</div>
 
 </div>
 
@@ -145,33 +219,32 @@
 
 function enterPlatform(){
 
-  document.getElementById("loginBox").style.display = "none";
+document.getElementById("loginBox").style.display="none";
 
-  document.getElementById("platform").classList.remove("hidden");
+document.getElementById("platform").classList.remove("hidden");
 
 }
 
 function generateSignal(){
 
-  let signals = [
-    "BUY BTC 🚀",
-    "SELL ETH 📉",
-    "BUY GOLD 🔥",
-    "SELL EURUSD 💥",
-    "BUY NASDAQ 📈"
-  ];
+let signals=[
+"🚀 BUY BTC",
+"📉 SELL ETH",
+"🔥 BUY SOL",
+"⚡ BUY GOLD",
+"❌ SELL NASDAQ"
+];
 
-  let randomSignal =
-    signals[Math.floor(Math.random()*signals.length)];
+let randomSignal=
+signals[Math.floor(Math.random()*signals.length)];
 
-  document.getElementById("signal").innerHTML =
-    randomSignal;
+document.getElementById("signal").innerHTML=randomSignal;
 
 }
 
 function buyPremium(){
 
-  alert("Premium Activated 🔥");
+alert("🔥 PREMIUM ACTIVATED 🔥");
 
 }
 
