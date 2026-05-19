@@ -1,243 +1,444 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="ar">
 <head>
-  <title>AI Trading Platform</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
+<title>منصة تداول الذكاء الاصطناعي</title>
 
-    body{
-      margin:0;
-      background:#020b2d;
-      color:white;
-      font-family:Arial;
-      text-align:center;
-    }
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700;900&display=swap" rel="stylesheet">
 
-    .topbar{
-      background:#111827;
-      padding:20px;
-      font-size:30px;
-      font-weight:bold;
-    }
+<style>
 
-    h1{
-      font-size:55px;
-      margin-top:40px;
-    }
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Cairo',sans-serif;
+}
 
-    .box{
-      background:#111827;
-      width:85%;
-      max-width:500px;
-      margin:30px auto;
-      padding:30px;
-      border-radius:20px;
-    }
+body{
+background:#020617;
+color:white;
+overflow-x:hidden;
+}
 
-    input{
-      width:90%;
-      padding:15px;
-      margin:10px 0;
-      border:none;
-      border-radius:10px;
-      font-size:18px;
-    }
+.navbar{
+width:100%;
+padding:20px;
+background:#071226;
+display:flex;
+justify-content:space-between;
+align-items:center;
+position:sticky;
+top:0;
+z-index:999;
+box-shadow:0 0 20px #00ff99;
+}
 
-    button{
-      padding:15px 30px;
-      border:none;
-      border-radius:12px;
-      font-size:20px;
-      cursor:pointer;
-      margin-top:15px;
-      color:white;
-    }
+.logo{
+font-size:28px;
+font-weight:900;
+color:#00ff99;
+}
 
-    .green{
-      background:#00c853;
-    }
+.menu{
+display:flex;
+gap:15px;
+}
 
-    .red{
-      background:#ff1744;
-    }
+.menu button{
+background:#00ff99;
+border:none;
+padding:10px 18px;
+border-radius:12px;
+font-weight:bold;
+cursor:pointer;
+transition:0.3s;
+}
 
-    .blue{
-      background:#2962ff;
-    }
+.menu button:hover{
+transform:scale(1.05);
+}
 
-    .price{
-      font-size:45px;
-      font-weight:bold;
-      margin-top:10px;
-    }
+.hero{
+padding:50px 20px;
+text-align:center;
+}
 
-    .signal{
-      font-size:35px;
-      margin-top:20px;
-      font-weight:bold;
-    }
+.hero h1{
+font-size:55px;
+margin-bottom:20px;
+font-weight:900;
+}
 
-    .hidden{
-      display:none;
-    }
+.hero p{
+color:#94a3b8;
+font-size:20px;
+}
 
-  </style>
+.container{
+width:95%;
+max-width:1200px;
+margin:auto;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:25px;
+padding-bottom:50px;
+}
 
+.card{
+background:#0f172a;
+padding:30px;
+border-radius:25px;
+box-shadow:0 0 20px rgba(0,255,153,0.15);
+transition:0.4s;
+position:relative;
+overflow:hidden;
+}
+
+.card:hover{
+transform:translateY(-5px);
+box-shadow:0 0 30px rgba(0,255,153,0.5);
+}
+
+.card h2{
+margin-bottom:20px;
+font-size:28px;
+}
+
+.balance{
+font-size:45px;
+font-weight:900;
+margin-top:15px;
+color:#00ff99;
+}
+
+.signal{
+font-size:40px;
+font-weight:bold;
+margin:20px 0;
+}
+
+.buy{
+color:#00ff99;
+}
+
+.sell{
+color:#ff004c;
+}
+
+.wait{
+color:#facc15;
+}
+
+button.action{
+width:100%;
+padding:16px;
+border:none;
+border-radius:15px;
+font-size:18px;
+font-weight:bold;
+cursor:pointer;
+margin-top:15px;
+transition:0.3s;
+}
+
+.green{
+background:#00c853;
+color:white;
+}
+
+.red{
+background:#ff1744;
+color:white;
+}
+
+.blue{
+background:#2979ff;
+color:white;
+}
+
+button.action:hover{
+transform:scale(1.03);
+opacity:0.9;
+}
+
+.prices{
+margin-top:20px;
+}
+
+.price-item{
+display:flex;
+justify-content:space-between;
+padding:12px 0;
+border-bottom:1px solid rgba(255,255,255,0.1);
+font-size:18px;
+}
+
+.footer{
+text-align:center;
+padding:30px;
+background:#071226;
+margin-top:40px;
+color:#94a3b8;
+}
+
+.glow{
+position:absolute;
+width:200px;
+height:200px;
+background:#00ff99;
+filter:blur(120px);
+opacity:0.15;
+top:-50px;
+right:-50px;
+}
+
+.modal{
+position:fixed;
+inset:0;
+background:rgba(0,0,0,0.8);
+display:flex;
+justify-content:center;
+align-items:center;
+z-index:9999;
+}
+
+.modal-box{
+background:#0f172a;
+padding:40px;
+border-radius:25px;
+width:90%;
+max-width:400px;
+}
+
+.modal-box h2{
+margin-bottom:20px;
+text-align:center;
+}
+
+input{
+width:100%;
+padding:15px;
+margin-bottom:15px;
+border:none;
+border-radius:12px;
+background:#1e293b;
+color:white;
+font-size:16px;
+}
+
+.hidden{
+display:none;
+}
+
+.loading{
+position:fixed;
+inset:0;
+background:#020617;
+display:flex;
+justify-content:center;
+align-items:center;
+font-size:40px;
+font-weight:bold;
+z-index:99999;
+animation:pulse 1s infinite;
+}
+
+@keyframes pulse{
+0%{opacity:0.5;}
+50%{opacity:1;}
+100%{opacity:0.5;}
+}
+
+</style>
 </head>
 
 <body>
 
-<div class="topbar">
-🚀 AI Trading Platform
+<div class="loading" id="loading">
+🚀 AI TRADING PLATFORM
 </div>
 
-<div id="loginBox" class="box">
+<div class="navbar">
+<div class="logo">🚀 AI Trading</div>
 
-<h2>Login / Register</h2>
-
-<input id="email" placeholder="Email">
-
-<input id="password" type="password" placeholder="Password">
-
-<br>
-
-<button class="green" onclick="enterPlatform()">
-Enter Platform
-</button>
-
+<div class="menu">
+<button onclick="openLogin()">تسجيل</button>
+<button onclick="generateSignal()">إشارة AI</button>
+</div>
 </div>
 
-<div id="platform" class="hidden">
+<section class="hero">
+<h1>منصة تداول الذكاء الاصطناعي</h1>
+<p>تداول العملات والأسهم بإشارات AI مباشرة</p>
+</section>
 
-<h1>📈 Trading Dashboard</h1>
+<div class="container">
 
-<div class="box">
+<div class="card">
+<div class="glow"></div>
 
-<h2>Balance</h2>
+<h2>💰 الرصيد</h2>
 
-<div class="price">$10,000</div>
+<div class="balance">$10,000</div>
 
+<button class="action green">إيداع</button>
+<button class="action red">سحب</button>
 </div>
 
-<div class="box">
+<div class="card">
+<div class="glow"></div>
 
-<h2>🤖 AI Signal</h2>
+<h2>🤖 إشارة الذكاء الاصطناعي</h2>
 
-<div id="signal" class="signal">
+<div id="signal" class="signal wait">
 WAITING...
 </div>
 
-<button class="green" onclick="generateSignal()">
-Generate Signal
+<button class="action blue" onclick="generateSignal()">
+توليد إشارة
 </button>
-
 </div>
 
-<div class="box">
+<div class="card">
+<div class="glow"></div>
 
-<h2>📉 Open Trade</h2>
+<h2>📈 الأسعار المباشرة</h2>
 
-<button class="green">
-BUY
-</button>
+<div class="prices">
 
-<button class="red">
-SELL
-</button>
-
+<div class="price-item">
+<span>BTC/USD</span>
+<span id="btc">$105,220</span>
 </div>
 
-<div class="box">
+<div class="price-item">
+<span>ETH/USD</span>
+<span id="eth">$5,120</span>
+</div>
 
-<h2>💳 Subscription</h2>
+<div class="price-item">
+<span>SOL/USD</span>
+<span id="sol">$220</span>
+</div>
 
-<div style="font-size:40px;margin-top:10px;">
+</div>
+</div>
+
+<div class="card">
+<div class="glow"></div>
+
+<h2>👑 الاشتراك المميز</h2>
+
+<p style="margin-top:15px;font-size:22px;">
 Premium Plan - $99
-</div>
-
-<button class="green">
-Upgrade Premium
-</button>
-
-</div>
-
-<div class="box">
-
-<h2>🎓 AI Academy</h2>
-
-<p style="font-size:28px;">
-Learn Trading + AI Analysis
 </p>
 
-<button class="green">
+<button class="action green">
+Upgrade Now
+</button>
+</div>
+
+<div class="card">
+<div class="glow"></div>
+
+<h2>🎓 أكاديمية التداول</h2>
+
+<p style="margin-top:20px;">
+تعلم التداول والتحليل بالذكاء الاصطناعي
+</p>
+
+<button class="action blue">
 Open Academy
 </button>
-
 </div>
 
-<div class="box">
+<div class="card">
+<div class="glow"></div>
 
-<h2>👤 User Wallet</h2>
+<h2>🛡️ لوحة الأدمن</h2>
 
-<p style="font-size:28px;">
-Deposit / Withdraw / Manage Funds
+<p style="margin-top:20px;">
+إدارة المستخدمين والإشارات
 </p>
 
-<button class="green">
-Deposit
+<button class="action red">
+Admin Panel
+</button>
+</div>
+
+</div>
+
+<div class="footer">
+© 2026 AI Trading Platform
+</div>
+
+<div class="modal hidden" id="loginModal">
+
+<div class="modal-box">
+
+<h2>تسجيل الدخول</h2>
+
+<input type="email" placeholder="البريد الإلكتروني">
+
+<input type="password" placeholder="كلمة المرور">
+
+<button class="action green">
+دخول
 </button>
 
-<button class="red">
-Withdraw
+<button class="action red" onclick="closeLogin()">
+إغلاق
 </button>
 
 </div>
 
 </div>
 
-<script type="module">
+<script>
 
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+setTimeout(()=>{
+document.getElementById("loading").style.display="none";
+},2500);
 
-const firebaseConfig = {
-  apiKey: "AIzaSyBUmHBoRmQ4naiC4TwouANrYAeScKW9DNk",
-  authDomain: "ai-trading-platform-cde38.firebaseapp.com",
-  projectId: "ai-trading-platform-cde38",
-  storageBucket: "ai-trading-platform-cde38.firebasestorage.app",
-  messagingSenderId: "431162854518",
-  appId: "1:431162854518:web:bafe44171a3c042782a357"
-};
+function generateSignal(){
 
-const app = initializeApp(firebaseConfig);
+let signals=[
+'<span class="buy">BUY BTC 🚀</span>',
+'<span class="sell">SELL ETH 🔻</span>',
+'<span class="buy">BUY SOL 🚀</span>',
+'<span class="wait">WAITING...</span>'
+];
 
-console.log("Firebase Connected 🔥");
+let random=signals[Math.floor(Math.random()*signals.length)];
 
-window.enterPlatform = function(){
-
-  document.getElementById("loginBox").style.display = "none";
-
-  document.getElementById("platform").classList.remove("hidden");
+document.getElementById("signal").innerHTML=random;
 
 }
 
-window.generateSignal = function(){
-
-  const signals = [
-    "BUY BTC 🚀",
-    "SELL ETH 📉",
-    "BUY SOL 🔥",
-    "SELL XRP ⚠️",
-    "BUY GOLD 💰"
-  ];
-
-  const randomSignal =
-    signals[Math.floor(Math.random()*signals.length)];
-
-  document.getElementById("signal").innerHTML =
-    randomSignal;
-
+function openLogin(){
+document.getElementById("loginModal").classList.remove("hidden");
 }
+
+function closeLogin(){
+document.getElementById("loginModal").classList.add("hidden");
+}
+
+setInterval(()=>{
+
+document.getElementById("btc").innerHTML=
+"$"+(100000+Math.floor(Math.random()*10000));
+
+document.getElementById("eth").innerHTML=
+"$"+(4000+Math.floor(Math.random()*2000));
+
+document.getElementById("sol").innerHTML=
+"$"+(100+Math.floor(Math.random()*200));
+
+},3000);
 
 </script>
 
