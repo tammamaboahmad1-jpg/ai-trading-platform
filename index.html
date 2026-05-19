@@ -1,187 +1,215 @@
-<div class="dashboard" id="dashboard">
+<!-- 🔥 NOTIFICATION SYSTEM + LIVE PROFITS -->
 
-<h2 style="text-align:center;color:#00ffd5;font-size:40px;">
-🚀 T AI Dashboard
+<div class="live-container">
+
+<h2 class="title">
+🚀 LIVE TRADING CENTER
 </h2>
 
-<div class="sidebar">
+<div class="notify-box">
 
-<button onclick="showPage('signals')">
-📈 AI Signals
-</button>
-
-<button onclick="showPage('vip')">
-👑 VIP Plans
-</button>
-
-<button onclick="showPage('profits')">
-💰 Profits
-</button>
-
-<button onclick="showPage('account')">
-⚙️ Account
-</button>
-
+<div class="notify green">
+✅ BUY SIGNAL SENT
+<br>
+BTC / USDT
 </div>
 
-<!-- Signals -->
+<div class="notify red">
+📉 SELL SIGNAL CLOSED
+<br>
+ETH / USDT
+</div>
 
-<div id="signals" class="page">
-
-<div class="card">
-
-<h3>🤖 Live AI Signal</h3>
-
-<div class="signal" id="signal">
-BTC/USDT → BUY 🚀
+<div class="notify gold">
+👑 VIP SIGNAL ACTIVE
+<br>
+XAUUSD +320 PIPS
 </div>
 
 </div>
 
-<div class="card">
+<div class="profit-box">
 
-<h3>📊 Market Status</h3>
+<h3>💰 Platform Earnings</h3>
+
+<div id="money">
++ 24,850 USD
+</div>
 
 <p>
-السوق نشط جداً 🔥
+🔥 أرباح المنصة من اشتراكات وتداول الأعضاء
 </p>
 
 </div>
 
+<div class="trade-box">
+
+<h3>📊 Live Trades</h3>
+
+<div class="trade">
+BTC + 450$
 </div>
 
-<!-- VIP -->
-
-<div id="vip" class="page" style="display:none;">
-
-<div class="vip-plans">
-
-<div class="plan">
-
-<h2>🔥 Weekly</h2>
-
-<div class="price">
-9 AED
+<div class="trade">
+ETH + 220$
 </div>
 
-<a href="https://buy.stripe.com/test_6oUaEZ64F6ccbDx3rq1Nu00" target="_blank">
-<button>اشترك</button>
-</a>
-
+<div class="trade">
+XAUUSD + 1200$
 </div>
 
-<div class="plan">
-
-<h2>👑 Monthly</h2>
-
-<div class="price">
-30 AED
-</div>
-
-<a href="https://buy.stripe.com/test_28E6oJ50B8kkgXRgec1Nu01" target="_blank">
-<button>اشترك</button>
-</a>
-
-</div>
-
-<div class="plan">
-
-<h2>🚀 Yearly</h2>
-
-<div class="price">
-300 AED
-</div>
-
-<a href="https://buy.stripe.com/test_5kQ14pct3fMMfTN9PO1Nu02" target="_blank">
-<button>اشترك</button>
-</a>
-
+<div class="trade">
+NASDAQ + 860$
 </div>
 
 </div>
 
-</div>
+<div class="vip-area">
 
-<!-- Profits -->
-
-<div id="profits" class="page" style="display:none;">
-
-<div class="card">
-
-<h3>💰 Today Profit</h3>
-
-<div class="signal">
-+ 5,420 USD 🔥
-</div>
-
-</div>
-
-<div class="card">
-
-<h3>👥 VIP Members</h3>
-
-<div class="signal">
-1,284 عضو 👑
-</div>
-
-</div>
-
-</div>
-
-<!-- Account -->
-
-<div id="account" class="page" style="display:none;">
-
-<div class="card">
-
-<h3>⚙️ Account Settings</h3>
+<h2>👑 VIP ACCESS</h2>
 
 <p>
-البريد الإلكتروني مربوط بالحساب 🔥
+اختر خطة الاشتراك المناسبة
+</p>
+
+<a href="https://buy.stripe.com/test_6oUaEZ64F6ccbDx3rq1Nu00">
+<button class="vip-btn">
+🔥 اشتراك أسبوعي
+</button>
+</a>
+
 <br><br>
-حالة الحساب:
-VIP ACTIVE 👑
-</p>
+
+<a href="https://buy.stripe.com/test_28E6oJ50B8kkgXRgec1Nu01">
+<button class="vip-btn">
+🚀 اشتراك شهري
+</button>
+</a>
+
+<br><br>
+
+<a href="https://buy.stripe.com/test_5kQ14pct3fMMfTN9PO1Nu02">
+<button class="vip-btn">
+💎 اشتراك سنوي
+</button>
+</a>
 
 </div>
 
 </div>
 
-</div>
+<style>
 
-<script>
-
-function showPage(page){
-
-document.querySelectorAll(".page").forEach(p=>{
-p.style.display="none";
-});
-
-document.getElementById(page).style.display="block";
-
+body{
+background:#050816;
+font-family:Cairo;
+color:white;
+padding:20px;
 }
 
-const signals = [
-
-"BTC/USDT → BUY 🚀",
-"ETH/USDT → SELL 🔥",
-"SOL/USDT → BUY 👑",
-"XRP/USDT → BUY ⚡"
-
-];
-
-let i = 0;
-
-setInterval(()=>{
-
-document.getElementById("signal").innerHTML = signals[i];
-
-i++;
-
-if(i >= signals.length){
-i = 0;
+.title{
+text-align:center;
+font-size:35px;
+margin-bottom:30px;
+color:#00e5ff;
 }
 
-},3000);
+.live-container{
+max-width:900px;
+margin:auto;
+}
 
-</script>
+.notify-box{
+display:flex;
+flex-direction:column;
+gap:20px;
+}
+
+.notify{
+padding:20px;
+border-radius:15px;
+font-size:22px;
+font-weight:bold;
+animation:pulse 2s infinite;
+}
+
+.green{
+background:#052e16;
+color:#00ff88;
+}
+
+.red{
+background:#450a0a;
+color:#ff5e5e;
+}
+
+.gold{
+background:#3b0764;
+color:#ffd700;
+}
+
+.profit-box{
+background:#111827;
+padding:30px;
+margin-top:30px;
+border-radius:20px;
+text-align:center;
+}
+
+#money{
+font-size:45px;
+font-weight:bold;
+color:#00ff95;
+margin-top:15px;
+}
+
+.trade-box{
+background:#0f172a;
+padding:30px;
+margin-top:30px;
+border-radius:20px;
+}
+
+.trade{
+background:#111827;
+padding:15px;
+margin-top:15px;
+border-radius:12px;
+font-size:22px;
+font-weight:bold;
+}
+
+.vip-area{
+background:#111827;
+padding:30px;
+margin-top:30px;
+border-radius:20px;
+text-align:center;
+}
+
+.vip-btn{
+background:linear-gradient(45deg,#7c3aed,#06b6d4);
+border:none;
+padding:18px 35px;
+font-size:20px;
+font-weight:bold;
+color:white;
+border-radius:15px;
+cursor:pointer;
+width:90%;
+max-width:350px;
+}
+
+@keyframes pulse{
+0%{
+transform:scale(1);
+}
+50%{
+transform:scale(1.03);
+}
+100%{
+transform:scale(1);
+}
+}
+
+</style>
