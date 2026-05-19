@@ -41,7 +41,7 @@ z-index:-1;
 
 .navbar{
 width:100%;
-padding:20px;
+padding:18px 25px;
 display:flex;
 justify-content:space-between;
 align-items:center;
@@ -49,7 +49,7 @@ background:#071226;
 position:sticky;
 top:0;
 z-index:999;
-box-shadow:0 0 25px #00ff9955;
+box-shadow:0 0 25px rgba(0,255,153,0.2);
 }
 
 .logo{
@@ -58,26 +58,31 @@ font-weight:900;
 color:#00ff99;
 }
 
-.nav-buttons{
+.nav-actions{
 display:flex;
-gap:10px;
+gap:12px;
 }
 
 .nav-btn{
-padding:12px 20px;
+padding:12px 18px;
 border:none;
 border-radius:15px;
 font-weight:bold;
 cursor:pointer;
 color:white;
+transition:0.3s;
 }
 
-.vip-btn{
+.nav-btn:hover{
+transform:scale(1.05);
+}
+
+.vip{
 background:linear-gradient(45deg,#ffcc00,#ff8800);
 color:black;
 }
 
-.logout-btn{
+.logout{
 background:#ff1744;
 }
 
@@ -87,13 +92,14 @@ text-align:center;
 }
 
 .hero h1{
-font-size:75px;
+font-size:70px;
 font-weight:900;
 margin-bottom:20px;
+line-height:1.4;
 }
 
 .hero p{
-font-size:25px;
+font-size:24px;
 color:#94a3b8;
 }
 
@@ -103,40 +109,87 @@ font-size:22px;
 color:#00ff99;
 }
 
+.live-bar{
+width:100%;
+overflow:hidden;
+background:#03101d;
+padding:15px;
+border-top:1px solid rgba(255,255,255,0.05);
+border-bottom:1px solid rgba(255,255,255,0.05);
+}
+
+.ticker{
+display:flex;
+gap:50px;
+animation:move 20s linear infinite;
+white-space:nowrap;
+font-size:20px;
+font-weight:bold;
+}
+
+@keyframes move{
+0%{transform:translateX(100%);}
+100%{transform:translateX(-100%);}
+}
+
+.up{
+color:#00ff99;
+}
+
+.down{
+color:#ff1744;
+}
+
 .container{
 width:95%;
-max-width:1450px;
+max-width:1500px;
 margin:auto;
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(330px,1fr));
 gap:25px;
-padding-bottom:50px;
+padding:40px 0;
 }
 
 .card{
 background:#07172a;
 padding:30px;
 border-radius:30px;
-box-shadow:0 0 30px rgba(0,255,153,0.12);
-transition:0.4s;
 position:relative;
 overflow:hidden;
+transition:0.4s;
+box-shadow:0 0 25px rgba(0,255,153,0.08);
 }
 
 .card:hover{
 transform:translateY(-8px);
-box-shadow:0 0 45px rgba(0,255,153,0.35);
+box-shadow:0 0 40px rgba(0,255,153,0.25);
+}
+
+.card::before{
+content:"";
+position:absolute;
+width:180px;
+height:180px;
+background:#00ff99;
+filter:blur(120px);
+opacity:0.06;
+top:-50px;
+left:-50px;
 }
 
 .card h2{
 font-size:32px;
 margin-bottom:20px;
+position:relative;
+z-index:2;
 }
 
 .balance{
 font-size:65px;
 font-weight:900;
 color:#00ff99;
+position:relative;
+z-index:2;
 }
 
 .buttons{
@@ -144,6 +197,8 @@ display:flex;
 gap:15px;
 margin-top:20px;
 flex-wrap:wrap;
+position:relative;
+z-index:2;
 }
 
 .btn{
@@ -180,21 +235,17 @@ color:black;
 }
 
 .signal{
-font-size:42px;
+font-size:40px;
 font-weight:bold;
 margin-top:20px;
-}
-
-.buy{
-color:#00ff99;
-}
-
-.sell{
-color:#ff1744;
+position:relative;
+z-index:2;
 }
 
 .chart-box{
 height:320px;
+position:relative;
+z-index:2;
 }
 
 .market{
@@ -205,32 +256,22 @@ margin-top:12px;
 background:#0f172a;
 border-radius:18px;
 font-size:20px;
-}
-
-.up{
-color:#00ff99;
-font-weight:bold;
-}
-
-.down{
-color:#ff1744;
-font-weight:bold;
-}
-
-.vip-plans{
-display:grid;
-gap:15px;
+position:relative;
+z-index:2;
 }
 
 .plan{
 background:#0f172a;
-padding:25px;
-border-radius:25px;
+padding:20px;
+border-radius:20px;
+margin-top:15px;
 border:1px solid rgba(255,255,255,0.08);
+position:relative;
+z-index:2;
 }
 
 .plan h3{
-font-size:30px;
+font-size:28px;
 margin-bottom:10px;
 }
 
@@ -238,7 +279,7 @@ margin-bottom:10px;
 font-size:40px;
 font-weight:900;
 color:#00ff99;
-margin-bottom:20px;
+margin-bottom:15px;
 }
 
 .ai-box{
@@ -248,12 +289,39 @@ justify-content:center;
 align-items:center;
 font-size:120px;
 animation:float 3s infinite ease-in-out;
+position:relative;
+z-index:2;
 }
 
 @keyframes float{
 0%{transform:translateY(0);}
 50%{transform:translateY(-15px);}
 100%{transform:translateY(0);}
+}
+
+.notification{
+background:#0f172a;
+padding:15px;
+border-radius:18px;
+margin-top:12px;
+font-size:18px;
+border-right:4px solid #00ff99;
+}
+
+.trade{
+display:flex;
+justify-content:space-between;
+padding:15px;
+margin-top:12px;
+background:#0f172a;
+border-radius:18px;
+font-size:18px;
+}
+
+.wallet{
+font-size:24px;
+margin-top:15px;
+line-height:2;
 }
 
 .auth{
@@ -274,7 +342,7 @@ background:#071226;
 padding:40px;
 border-radius:35px;
 width:90%;
-max-width:420px;
+max-width:430px;
 box-shadow:0 0 40px #00ff99;
 }
 
@@ -356,13 +424,13 @@ color:#94a3b8;
 🚀 AI Trading
 </div>
 
-<div class="nav-buttons">
+<div class="nav-actions">
 
-<button class="nav-btn vip-btn">
+<button class="nav-btn vip">
 VIP
 </button>
 
-<button class="nav-btn logout-btn" onclick="logout()">
+<button class="nav-btn logout" onclick="logout()">
 خروج
 </button>
 
@@ -372,24 +440,46 @@ VIP
 
 <section class="hero">
 
-<h1>منصة تداول الذكاء الصناعي</h1>
+<h1>
+منصة تداول الذكاء الصناعي
+</h1>
 
 <p>
-تداول العملات والأسهم بإشارات مباشرة وتحليل AI متطور
+تداول احترافي • إشارات AI • أكاديمية • VIP
 </p>
 
 <div class="user-email" id="userEmail"></div>
 
 </section>
 
+<div class="live-bar">
+
+<div class="ticker">
+
+<span class="up">BTC +4.5%</span>
+<span class="down">ETH -1.2%</span>
+<span class="up">SOL +8.4%</span>
+<span class="up">NASDAQ +2.1%</span>
+<span class="down">EUR/USD -0.5%</span>
+<span class="up">GOLD +1.7%</span>
+
+</div>
+
+</div>
+
 <div class="container">
 
 <div class="card">
 
-<h2>💰 الرصيد</h2>
+<h2>💰 المحفظة</h2>
 
 <div class="balance">
 $10,000
+</div>
+
+<div class="wallet">
+رصيد التداول: $8500 <br>
+الأرباح: +$1500
 </div>
 
 <div class="buttons">
@@ -436,48 +526,33 @@ $10,000
 
 <div class="card">
 
-<h2>💹 العملات</h2>
+<h2>📊 العملات</h2>
 
 <div class="market">
 <span>BTC/USD</span>
-<span class="up" id="btc">+2.4%</span>
+<span class="up">+4.5%</span>
 </div>
 
 <div class="market">
 <span>ETH/USD</span>
-<span class="down" id="eth">-1.1%</span>
+<span class="down">-1.2%</span>
 </div>
 
 <div class="market">
 <span>SOL/USD</span>
-<span class="up" id="sol">+5.2%</span>
+<span class="up">+8.4%</span>
+</div>
+
+<div class="market">
+<span>GOLD</span>
+<span class="up">+1.7%</span>
 </div>
 
 </div>
 
 <div class="card">
 
-<h2>🎓 أكاديمية AI</h2>
-
-<p style="font-size:22px;">
-تعلم التداول والتحليل والاحتراف خطوة بخطوة
-</p>
-
-<div class="buttons">
-
-<button class="btn blue">
-فتح الأكاديمية
-</button>
-
-</div>
-
-</div>
-
-<div class="card">
-
-<h2>💳 اشتراكات VIP</h2>
-
-<div class="vip-plans">
+<h2>💎 اشتراكات VIP</h2>
 
 <div class="plan">
 
@@ -520,14 +595,69 @@ onclick="subscribe('6 Months VIP - 399$')">
 
 </div>
 
-</div>
-
 <div class="card">
 
 <h2>🧠 روبوت التحليل</h2>
 
 <div class="ai-box">
 🤖
+</div>
+
+</div>
+
+<div class="card">
+
+<h2>🎓 أكاديمية AI</h2>
+
+<p style="font-size:22px;line-height:2;">
+تعلم التداول والتحليل الفني وإدارة رأس المال
+</p>
+
+<div class="buttons">
+
+<button class="btn blue">
+فتح الأكاديمية
+</button>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<h2>🔔 الإشعارات</h2>
+
+<div class="notification">
+📈 فرصة شراء قوية على BTC
+</div>
+
+<div class="notification">
+🚀 تفعيل إشارة VIP جديدة
+</div>
+
+<div class="notification">
+💰 تم تحقيق ربح +230$
+</div>
+
+</div>
+
+<div class="card">
+
+<h2>📜 الصفقات المفتوحة</h2>
+
+<div class="trade">
+<span>BTC BUY</span>
+<span class="up">+420$</span>
+</div>
+
+<div class="trade">
+<span>ETH SELL</span>
+<span class="up">+180$</span>
+</div>
+
+<div class="trade">
+<span>NASDAQ BUY</span>
+<span class="down">-70$</span>
 </div>
 
 </div>
@@ -680,21 +810,8 @@ const signals = [
 const random =
 signals[Math.floor(Math.random()*signals.length)];
 
-const signal =
-document.getElementById("signal");
-
-signal.innerHTML = random;
-
-if(random.includes("BUY")){
-
-signal.className = "signal buy";
-
-}
-else{
-
-signal.className = "signal sell";
-
-}
+document.getElementById("signal").innerHTML =
+random;
 
 }
 
@@ -723,7 +840,7 @@ datasets:[{
 
 label:'BTC/USD',
 
-data:[10,20,15,35,28,50,42],
+data:[10,25,18,40,35,55,48],
 
 borderColor:'#00ff99',
 
