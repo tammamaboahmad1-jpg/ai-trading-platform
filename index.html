@@ -2,6 +2,7 @@
 <html lang="ar" dir="rtl">
 
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -33,18 +34,18 @@ position:fixed;
 width:100%;
 height:100%;
 background:
-radial-gradient(circle at top left,#00ff9944,transparent 30%),
-radial-gradient(circle at bottom right,#0066ff44,transparent 30%);
+radial-gradient(circle at top left,#00ff9955,transparent 25%),
+radial-gradient(circle at bottom right,#0066ff55,transparent 25%);
 z-index:-1;
 }
 
 .navbar{
 width:100%;
 padding:20px;
-background:#071226;
 display:flex;
 justify-content:space-between;
 align-items:center;
+background:#071226;
 position:sticky;
 top:0;
 z-index:999;
@@ -57,25 +58,12 @@ font-weight:900;
 color:#00ff99;
 }
 
-.menu{
-display:flex;
-gap:15px;
-}
-
-.menu button{
-padding:12px 22px;
-border:none;
-border-radius:18px;
-background:linear-gradient(45deg,#00ff99,#0066ff);
-color:white;
+.vip-badge{
+background:linear-gradient(45deg,#ffcc00,#ff8800);
+padding:10px 20px;
+border-radius:15px;
 font-weight:bold;
-font-size:18px;
-cursor:pointer;
-transition:0.3s;
-}
-
-.menu button:hover{
-transform:scale(1.05);
+color:black;
 }
 
 .hero{
@@ -84,7 +72,7 @@ text-align:center;
 }
 
 .hero h1{
-font-size:70px;
+font-size:75px;
 font-weight:900;
 margin-bottom:20px;
 }
@@ -96,10 +84,10 @@ color:#94a3b8;
 
 .container{
 width:95%;
-max-width:1300px;
+max-width:1400px;
 margin:auto;
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(330px,1fr));
 gap:25px;
 padding-bottom:50px;
 }
@@ -107,16 +95,16 @@ padding-bottom:50px;
 .card{
 background:#07172a;
 padding:30px;
-border-radius:28px;
-box-shadow:0 0 30px rgba(0,255,153,0.15);
+border-radius:30px;
+box-shadow:0 0 30px rgba(0,255,153,0.12);
 transition:0.4s;
 position:relative;
 overflow:hidden;
 }
 
 .card:hover{
-transform:translateY(-7px);
-box-shadow:0 0 40px rgba(0,255,153,0.4);
+transform:translateY(-8px);
+box-shadow:0 0 40px rgba(0,255,153,0.35);
 }
 
 .card h2{
@@ -125,16 +113,16 @@ margin-bottom:20px;
 }
 
 .balance{
-font-size:55px;
+font-size:60px;
 font-weight:900;
 color:#00ff99;
-margin-top:15px;
+margin-top:10px;
 }
 
 .signal{
-font-size:45px;
+font-size:42px;
 font-weight:bold;
-margin:20px 0;
+margin-top:20px;
 }
 
 .buy{
@@ -145,8 +133,75 @@ color:#00ff99;
 color:#ff004c;
 }
 
-.ai-box{
+.buttons{
+display:flex;
+gap:15px;
+flex-wrap:wrap;
+margin-top:20px;
+}
+
+.btn{
+flex:1;
+padding:15px;
+border:none;
+border-radius:18px;
+font-size:18px;
+font-weight:bold;
+cursor:pointer;
+transition:0.3s;
+color:white;
+}
+
+.btn:hover{
+transform:scale(1.05);
+}
+
+.green{
+background:#00c853;
+}
+
+.red{
+background:#ff1744;
+}
+
+.blue{
+background:#0066ff;
+}
+
+.gold{
+background:linear-gradient(45deg,#ffcc00,#ff8800);
+color:black;
+}
+
+.chart-box{
 height:300px;
+}
+
+.live{
+display:flex;
+align-items:center;
+gap:10px;
+margin-bottom:15px;
+font-size:22px;
+color:#00ff99;
+}
+
+.dot{
+width:15px;
+height:15px;
+border-radius:50%;
+background:#00ff99;
+animation:pulse 1s infinite;
+}
+
+@keyframes pulse{
+0%{opacity:1;}
+50%{opacity:0.2;}
+100%{opacity:1;}
+}
+
+.ai-box{
+height:250px;
 display:flex;
 justify-content:center;
 align-items:center;
@@ -160,51 +215,31 @@ animation:float 3s infinite ease-in-out;
 100%{transform:translateY(0);}
 }
 
-.chart-box{
-height:300px;
-}
-
-.buttons{
-display:flex;
+.vip-plans{
+display:grid;
+grid-template-columns:1fr;
 gap:15px;
 margin-top:20px;
-flex-wrap:wrap;
 }
 
-.action-btn{
-flex:1;
-padding:15px;
-border:none;
-border-radius:18px;
-font-size:18px;
-font-weight:bold;
-cursor:pointer;
-transition:0.3s;
-color:white;
+.plan{
+background:#0f172a;
+padding:20px;
+border-radius:20px;
+border:1px solid #00ff9955;
 }
 
-.deposit{
-background:#00c853;
+.plan h3{
+font-size:28px;
+margin-bottom:10px;
 }
 
-.withdraw{
-background:#ff1744;
+.plan p{
+font-size:20px;
+margin-bottom:15px;
 }
 
-.vip{
-background:linear-gradient(45deg,#ffcc00,#ff8800);
-color:black;
-}
-
-.learn{
-background:linear-gradient(45deg,#0066ff,#00ccff);
-}
-
-.action-btn:hover{
-transform:scale(1.05);
-}
-
-.auth-box{
+.auth{
 position:fixed;
 top:0;
 left:0;
@@ -214,84 +249,95 @@ background:#000000dd;
 display:flex;
 justify-content:center;
 align-items:center;
-z-index:9999;
+z-index:99999;
 }
 
-.auth-card{
+.auth-box{
 background:#071226;
 padding:40px;
 border-radius:30px;
 width:90%;
-max-width:400px;
-text-align:center;
+max-width:420px;
 box-shadow:0 0 40px #00ff99;
 }
 
-.auth-card h2{
-margin-bottom:25px;
-font-size:35px;
+.auth-box h2{
+font-size:45px;
+margin-bottom:30px;
+text-align:center;
 }
 
-.auth-card input{
+.auth-box input{
 width:100%;
-padding:15px;
+padding:18px;
 margin-bottom:15px;
 border:none;
-border-radius:15px;
+border-radius:18px;
 background:#0f172a;
 color:white;
-font-size:17px;
+font-size:18px;
 }
 
-.auth-card button{
+.auth-box button{
 width:100%;
-padding:15px;
-margin-top:10px;
+padding:18px;
 border:none;
-border-radius:15px;
+border-radius:18px;
+margin-top:10px;
 background:linear-gradient(45deg,#00ff99,#0066ff);
 color:white;
-font-size:20px;
+font-size:22px;
 font-weight:bold;
 cursor:pointer;
 }
 
 .msg{
 margin-top:15px;
+text-align:center;
+color:#00ff99;
+font-size:18px;
+}
+
+.user-box{
+font-size:22px;
+margin-top:15px;
 color:#00ff99;
 }
 
-.live{
-display:flex;
-align-items:center;
-gap:10px;
+.admin-panel{
+margin-top:20px;
+padding:20px;
+border-radius:20px;
+background:#0f172a;
+}
+
+.admin-panel input{
+width:100%;
+padding:15px;
+margin-top:10px;
+border:none;
+border-radius:15px;
+background:#020617;
+color:white;
+font-size:17px;
+}
+
+.footer{
+text-align:center;
+padding:40px;
+color:#94a3b8;
 font-size:20px;
-color:#00ff99;
-margin-bottom:15px;
-}
-
-.dot{
-width:15px;
-height:15px;
-background:#00ff99;
-border-radius:50%;
-animation:pulse 1s infinite;
-}
-
-@keyframes pulse{
-0%{opacity:1;}
-50%{opacity:0.2;}
-100%{opacity:1;}
 }
 
 </style>
+
 </head>
 
 <body>
 
-<div class="auth-box" id="authBox">
+<div class="auth" id="auth">
 
-<div class="auth-card">
+<div class="auth-box">
 
 <h2>🚀 تسجيل الدخول</h2>
 
@@ -306,6 +352,7 @@ animation:pulse 1s infinite;
 <p class="msg" id="msg"></p>
 
 </div>
+
 </div>
 
 <div id="app" style="display:none;">
@@ -314,9 +361,8 @@ animation:pulse 1s infinite;
 
 <div class="logo">🚀 AI Trading</div>
 
-<div class="menu">
-<button onclick="signal()">إشارة AI</button>
-<button onclick="logout()">خروج</button>
+<div class="vip-badge" id="vipStatus">
+FREE
 </div>
 
 </div>
@@ -326,8 +372,10 @@ animation:pulse 1s infinite;
 <h1>منصة تداول الذكاء الصناعي</h1>
 
 <p>
-تداول العملات والأسهم بإشارات مباشرة وتحليل AI متطور
+تحليل مباشر - إشارات احترافية - أكاديمية AI - VIP
 </p>
+
+<div class="user-box" id="userEmail"></div>
 
 </section>
 
@@ -339,6 +387,18 @@ animation:pulse 1s infinite;
 
 <div class="balance" id="balance">
 10000$
+</div>
+
+<div class="buttons">
+
+<button class="btn green">
+إيداع
+</button>
+
+<button class="btn red">
+سحب
+</button>
+
 </div>
 
 </div>
@@ -353,7 +413,7 @@ animation:pulse 1s infinite;
 
 <div class="buttons">
 
-<button class="action-btn deposit" onclick="signal()">
+<button class="btn green" onclick="generateSignal()">
 توليد إشارة
 </button>
 
@@ -363,7 +423,7 @@ animation:pulse 1s infinite;
 
 <div class="card">
 
-<h2>📈 الرسم البياني المباشر</h2>
+<h2>📈 السوق المباشر</h2>
 
 <div class="live">
 LIVE MARKET
@@ -378,33 +438,29 @@ LIVE MARKET
 
 <div class="card">
 
-<h2>💎 الاشتراك المميز</h2>
+<h2>🧠 روبوت التحليل AI</h2>
 
-<p style="font-size:25px;margin-top:15px;">
-99$ شهرياً
-</p>
-
-<div class="buttons">
-
-<button class="action-btn vip">
-ترقية VIP
-</button>
-
+<div class="ai-box">
+🤖
 </div>
+
+<p style="font-size:22px;text-align:center;">
+تحليل العملات والأسهم مباشرة
+</p>
 
 </div>
 
 <div class="card">
 
-<h2>🎓 أكاديمية الذكاء الصناعي</h2>
+<h2>🎓 أكاديمية AI</h2>
 
-<p style="font-size:22px;margin-top:15px;">
-تعلم التداول + تحليل الذكاء الصناعي
+<p style="font-size:22px;">
+تعلم التداول + التحليل + إدارة رأس المال
 </p>
 
 <div class="buttons">
 
-<button class="action-btn learn">
+<button class="btn blue">
 الدخول للأكاديمية
 </button>
 
@@ -414,21 +470,27 @@ LIVE MARKET
 
 <div class="card">
 
-<h2>👤 المحفظة</h2>
+<h2>💎 اشتراكات VIP</h2>
 
-<p style="font-size:22px;margin-top:15px;">
-إدارة الإيداع والسحب
-</p>
+<div class="vip-plans">
 
-<div class="buttons">
+<div class="plan">
+<h3>أسبوعي</h3>
+<p>19$</p>
+<button class="btn gold">اشتراك</button>
+</div>
 
-<button class="action-btn deposit">
-إيداع
-</button>
+<div class="plan">
+<h3>شهري</h3>
+<p>99$</p>
+<button class="btn gold">اشتراك</button>
+</div>
 
-<button class="action-btn withdraw">
-سحب
-</button>
+<div class="plan">
+<h3>6 أشهر</h3>
+<p>399$</p>
+<button class="btn gold">اشتراك</button>
+</div>
 
 </div>
 
@@ -436,21 +498,44 @@ LIVE MARKET
 
 <div class="card">
 
-<h2>🧠 روبوت التحليل</h2>
+<h2>👑 لوحة الأدمن</h2>
 
-<div class="ai-box">
-🤖
+<div class="admin-panel">
+
+<p>
+تعديل أسعار الاشتراك
+</p>
+
+<input placeholder="السعر الأسبوعي">
+
+<input placeholder="السعر الشهري">
+
+<input placeholder="سعر 6 أشهر">
+
+<div class="buttons">
+
+<button class="btn blue">
+حفظ الأسعار
+</button>
+
 </div>
 
 </div>
 
+</div>
+
+</div>
+
+<div class="footer">
+AI Trading Platform © 2026
 </div>
 
 </div>
 
 <script type="module">
 
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { initializeApp }
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 
 import {
 getAuth,
@@ -462,12 +547,19 @@ onAuthStateChanged
 from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
 const firebaseConfig = {
+
 apiKey: "AIzaSyBUmHBoRmQ4naiC4TwouANrYAeScKW9DNk",
+
 authDomain: "ai-trading-platform-cde38.firebaseapp.com",
+
 projectId: "ai-trading-platform-cde38",
+
 storageBucket: "ai-trading-platform-cde38.firebasestorage.app",
+
 messagingSenderId: "431162854518",
+
 appId: "1:431162854518:web:bafe44171a3c042782a357"
+
 };
 
 const app = initializeApp(firebaseConfig);
@@ -476,12 +568,19 @@ const auth = getAuth(app);
 
 window.register = async function(){
 
-const email = document.getElementById("email").value;
-const password = document.getElementById("password").value;
+const email =
+document.getElementById("email").value;
+
+const password =
+document.getElementById("password").value;
 
 try{
 
-await createUserWithEmailAndPassword(auth,email,password);
+await createUserWithEmailAndPassword(
+auth,
+email,
+password
+);
 
 document.getElementById("msg").innerHTML =
 "✅ تم إنشاء الحساب";
@@ -498,12 +597,19 @@ error.message;
 
 window.login = async function(){
 
-const email = document.getElementById("email").value;
-const password = document.getElementById("password").value;
+const email =
+document.getElementById("email").value;
+
+const password =
+document.getElementById("password").value;
 
 try{
 
-await signInWithEmailAndPassword(auth,email,password);
+await signInWithEmailAndPassword(
+auth,
+email,
+password
+);
 
 }
 catch(error){
@@ -515,9 +621,40 @@ error.message;
 
 }
 
-window.logout = async function(){
+window.generateSignal = function(){
 
-await signOut(auth);
+const signals = [
+
+"📈 BUY BTC/USD",
+
+"📉 SELL ETH/USD",
+
+"📈 BUY GOLD",
+
+"📉 SELL EUR/USD",
+
+"📈 BUY NASDAQ"
+
+];
+
+const random =
+signals[Math.floor(Math.random()*signals.length)];
+
+const signal =
+document.getElementById("signal");
+
+signal.innerHTML = random;
+
+if(random.includes("BUY")){
+
+signal.className = "signal buy";
+
+}
+else{
+
+signal.className = "signal sell";
+
+}
 
 }
 
@@ -525,14 +662,17 @@ onAuthStateChanged(auth,(user)=>{
 
 if(user){
 
-document.getElementById("authBox").style.display="none";
+document.getElementById("auth").style.display="none";
 
 document.getElementById("app").style.display="block";
+
+document.getElementById("userEmail").innerHTML =
+"👤 " + user.email;
 
 }
 else{
 
-document.getElementById("authBox").style.display="flex";
+document.getElementById("auth").style.display="flex";
 
 document.getElementById("app").style.display="none";
 
@@ -540,66 +680,36 @@ document.getElementById("app").style.display="none";
 
 });
 
-window.signal = function(){
-
-const signals = [
-"📈 BUY BTC/USD",
-"📉 SELL EUR/USD",
-"📈 BUY GOLD",
-"📉 SELL ETH/USD",
-"📈 BUY NASDAQ"
-];
-
-const random =
-signals[Math.floor(Math.random()*signals.length)];
-
-const signalBox =
-document.getElementById("signal");
-
-signalBox.innerHTML = random;
-
-if(random.includes("BUY")){
-
-signalBox.className = "signal buy";
-
-}
-else{
-
-signalBox.className = "signal sell";
-
-}
-
-}
-
-const ctx = document.getElementById('chart');
+const ctx =
+document.getElementById('chart');
 
 new Chart(ctx, {
 
-type: 'line',
+type:'line',
 
-data: {
+data:{
 
-labels: ['1','2','3','4','5','6','7'],
+labels:['1','2','3','4','5','6','7'],
 
-datasets: [{
+datasets:[{
 
-label: 'BTC/USD',
+label:'BTC/USD',
 
-data: [10,20,15,40,30,60,50],
+data:[10,25,18,40,35,55,48],
 
-borderColor: '#00ff99',
+borderColor:'#00ff99',
 
-backgroundColor:'rgba(0,255,153,0.2)',
+backgroundColor:'rgba(0,255,153,0.15)',
 
-tension:0.4,
+fill:true,
 
-fill:true
+tension:0.4
 
 }]
 
 },
 
-options: {
+options:{
 
 responsive:true,
 
@@ -613,10 +723,14 @@ color:'white'
 
 scales:{
 x:{
-ticks:{color:'white'}
+ticks:{
+color:'white'
+}
 },
 y:{
-ticks:{color:'white'}
+ticks:{
+color:'white'
+}
 }
 }
 
