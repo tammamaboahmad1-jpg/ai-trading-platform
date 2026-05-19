@@ -6,7 +6,7 @@
 
 <title>T AI PLATFORM</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700&display=swap" rel="stylesheet">
 
 <style>
 
@@ -21,256 +21,289 @@ body{
 background:#0b1220;
 color:white;
 min-height:100vh;
+}
+
+.header{
 padding:20px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:#111827;
+border-bottom:1px solid #1f2937;
 }
 
 .logo{
-text-align:center;
-font-size:38px;
-margin-top:20px;
-margin-bottom:30px;
+font-size:24px;
 font-weight:bold;
-color:#00ffd5;
+color:#00ffae;
 }
 
-.auth-box{
-
-background:#121b2d;
-padding:25px;
-border-radius:20px;
-max-width:420px;
-margin:auto;
-box-shadow:0 0 30px rgba(0,255,213,0.2);
-
-}
-
-.auth-box h2{
-text-align:center;
-margin-bottom:20px;
-}
-
-input{
-
-width:100%;
-padding:15px;
-margin-top:12px;
-border:none;
-border-radius:12px;
-background:#1c2740;
-color:white;
-font-size:16px;
-
-}
-
-button{
-
-width:100%;
-padding:15px;
-margin-top:15px;
-border:none;
-border-radius:14px;
-background:linear-gradient(45deg,#00ffd5,#00a2ff);
-color:white;
-font-size:18px;
+.live{
+background:#16a34a;
+padding:6px 14px;
+border-radius:30px;
+font-size:14px;
 font-weight:bold;
-cursor:pointer;
-
 }
 
-.dashboard{
-
-display:none;
-margin-top:30px;
-
+.container{
+padding:20px;
 }
 
 .card{
-
-background:#121b2d;
+background:#111827;
 padding:20px;
-border-radius:18px;
+border-radius:20px;
 margin-bottom:20px;
-box-shadow:0 0 20px rgba(0,0,0,0.3);
-
+box-shadow:0 0 15px rgba(0,0,0,0.4);
 }
 
-.card h3{
+.card h2{
 margin-bottom:15px;
-color:#00ffd5;
+color:#00ffae;
 }
 
 .signal{
 padding:15px;
-border-radius:14px;
-font-size:20px;
-font-weight:bold;
-text-align:center;
+border-radius:15px;
 margin-top:10px;
+font-size:18px;
+font-weight:bold;
 }
 
 .buy{
-background:#0f5132;
+background:#064e3b;
+color:#00ffae;
 }
 
 .sell{
-background:#842029;
+background:#450a0a;
+color:#ff7676;
 }
 
 .vip{
-
-background:linear-gradient(45deg,#ffcc00,#ff8800);
+background:linear-gradient(45deg,#f59e0b,#facc15);
 color:black;
 font-weight:bold;
 text-align:center;
-padding:15px;
-border-radius:15px;
-
 }
 
-.profit{
+.stats{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:15px;
+margin-top:20px;
+}
 
-font-size:30px;
-font-weight:bold;
-color:#00ff88;
+.stat{
+background:#1e293b;
+padding:20px;
+border-radius:15px;
 text-align:center;
-
 }
 
-.withdraw{
+.stat h3{
+font-size:15px;
+margin-bottom:10px;
+}
 
-background:#1c2740;
+.stat p{
+font-size:22px;
+font-weight:bold;
+color:#00ffae;
+}
+
+.wallet{
+background:#172554;
+padding:20px;
+border-radius:20px;
+margin-top:20px;
+}
+
+.withdraw-btn{
+width:100%;
+padding:15px;
+border:none;
+border-radius:15px;
+background:#00ffae;
+color:black;
+font-size:18px;
+font-weight:bold;
+margin-top:15px;
+}
+
+.course{
+background:#1f2937;
 padding:15px;
 border-radius:15px;
-margin-top:15px;
-
+margin-top:10px;
 }
 
-a{
-text-decoration:none;
+.course h4{
+margin-bottom:8px;
+color:#38bdf8;
 }
 
 .footer{
 text-align:center;
-margin-top:40px;
-opacity:0.6;
+padding:25px;
+color:#9ca3af;
 font-size:14px;
 }
 
 </style>
 </head>
-
 <body>
 
-<h1 class="logo">🚀 T AI PLATFORM</h1>
+<div class="header">
 
-<div class="auth-box">
-
-<h2>🔐 LOGIN / REGISTER</h2>
-
-<input type="email" id="email" placeholder="Email">
-
-<input type="password" id="password" placeholder="Password">
-
-<button onclick="login()">LOGIN</button>
-
-<button onclick="register()">CREATE ACCOUNT</button>
-
+<div class="logo">
+🚀 T AI PLATFORM
 </div>
 
-<div class="dashboard" id="dashboard">
-
-<div class="card">
-
-<h3>📈 LIVE SIGNAL</h3>
-
-<div class="signal buy">
-BUY BTC / USDT 🚀
+<div class="live">
+🟢 LIVE
 </div>
 
 </div>
 
-<div class="card">
+<div class="container">
 
-<h3>💰 TODAY PROFIT</h3>
+<div class="card vip">
 
-<div class="profit">
-+ 2,450 USD
-</div>
-
-</div>
-
-<div class="card">
-
-<h3>👑 VIP ACCESS</h3>
-
-<div class="vip">
-VIP ACTIVE
-</div>
-
-</div>
-
-<div class="card">
-
-<h3>💸 WITHDRAW PROFITS</h3>
-
-<div class="withdraw">
-
-<p>Available Balance:</p>
-
-<h2>$ 12,840</h2>
-
-<button>
-Withdraw Now
-</button>
-
-</div>
-
-</div>
-
-<div class="card">
-
-<h3>🎓 AI Academy</h3>
+<h2>👑 VIP ACCESS ACTIVE</h2>
 
 <p>
-Learn Trading, AI Analysis, Risk Management and VIP Strategies.
+Premium AI Signals Enabled
 </p>
 
 </div>
 
 <div class="card">
 
-<h3>📊 Platform Stats</h3>
+<h2>📈 LIVE SIGNALS</h2>
 
-<p>👥 Active Users: 1,284</p>
-<p>📈 Win Rate: 91%</p>
-<p>💵 Total Profit: $128,450</p>
+<div class="signal buy">
+✅ BUY BTC/USDT
+<br><br>
+Entry: 64,250
+<br>
+Target: 66,900 🚀
+</div>
+
+<div class="signal sell">
+📉 SELL ETH/USDT
+<br><br>
+Entry: 3,250
+<br>
+Target: 3,010
+</div>
+
+</div>
+
+<div class="stats">
+
+<div class="stat">
+<h3>💰 Profit Today</h3>
+<p>$2,450</p>
+</div>
+
+<div class="stat">
+<h3>👥 Users</h3>
+<p>1,284</p>
+</div>
+
+<div class="stat">
+<h3>📊 Win Rate</h3>
+<p>91%</p>
+</div>
+
+<div class="stat">
+<h3>🔥 Active Trades</h3>
+<p>48</p>
+</div>
+
+</div>
+
+<div class="wallet">
+
+<h2>💳 USER WALLET</h2>
+
+<p>
+Balance:
+<b>$12,840</b>
+</p>
+
+<p style="margin-top:10px;">
+Available Withdraw:
+<b>$4,250</b>
+</p>
+
+<button class="withdraw-btn">
+Withdraw Profit
+</button>
 
 </div>
 
 <div class="card">
 
-<h3>👑 VIP Plans</h3>
+<h2>🧠 AI Academy</h2>
 
-<a href="https://buy.stripe.com/test_6oUaEZ64F6ccbDx3rq1Nu00">
+<div class="course">
+<h4>📘 Smart Entry Lesson</h4>
+<p>Learn how AI detects strong entries.</p>
+</div>
 
-<button>
-VIP WEEKLY - 9 AED
-</button>
+<div class="course">
+<h4>📊 Technical Analysis</h4>
+<p>Support & Resistance strategies.</p>
+</div>
 
-</a>
+<div class="course">
+<h4>🤖 AI Bot Training</h4>
+<p>How automated signals work.</p>
+</div>
+
+</div>
+
+<div class="card">
+
+<h2>🌍 LIVE MARKET</h2>
+
+<p>
+BTC Market:
+🔥 Strong Bullish Momentum
+</p>
+
+<br>
+
+<p>
+ETH Market:
+⚡ High Volatility Detected
+</p>
+
+</div>
+
+<div class="card">
+
+<h2>👑 VIP PLANS</h2>
+
+<br>
 
 <a href="https://buy.stripe.com/test_28E6oJ50B8kkgXRgec1Nu01">
 
-<button>
-VIP MONTHLY - 30 AED
+<button class="withdraw-btn">
+VIP MONTHLY — 30 AED
 </button>
 
 </a>
 
+<br><br>
+
 <a href="https://buy.stripe.com/test_5kQ14pct3fMMfTN9PO1Nu02">
 
-<button>
-VIP YEARLY - 300 AED
+<button class="withdraw-btn">
+VIP YEARLY — 300 AED
 </button>
 
 </a>
@@ -280,109 +313,10 @@ VIP YEARLY - 300 AED
 </div>
 
 <div class="footer">
+
 T AI PLATFORM © 2026
+
 </div>
-
-<!-- FIREBASE -->
-
-<script type="module">
-
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-
-import {
-getAuth,
-createUserWithEmailAndPassword,
-signInWithEmailAndPassword
-} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
-
-import {
-getFirestore,
-setDoc,
-doc
-} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
-
-const firebaseConfig = {
-
-apiKey: "AIzaSyBUmHBoRmQ4naiC4TwouANrYAeScKW9DNk",
-
-authDomain: "ai-trading-platform-cde38.firebaseapp.com",
-
-projectId: "ai-trading-platform-cde38",
-
-storageBucket: "ai-trading-platform-cde38.firebasestorage.app",
-
-messagingSenderId: "431162854518",
-
-appId: "1:431162854518:web:bafe44171a3c042782a357"
-
-};
-
-const app = initializeApp(firebaseConfig);
-
-const auth = getAuth(app);
-
-const db = getFirestore(app);
-
-window.register = async function(){
-
-const email = document.getElementById("email").value;
-
-const password = document.getElementById("password").value;
-
-try{
-
-const userCredential =
-await createUserWithEmailAndPassword(auth,email,password);
-
-await setDoc(doc(db,"users",userCredential.user.uid),{
-
-email: email,
-
-vip: false,
-
-balance: 0,
-
-profit: 0,
-
-created: new Date().toString()
-
-});
-
-alert("ACCOUNT CREATED SUCCESSFULLY 🚀");
-
-}
-catch(error){
-
-alert(error.message);
-
-}
-
-}
-
-window.login = async function(){
-
-const email = document.getElementById("email").value;
-
-const password = document.getElementById("password").value;
-
-try{
-
-await signInWithEmailAndPassword(auth,email,password);
-
-alert("WELCOME BACK 🔥");
-
-document.getElementById("dashboard").style.display="block";
-
-}
-catch(error){
-
-alert(error.message);
-
-}
-
-}
-
-</script>
 
 </body>
 </html>
