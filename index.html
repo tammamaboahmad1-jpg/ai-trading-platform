@@ -1,44 +1,172 @@
-<!-- ضع هذا داخل dashboard -->
+<div class="dashboard" id="dashboard">
+
+<h2 style="text-align:center;color:#00ffd5;font-size:40px;">
+🚀 T AI Dashboard
+</h2>
+
+<div class="sidebar">
+
+<button onclick="showPage('signals')">
+📈 AI Signals
+</button>
+
+<button onclick="showPage('vip')">
+👑 VIP Plans
+</button>
+
+<button onclick="showPage('profits')">
+💰 Profits
+</button>
+
+<button onclick="showPage('account')">
+⚙️ Account
+</button>
+
+</div>
+
+<!-- Signals -->
+
+<div id="signals" class="page">
+
+<div class="card">
+
+<h3>🤖 Live AI Signal</h3>
+
+<div class="signal" id="signal">
+BTC/USDT → BUY 🚀
+</div>
+
+</div>
 
 <div class="card">
 
 <h3>📊 Market Status</h3>
 
-<p id="market">
+<p>
 السوق نشط جداً 🔥
 </p>
 
 </div>
 
+</div>
+
+<!-- VIP -->
+
+<div id="vip" class="page" style="display:none;">
+
+<div class="vip-plans">
+
+<div class="plan">
+
+<h2>🔥 Weekly</h2>
+
+<div class="price">
+9 AED
+</div>
+
+<a href="https://buy.stripe.com/test_6oUaEZ64F6ccbDx3rq1Nu00" target="_blank">
+<button>اشترك</button>
+</a>
+
+</div>
+
+<div class="plan">
+
+<h2>👑 Monthly</h2>
+
+<div class="price">
+30 AED
+</div>
+
+<a href="https://buy.stripe.com/test_28E6oJ50B8kkgXRgec1Nu01" target="_blank">
+<button>اشترك</button>
+</a>
+
+</div>
+
+<div class="plan">
+
+<h2>🚀 Yearly</h2>
+
+<div class="price">
+300 AED
+</div>
+
+<a href="https://buy.stripe.com/test_5kQ14pct3fMMfTN9PO1Nu02" target="_blank">
+<button>اشترك</button>
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- Profits -->
+
+<div id="profits" class="page" style="display:none;">
+
 <div class="card">
 
-<h3>💰 AI Profit Today</h3>
+<h3>💰 Today Profit</h3>
 
-<div class="signal" id="profit">
-+ 2,450 USD 🚀
+<div class="signal">
++ 5,420 USD 🔥
 </div>
 
 </div>
 
 <div class="card">
 
-<h3>👑 VIP Members</h3>
+<h3>👥 VIP Members</h3>
 
-<div class="signal" id="members">
-1,284 عضو VIP 🔥
+<div class="signal">
+1,284 عضو 👑
+</div>
+
+</div>
+
+</div>
+
+<!-- Account -->
+
+<div id="account" class="page" style="display:none;">
+
+<div class="card">
+
+<h3>⚙️ Account Settings</h3>
+
+<p>
+البريد الإلكتروني مربوط بالحساب 🔥
+<br><br>
+حالة الحساب:
+VIP ACTIVE 👑
+</p>
+
+</div>
+
 </div>
 
 </div>
 
 <script>
 
+function showPage(page){
+
+document.querySelectorAll(".page").forEach(p=>{
+p.style.display="none";
+});
+
+document.getElementById(page).style.display="block";
+
+}
+
 const signals = [
 
 "BTC/USDT → BUY 🚀",
 "ETH/USDT → SELL 🔥",
 "SOL/USDT → BUY 👑",
-"XRP/USDT → BUY ⚡",
-"BNB/USDT → SELL 🔥"
+"XRP/USDT → BUY ⚡"
 
 ];
 
@@ -55,28 +183,5 @@ i = 0;
 }
 
 },3000);
-
-const profits = [
-
-"+ 2,450 USD 🚀",
-"+ 3,920 USD 🔥",
-"+ 5,120 USD 👑",
-"+ 1,840 USD ⚡"
-
-];
-
-let p = 0;
-
-setInterval(()=>{
-
-document.getElementById("profit").innerHTML = profits[p];
-
-p++;
-
-if(p >= profits.length){
-p = 0;
-}
-
-},4000);
 
 </script>
