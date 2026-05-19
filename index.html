@@ -1,171 +1,226 @@
-<!-- 🔥 LOGIN + REGISTER + ADMIN SYSTEM -->
+<!-- 🔥 SPLASH SCREEN + LOADER + APP STYLE -->
 
-<div class="auth-container">
+<div id="splash">
 
-<h1 class="logo">
-🚀 T AI PLATFORM
+<div class="logo-area">
+
+<div class="circle">
+🚀
+</div>
+
+<h1>
+T AI PLATFORM
 </h1>
 
-<div class="auth-box">
+<p>
+AI Trading Revolution
+</p>
 
-<h2>🔐 تسجيل الدخول</h2>
-
-<input type="email" placeholder="Email" id="email">
-
-<input type="password" placeholder="Password" id="password">
-
-<button onclick="login()" class="login-btn">
-LOGIN
-</button>
-
-<button onclick="register()" class="register-btn">
-CREATE ACCOUNT
-</button>
-
-<p id="msg"></p>
+<div class="loader"></div>
 
 </div>
 
 </div>
 
-<!-- 👑 DASHBOARD -->
+<!-- 👑 MAIN APP -->
 
-<div class="dashboard" id="dashboard">
+<div id="app">
 
 <div class="topbar">
 
-<h2>👑 ADMIN DASHBOARD</h2>
+<h2>
+👑 T AI APP
+</h2>
 
-<button onclick="logout()" class="logout-btn">
-Logout
+<button onclick="showNotif()">
+🔔
 </button>
+
+</div>
+
+<div class="hero">
+
+<h1>
+🚀 LIVE AI SIGNALS
+</h1>
+
+<p>
+منصة تداول احترافية بالذكاء الاصطناعي
+</p>
 
 </div>
 
 <div class="cards">
 
 <div class="card green">
-<h3>📈 Signals</h3>
-<p>LIVE ACTIVE</p>
+
+<h3>📈 BTC SIGNAL</h3>
+
+<p>
+ENTRY: 64,200
+</p>
+
+<span>
++420$
+</span>
+
 </div>
 
-<div class="card blue">
-<h3>💰 Profits</h3>
-<p>+ 24,850 USD</p>
+<div class="card red">
+
+<h3>📉 ETH SIGNAL</h3>
+
+<p>
+ENTRY: 3,120
+</p>
+
+<span>
++210$
+</span>
+
 </div>
 
 <div class="card gold">
-<h3>👑 VIP Users</h3>
-<p>128 Members</p>
+
+<h3>👑 VIP GOLD</h3>
+
+<p>
+XAUUSD SIGNAL
+</p>
+
+<span>
++1200$
+</span>
+
+</div>
+
+</div>
+
+<div class="profit-box">
+
+<h2>
+💰 PLATFORM PROFITS
+</h2>
+
+<div id="profit">
++ 28,450 USD
 </div>
 
 </div>
 
-<div class="notify">
+<div class="vip-section">
 
-🔔 New VIP Member Joined
-
-</div>
-
-<br>
-
-<div class="vip-buttons">
+<h2>
+👑 VIP MEMBERSHIP
+</h2>
 
 <a href="https://buy.stripe.com/test_6oUaEZ64F6ccbDx3rq1Nu00">
-<button>
-🔥 Weekly VIP
+<button class="vip-btn">
+🔥 WEEKLY VIP
 </button>
 </a>
 
 <a href="https://buy.stripe.com/test_28E6oJ50B8kkgXRgec1Nu01">
-<button>
-🚀 Monthly VIP
+<button class="vip-btn">
+🚀 MONTHLY VIP
 </button>
 </a>
 
 <a href="https://buy.stripe.com/test_5kQ14pct3fMMfTN9PO1Nu02">
-<button>
-💎 Yearly VIP
+<button class="vip-btn">
+💎 YEARLY VIP
 </button>
 </a>
 
 </div>
+
+</div>
+
+<!-- 🔔 NOTIFICATION -->
+
+<div id="popup">
+
+🔥 NEW VIP SIGNAL SENT
 
 </div>
 
 <style>
 
-body{
+*{
 margin:0;
-background:#050816;
+padding:0;
+box-sizing:border-box;
 font-family:Cairo;
-color:white;
 }
 
-.auth-container{
+body{
+background:#050816;
+color:white;
+overflow-x:hidden;
+}
+
+#splash{
+position:fixed;
+width:100%;
+height:100vh;
+background:#020617;
 display:flex;
 justify-content:center;
 align-items:center;
-height:100vh;
-flex-direction:column;
+z-index:9999;
+animation:hideSplash 4s forwards;
 }
 
-.logo{
-font-size:40px;
-margin-bottom:30px;
-color:#00e5ff;
-}
-
-.auth-box{
-background:#111827;
-padding:40px;
-border-radius:20px;
-width:90%;
-max-width:400px;
+.logo-area{
 text-align:center;
-box-shadow:0 0 25px rgba(0,229,255,0.3);
 }
 
-.auth-box h2{
-margin-bottom:25px;
+.circle{
+width:120px;
+height:120px;
+background:linear-gradient(45deg,#06b6d4,#7c3aed);
+border-radius:50%;
+display:flex;
+justify-content:center;
+align-items:center;
+font-size:60px;
+margin:auto;
+animation:pulse 2s infinite;
 }
 
-.auth-box input{
-width:100%;
-padding:15px;
-margin-top:15px;
-border:none;
-border-radius:12px;
-background:#1f2937;
-color:white;
-font-size:18px;
+.logo-area h1{
+margin-top:25px;
+font-size:40px;
 }
 
-.login-btn,
-.register-btn{
-width:100%;
-padding:15px;
-margin-top:20px;
-border:none;
-border-radius:12px;
-font-size:18px;
-font-weight:bold;
-cursor:pointer;
+.logo-area p{
+margin-top:10px;
+color:#94a3b8;
 }
 
-.login-btn{
+.loader{
+width:220px;
+height:8px;
+background:#111827;
+border-radius:20px;
+margin-top:30px;
+overflow:hidden;
+}
+
+.loader::before{
+content:"";
+display:block;
+width:40%;
+height:100%;
 background:#06b6d4;
-color:white;
+animation:loading 3s linear infinite;
 }
 
-.register-btn{
-background:#7c3aed;
-color:white;
-}
-
-.dashboard{
-display:none;
+#app{
 padding:20px;
+display:none;
+animation:showApp 1s forwards;
+animation-delay:4s;
 }
 
 .topbar{
@@ -174,20 +229,35 @@ justify-content:space-between;
 align-items:center;
 }
 
-.logout-btn{
-background:red;
+.topbar button{
+background:#111827;
 border:none;
-padding:10px 20px;
-border-radius:10px;
+padding:12px 18px;
+border-radius:12px;
 color:white;
-font-weight:bold;
+font-size:20px;
+}
+
+.hero{
+margin-top:40px;
+text-align:center;
+}
+
+.hero h1{
+font-size:40px;
+color:#00e5ff;
+}
+
+.hero p{
+margin-top:15px;
+color:#94a3b8;
+font-size:18px;
 }
 
 .cards{
 display:grid;
-grid-template-columns:1fr;
 gap:20px;
-margin-top:30px;
+margin-top:40px;
 }
 
 .card{
@@ -197,14 +267,20 @@ font-size:22px;
 font-weight:bold;
 }
 
-.green{
-background:#052e16;
-color:#00ff88;
+.card span{
+display:block;
+margin-top:15px;
+font-size:30px;
 }
 
-.blue{
-background:#082f49;
-color:#38bdf8;
+.green{
+background:#052e16;
+color:#00ff95;
+}
+
+.red{
+background:#450a0a;
+color:#ff5e5e;
 }
 
 .gold{
@@ -212,32 +288,61 @@ background:#3b0764;
 color:#ffd700;
 }
 
-.notify{
-margin-top:30px;
+.profit-box{
 background:#111827;
-padding:20px;
-border-radius:15px;
-font-size:22px;
+padding:30px;
+border-radius:20px;
+margin-top:35px;
 text-align:center;
+}
+
+#profit{
+font-size:45px;
+margin-top:20px;
+color:#00ff95;
+font-weight:bold;
 animation:pulse 2s infinite;
 }
 
-.vip-buttons{
-display:flex;
-flex-direction:column;
-gap:20px;
-margin-top:30px;
+.vip-section{
+margin-top:40px;
+background:#111827;
+padding:30px;
+border-radius:20px;
+text-align:center;
 }
 
-.vip-buttons button{
+.vip-btn{
+width:100%;
 padding:18px;
-font-size:20px;
-font-weight:bold;
+margin-top:20px;
 border:none;
 border-radius:15px;
 background:linear-gradient(45deg,#7c3aed,#06b6d4);
 color:white;
-cursor:pointer;
+font-size:22px;
+font-weight:bold;
+}
+
+#popup{
+position:fixed;
+top:20px;
+right:20px;
+background:#111827;
+padding:18px 30px;
+border-radius:15px;
+font-size:20px;
+display:none;
+box-shadow:0 0 20px rgba(0,0,0,0.5);
+}
+
+@keyframes loading{
+0%{
+transform:translateX(-100%);
+}
+100%{
+transform:translateX(300%);
+}
 }
 
 @keyframes pulse{
@@ -245,10 +350,30 @@ cursor:pointer;
 transform:scale(1);
 }
 50%{
-transform:scale(1.03);
+transform:scale(1.05);
 }
 100%{
 transform:scale(1);
+}
+}
+
+@keyframes hideSplash{
+0%{
+opacity:1;
+}
+90%{
+opacity:1;
+}
+100%{
+opacity:0;
+visibility:hidden;
+}
+}
+
+@keyframes showApp{
+to{
+display:block;
+opacity:1;
 }
 }
 
@@ -256,40 +381,24 @@ transform:scale(1);
 
 <script>
 
-function login(){
+setTimeout(()=>{
 
-let email =
-document.getElementById("email").value;
+document.getElementById("app").style.display="block";
 
-let password =
-document.getElementById("password").value;
+},4000);
 
-if(email === "admin@gmail.com"
-&& password === "123456"){
+function showNotif(){
 
-document.querySelector(".auth-container").style.display="none";
+let popup =
+document.getElementById("popup");
 
-document.getElementById("dashboard").style.display="block";
+popup.style.display="block";
 
-}else{
+setTimeout(()=>{
 
-document.getElementById("msg").innerHTML =
-"❌ Wrong Login";
+popup.style.display="none";
 
-}
-
-}
-
-function register(){
-
-document.getElementById("msg").innerHTML =
-"✅ Account Created";
-
-}
-
-function logout(){
-
-location.reload();
+},3000);
 
 }
 
