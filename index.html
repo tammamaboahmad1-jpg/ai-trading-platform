@@ -1,13 +1,16 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>منصة تداول الذكاء الاصطناعي</title>
+<title>AI Trading Platform</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700;900&display=swap" rel="stylesheet">
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <style>
 
@@ -24,129 +27,54 @@ color:white;
 overflow-x:hidden;
 }
 
+body::before{
+content:'';
+position:fixed;
+width:500px;
+height:500px;
+background:#00ff99;
+filter:blur(180px);
+opacity:0.08;
+top:-150px;
+right:-150px;
+z-index:-1;
+}
+
 .navbar{
-width:100%;
-padding:20px;
-background:#071226;
 display:flex;
 justify-content:space-between;
 align-items:center;
+padding:20px;
+background:#071226;
+box-shadow:0 0 25px rgba(0,255,153,0.4);
 position:sticky;
 top:0;
 z-index:999;
-box-shadow:0 0 20px #00ff99;
 }
 
 .logo{
-font-size:28px;
+font-size:32px;
 font-weight:900;
 color:#00ff99;
 }
 
-.menu{
+.nav-buttons{
 display:flex;
-gap:15px;
+gap:10px;
 }
 
-.menu button{
-background:#00ff99;
+.nav-buttons button{
 border:none;
-padding:10px 18px;
-border-radius:12px;
-font-weight:bold;
-cursor:pointer;
-transition:0.3s;
-}
-
-.menu button:hover{
-transform:scale(1.05);
-}
-
-.hero{
-padding:50px 20px;
-text-align:center;
-}
-
-.hero h1{
-font-size:55px;
-margin-bottom:20px;
-font-weight:900;
-}
-
-.hero p{
-color:#94a3b8;
-font-size:20px;
-}
-
-.container{
-width:95%;
-max-width:1200px;
-margin:auto;
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-gap:25px;
-padding-bottom:50px;
-}
-
-.card{
-background:#0f172a;
-padding:30px;
-border-radius:25px;
-box-shadow:0 0 20px rgba(0,255,153,0.15);
-transition:0.4s;
-position:relative;
-overflow:hidden;
-}
-
-.card:hover{
-transform:translateY(-5px);
-box-shadow:0 0 30px rgba(0,255,153,0.5);
-}
-
-.card h2{
-margin-bottom:20px;
-font-size:28px;
-}
-
-.balance{
-font-size:45px;
-font-weight:900;
-margin-top:15px;
-color:#00ff99;
-}
-
-.signal{
-font-size:40px;
-font-weight:bold;
-margin:20px 0;
-}
-
-.buy{
-color:#00ff99;
-}
-
-.sell{
-color:#ff004c;
-}
-
-.wait{
-color:#facc15;
-}
-
-button.action{
-width:100%;
-padding:16px;
-border:none;
+padding:12px 20px;
 border-radius:15px;
-font-size:18px;
+font-size:16px;
 font-weight:bold;
 cursor:pointer;
-margin-top:15px;
 transition:0.3s;
 }
 
 .green{
-background:#00c853;
+background:#00d26a;
 color:white;
 }
 
@@ -160,78 +88,200 @@ background:#2979ff;
 color:white;
 }
 
-button.action:hover{
-transform:scale(1.03);
-opacity:0.9;
+button:hover{
+transform:scale(1.05);
 }
 
-.prices{
+.hero{
+padding:50px 20px;
+text-align:center;
+}
+
+.hero h1{
+font-size:65px;
+font-weight:900;
+line-height:1.3;
+}
+
+.hero p{
+margin-top:20px;
+font-size:22px;
+color:#94a3b8;
+}
+
+.main-grid{
+width:95%;
+max-width:1400px;
+margin:auto;
+display:grid;
+grid-template-columns:2fr 1fr;
+gap:25px;
+padding-bottom:40px;
+}
+
+@media(max-width:1000px){
+.main-grid{
+grid-template-columns:1fr;
+}
+}
+
+.card{
+background:#0f172a;
+border-radius:25px;
+padding:25px;
+box-shadow:0 0 20px rgba(0,255,153,0.12);
+position:relative;
+overflow:hidden;
+}
+
+.card::before{
+content:'';
+position:absolute;
+width:180px;
+height:180px;
+background:#00ff99;
+filter:blur(120px);
+opacity:0.08;
+top:-60px;
+left:-60px;
+}
+
+.card h2{
+margin-bottom:20px;
+font-size:28px;
+}
+
+.balance{
+font-size:55px;
+font-weight:900;
+color:#00ff99;
+}
+
+.chart-box{
+height:450px;
+}
+
+.market-list{
+display:flex;
+flex-direction:column;
+gap:15px;
+}
+
+.market{
+display:flex;
+justify-content:space-between;
+padding:15px;
+background:#111827;
+border-radius:18px;
+font-size:18px;
+}
+
+.up{
+color:#00ff99;
+font-weight:bold;
+}
+
+.down{
+color:#ff1744;
+font-weight:bold;
+}
+
+.signal-box{
+text-align:center;
+padding:30px 0;
+}
+
+.signal{
+font-size:50px;
+font-weight:900;
+margin:20px 0;
+}
+
+.actions{
+display:flex;
+gap:15px;
 margin-top:20px;
 }
 
-.price-item{
-display:flex;
-justify-content:space-between;
-padding:12px 0;
-border-bottom:1px solid rgba(255,255,255,0.1);
+.actions button{
+flex:1;
+padding:16px;
+border:none;
+border-radius:18px;
 font-size:18px;
+font-weight:bold;
+cursor:pointer;
+}
+
+.wallet-buttons{
+display:flex;
+gap:10px;
+margin-top:20px;
+}
+
+.wallet-buttons button{
+flex:1;
+padding:15px;
+border:none;
+border-radius:16px;
+font-size:18px;
+font-weight:bold;
+}
+
+.stats{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:15px;
+margin-top:20px;
+}
+
+.stat{
+background:#111827;
+padding:20px;
+border-radius:20px;
+text-align:center;
+}
+
+.stat h3{
+font-size:18px;
+margin-bottom:10px;
+color:#94a3b8;
+}
+
+.stat p{
+font-size:28px;
+font-weight:bold;
 }
 
 .footer{
 text-align:center;
 padding:30px;
-background:#071226;
 margin-top:40px;
+background:#071226;
 color:#94a3b8;
 }
 
-.glow{
-position:absolute;
-width:200px;
-height:200px;
-background:#00ff99;
-filter:blur(120px);
-opacity:0.15;
-top:-50px;
-right:-50px;
-}
-
-.modal{
-position:fixed;
-inset:0;
-background:rgba(0,0,0,0.8);
+.live{
 display:flex;
-justify-content:center;
 align-items:center;
-z-index:9999;
+gap:10px;
+margin-top:15px;
+color:#00ff99;
+font-weight:bold;
+animation:pulse 1s infinite;
 }
 
-.modal-box{
-background:#0f172a;
-padding:40px;
-border-radius:25px;
-width:90%;
-max-width:400px;
+.dot{
+width:12px;
+height:12px;
+background:#00ff99;
+border-radius:50%;
 }
 
-.modal-box h2{
-margin-bottom:20px;
-text-align:center;
-}
-
-input{
-width:100%;
-padding:15px;
-margin-bottom:15px;
-border:none;
-border-radius:12px;
-background:#1e293b;
-color:white;
-font-size:16px;
-}
-
-.hidden{
-display:none;
+@keyframes pulse{
+0%{opacity:0.5;}
+50%{opacity:1;}
+100%{opacity:0.5;}
 }
 
 .loading{
@@ -241,16 +291,10 @@ background:#020617;
 display:flex;
 justify-content:center;
 align-items:center;
-font-size:40px;
-font-weight:bold;
+font-size:45px;
+font-weight:900;
 z-index:99999;
 animation:pulse 1s infinite;
-}
-
-@keyframes pulse{
-0%{opacity:0.5;}
-50%{opacity:1;}
-100%{opacity:0.5;}
 }
 
 </style>
@@ -259,115 +303,153 @@ animation:pulse 1s infinite;
 <body>
 
 <div class="loading" id="loading">
-🚀 AI TRADING PLATFORM
+🚀 AI TRADING AI
 </div>
 
 <div class="navbar">
-<div class="logo">🚀 AI Trading</div>
 
-<div class="menu">
-<button onclick="openLogin()">تسجيل</button>
-<button onclick="generateSignal()">إشارة AI</button>
+<div class="logo">
+🚀 AI Trading
 </div>
+
+<div class="nav-buttons">
+<button class="green">تسجيل</button>
+<button class="blue">إشارات AI</button>
+</div>
+
 </div>
 
 <section class="hero">
-<h1>منصة تداول الذكاء الاصطناعي</h1>
-<p>تداول العملات والأسهم بإشارات AI مباشرة</p>
+
+<h1>
+منصة تداول الذكاء الاصطناعي
+</h1>
+
+<p>
+تداول العملات والأسهم بإشارات مباشرة وتحليل AI متطور
+</p>
+
 </section>
 
-<div class="container">
+<div class="main-grid">
+
+<div>
 
 <div class="card">
-<div class="glow"></div>
 
-<h2>💰 الرصيد</h2>
+<h2>📈 الرسم البياني المباشر</h2>
 
-<div class="balance">$10,000</div>
-
-<button class="action green">إيداع</button>
-<button class="action red">سحب</button>
+<div class="live">
+<div class="dot"></div>
+LIVE MARKET
 </div>
 
-<div class="card">
-<div class="glow"></div>
+<div class="chart-box">
+<canvas id="chart"></canvas>
+</div>
+
+</div>
+
+<div class="card" style="margin-top:25px;">
 
 <h2>🤖 إشارة الذكاء الاصطناعي</h2>
 
-<div id="signal" class="signal wait">
+<div class="signal-box">
+
+<div class="signal" id="signal">
 WAITING...
 </div>
 
-<button class="action blue" onclick="generateSignal()">
+<button class="green" style="padding:16px 30px;border:none;border-radius:18px;font-size:20px;font-weight:bold;" onclick="generateSignal()">
 توليد إشارة
 </button>
+
 </div>
 
+</div>
+
+</div>
+
+<div>
+
 <div class="card">
-<div class="glow"></div>
 
-<h2>📈 الأسعار المباشرة</h2>
+<h2>💰 الرصيد</h2>
 
-<div class="prices">
+<div class="balance">
+$10,000
+</div>
 
-<div class="price-item">
+<div class="wallet-buttons">
+<button class="green">إيداع</button>
+<button class="red">سحب</button>
+</div>
+
+<div class="stats">
+
+<div class="stat">
+<h3>الربح اليومي</h3>
+<p class="up">+$1,250</p>
+</div>
+
+<div class="stat">
+<h3>الصفقات</h3>
+<p>128</p>
+</div>
+
+</div>
+
+</div>
+
+<div class="card" style="margin-top:25px;">
+
+<h2>🔥 الأسواق</h2>
+
+<div class="market-list">
+
+<div class="market">
 <span>BTC/USD</span>
-<span id="btc">$105,220</span>
+<span class="up" id="btc">+2.4%</span>
 </div>
 
-<div class="price-item">
+<div class="market">
 <span>ETH/USD</span>
-<span id="eth">$5,120</span>
+<span class="down" id="eth">-1.2%</span>
 </div>
 
-<div class="price-item">
+<div class="market">
 <span>SOL/USD</span>
-<span id="sol">$220</span>
+<span class="up" id="sol">+4.9%</span>
+</div>
+
+<div class="market">
+<span>XAU/USD</span>
+<span class="up">+0.7%</span>
+</div>
+
+<div class="market">
+<span>EUR/USD</span>
+<span class="down">-0.4%</span>
 </div>
 
 </div>
+
 </div>
 
-<div class="card">
-<div class="glow"></div>
+<div class="card" style="margin-top:25px;">
 
 <h2>👑 الاشتراك المميز</h2>
 
-<p style="margin-top:15px;font-size:22px;">
+<p style="margin-top:15px;font-size:24px;">
 Premium Plan - $99
 </p>
 
-<button class="action green">
+<button class="blue" style="width:100%;margin-top:20px;padding:16px;border:none;border-radius:18px;font-size:20px;font-weight:bold;">
 Upgrade Now
 </button>
+
 </div>
 
-<div class="card">
-<div class="glow"></div>
-
-<h2>🎓 أكاديمية التداول</h2>
-
-<p style="margin-top:20px;">
-تعلم التداول والتحليل بالذكاء الاصطناعي
-</p>
-
-<button class="action blue">
-Open Academy
-</button>
-</div>
-
-<div class="card">
-<div class="glow"></div>
-
-<h2>🛡️ لوحة الأدمن</h2>
-
-<p style="margin-top:20px;">
-إدارة المستخدمين والإشارات
-</p>
-
-<button class="action red">
-Admin Panel
-</button>
 </div>
 
 </div>
@@ -376,41 +458,19 @@ Admin Panel
 © 2026 AI Trading Platform
 </div>
 
-<div class="modal hidden" id="loginModal">
-
-<div class="modal-box">
-
-<h2>تسجيل الدخول</h2>
-
-<input type="email" placeholder="البريد الإلكتروني">
-
-<input type="password" placeholder="كلمة المرور">
-
-<button class="action green">
-دخول
-</button>
-
-<button class="action red" onclick="closeLogin()">
-إغلاق
-</button>
-
-</div>
-
-</div>
-
 <script>
 
 setTimeout(()=>{
 document.getElementById("loading").style.display="none";
-},2500);
+},2200);
 
 function generateSignal(){
 
 let signals=[
-'<span class="buy">BUY BTC 🚀</span>',
-'<span class="sell">SELL ETH 🔻</span>',
-'<span class="buy">BUY SOL 🚀</span>',
-'<span class="wait">WAITING...</span>'
+'<span style="color:#00ff99;">BUY BTC 🚀</span>',
+'<span style="color:#ff1744;">SELL ETH 🔻</span>',
+'<span style="color:#00ff99;">BUY SOL 🚀</span>',
+'<span style="color:#facc15;">WAITING...</span>'
 ];
 
 let random=signals[Math.floor(Math.random()*signals.length)];
@@ -419,24 +479,56 @@ document.getElementById("signal").innerHTML=random;
 
 }
 
-function openLogin(){
-document.getElementById("loginModal").classList.remove("hidden");
-}
+const ctx=document.getElementById('chart');
 
-function closeLogin(){
-document.getElementById("loginModal").classList.add("hidden");
+let chart=new Chart(ctx,{
+type:'line',
+data:{
+labels:['1','2','3','4','5','6','7','8'],
+datasets:[{
+label:'BTC/USD',
+data:[10,18,14,22,19,28,26,35],
+borderColor:'#00ff99',
+backgroundColor:'rgba(0,255,153,0.1)',
+fill:true,
+tension:0.4
+}]
+},
+options:{
+responsive:true,
+maintainAspectRatio:false,
+plugins:{
+legend:{
+labels:{
+color:'white'
 }
+}
+},
+scales:{
+x:{
+ticks:{color:'white'}
+},
+y:{
+ticks:{color:'white'}
+}
+}
+}
+});
 
 setInterval(()=>{
 
-document.getElementById("btc").innerHTML=
-"$"+(100000+Math.floor(Math.random()*10000));
+chart.data.datasets[0].data=
+Array.from({length:8},()=>Math.floor(Math.random()*40)+10);
 
-document.getElementById("eth").innerHTML=
-"$"+(4000+Math.floor(Math.random()*2000));
+chart.update();
 
-document.getElementById("sol").innerHTML=
-"$"+(100+Math.floor(Math.random()*200));
+let btc=(Math.random()*6).toFixed(2);
+let eth=(Math.random()*4).toFixed(2);
+let sol=(Math.random()*8).toFixed(2);
+
+document.getElementById("btc").innerHTML="+"+btc+"%";
+document.getElementById("eth").innerHTML="-"+eth+"%";
+document.getElementById("sol").innerHTML="+"+sol+"%";
 
 },3000);
 
