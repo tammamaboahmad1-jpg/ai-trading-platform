@@ -1,105 +1,176 @@
-<!-- 🔥 VIP LOCK + REALTIME NOTIFICATION + APP UI -->
+<!-- 🔥 WALLET + WITHDRAW + AI ACADEMY -->
 
-<div class="phone-app">
+<div class="app">
 
-<div class="top-bar">
+<h1 class="main-title">
+🚀 T AI PLATFORM
+</h1>
 
-<h1>🚀 T AI</h1>
+<!-- 👤 USER INFO -->
 
-<div class="online">
-🟢 LIVE
+<div class="user-box">
+
+<div>
+👤 USER: VIP MEMBER
+</div>
+
+<div class="vip-status">
+👑 VIP ACTIVE
 </div>
 
 </div>
 
-<!-- VIP ACCESS -->
+<!-- 💰 WALLET -->
 
-<div class="vip-lock">
+<div class="wallet-box">
 
-<h2>👑 VIP ACCESS</h2>
+<h2>
+💰 USER WALLET
+</h2>
 
-<p>
-Only VIP members can access premium AI signals
-</p>
+<div class="balance">
+12,840 USD
+</div>
 
-<button class="unlock-btn">
-🔓 UNLOCK VIP
+<div class="wallet-buttons">
+
+<button class="deposit-btn">
+💳 Deposit
+</button>
+
+<button class="withdraw-btn">
+💸 Withdraw
 </button>
 
 </div>
 
-<!-- SIGNALS -->
+</div>
+
+<!-- 📜 TRANSACTIONS -->
+
+<div class="transactions">
+
+<h2>
+📜 Transaction History
+</h2>
+
+<div class="tx green">
++ 420 USD Profit
+</div>
+
+<div class="tx red">
+- 90 USD Loss
+</div>
+
+<div class="tx green">
++ 1,240 USD Profit
+</div>
+
+<div class="tx blue">
+💳 VIP Monthly Activated
+</div>
+
+</div>
+
+<!-- 💸 WITHDRAW -->
+
+<div class="withdraw-box">
+
+<h2>
+🏦 Withdraw System
+</h2>
+
+<input type="text"
+placeholder="USDT Wallet / Bank IBAN">
+
+<input type="number"
+placeholder="Amount">
+
+<button class="withdraw-send">
+Request Withdraw
+</button>
+
+<p class="withdraw-note">
+⏳ Withdraw requests reviewed by admin
+</p>
+
+</div>
+
+<!-- 🤖 AI SIGNALS -->
 
 <div class="signals">
 
-<h2>🤖 LIVE AI SIGNALS</h2>
+<h2>
+🤖 AI LIVE SIGNALS
+</h2>
 
-<div class="card green">
-✅ BUY BTC/USDT
+<div class="signal buy">
+📈 BUY BTC/USDT
 <br><br>
-Entry: 64,880
-<br>
-Target: 67,200
+ENTRY: 64,920
 </div>
 
-<div class="card red">
+<div class="signal sell">
 📉 SELL ETH/USDT
 <br><br>
-Entry: 3,410
+ENTRY: 3,280
+</div>
+
+</div>
+
+<!-- 🎓 AI ACADEMY -->
+
+<div class="academy">
+
+<h2>
+🎓 AI Trading Academy
+</h2>
+
+<div class="lesson">
+
+📊 Lesson 1:
 <br>
-Target: 3,120
-</div>
-
-<div class="card gold">
-🏆 VIP GOLD SIGNAL
-<br><br>
-WIN RATE 96%
-</div>
+How to read candlestick charts
 
 </div>
 
-<!-- NOTIFICATION -->
+<div class="lesson">
 
-<div class="notify">
-
-🔔 LIVE UPDATE
-<br><br>
-
-Ahmed made +1,240 USD profit 💸
-
-</div>
-
-<!-- PROFIT SHARE -->
-
-<div class="profit-share">
-
-<h2>💰 Profit Sharing</h2>
-
-<div class="share-box">
-
-User Profit:
+💰 Lesson 2:
 <br>
-+ 2,000 USD
+Risk Management Basics
 
-<hr>
+</div>
 
-Platform Fee:
+<div class="lesson">
+
+🤖 Lesson 3:
 <br>
-+ 200 USD
+Using AI For Trading Decisions
 
 </div>
 
+<div class="lesson">
+
+🏆 VIP Strategy:
+<br>
+Scalping & Smart Entries
+
 </div>
 
-<!-- DOWNLOAD -->
+<button class="academy-btn">
 
-<div class="download">
-
-<button class="download-btn">
-
-📱 DOWNLOAD APP
+▶️ Open Full Academy
 
 </button>
+
+</div>
+
+<!-- 🔔 NOTIFICATION -->
+
+<div class="notification">
+
+🔔 New VIP Signal Sent To Members
 
 </div>
 
@@ -107,115 +178,188 @@ Platform Fee:
 
 <style>
 
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Cairo;
+}
+
 body{
 background:#040b16;
-font-family:Cairo;
 padding:20px;
 color:white;
 }
 
-.phone-app{
-max-width:450px;
+.app{
+max-width:500px;
 margin:auto;
 }
 
-.top-bar{
+.main-title{
+text-align:center;
+font-size:34px;
+margin-bottom:25px;
+color:#00ffd5;
+}
+
+.user-box{
 display:flex;
 justify-content:space-between;
 align-items:center;
-margin-bottom:25px;
+background:#101b2d;
+padding:18px;
+border-radius:18px;
+margin-bottom:20px;
 }
 
-.top-bar h1{
-color:#00ffd5;
-font-size:34px;
-}
-
-.online{
-background:#00c853;
-padding:10px 18px;
-border-radius:15px;
+.vip-status{
+color:gold;
 font-weight:bold;
 }
 
-.vip-lock{
+.wallet-box,
+.transactions,
+.withdraw-box,
+.signals,
+.academy{
 background:#101b2d;
-padding:25px;
-border-radius:25px;
-text-align:center;
-border:2px solid gold;
-margin-bottom:25px;
+padding:22px;
+border-radius:22px;
+margin-bottom:22px;
 }
 
-.unlock-btn{
+.balance{
+font-size:40px;
+font-weight:bold;
+margin-top:18px;
+color:#00ff95;
+text-align:center;
+}
+
+.wallet-buttons{
+display:flex;
+gap:15px;
 margin-top:20px;
-padding:15px 30px;
+}
+
+.wallet-buttons button{
+flex:1;
+padding:15px;
 border:none;
 border-radius:15px;
-background:gold;
+font-size:18px;
+font-weight:bold;
+cursor:pointer;
+}
+
+.deposit-btn{
+background:#00c853;
+color:white;
+}
+
+.withdraw-btn{
+background:#1565ff;
+color:white;
+}
+
+.tx{
+padding:15px;
+border-radius:12px;
+margin-top:12px;
+font-size:18px;
+font-weight:bold;
+}
+
+.green{
+background:#052e16;
+color:#00ff95;
+}
+
+.red{
+background:#450a0a;
+color:#ff5e5e;
+}
+
+.blue{
+background:#082f49;
+color:#38bdf8;
+}
+
+.withdraw-box input{
+width:100%;
+padding:15px;
+margin-top:15px;
+border:none;
+border-radius:12px;
+background:#1f2937;
+color:white;
+font-size:17px;
+}
+
+.withdraw-send{
+width:100%;
+padding:16px;
+margin-top:18px;
+border:none;
+border-radius:15px;
+background:#00ffd5;
 font-size:20px;
 font-weight:bold;
 cursor:pointer;
 }
 
-.signals h2{
-margin-bottom:20px;
+.withdraw-note{
+margin-top:12px;
+font-size:15px;
+color:#94a3b8;
+text-align:center;
 }
 
-.card{
+.signal{
 padding:20px;
-border-radius:20px;
-margin-bottom:20px;
-font-size:22px;
+border-radius:18px;
+margin-top:15px;
+font-size:20px;
 font-weight:bold;
 }
 
-.green{
+.buy{
 background:#00c853;
 }
 
-.red{
+.sell{
 background:#d50000;
 }
 
-.gold{
-background:#ff9800;
-}
-
-.notify{
-margin-top:25px;
+.lesson{
 background:#16253d;
-padding:25px;
-border-radius:20px;
-font-size:22px;
-border-left:5px solid #00ffd5;
+padding:18px;
+border-radius:15px;
+margin-top:15px;
+font-size:18px;
 }
 
-.profit-share{
-margin-top:30px;
-}
-
-.share-box{
-background:#101b2d;
-padding:25px;
-border-radius:20px;
-font-size:22px;
-border:2px solid #00ffd5;
-}
-
-.download{
-text-align:center;
-margin-top:35px;
-}
-
-.download-btn{
-padding:18px 40px;
-font-size:24px;
-font-weight:bold;
+.academy-btn{
+width:100%;
+padding:18px;
+margin-top:20px;
 border:none;
-border-radius:20px;
-background:#00ffd5;
+border-radius:15px;
+background:linear-gradient(45deg,#7c3aed,#06b6d4);
+font-size:20px;
+font-weight:bold;
+color:white;
 cursor:pointer;
+}
+
+.notification{
+background:#16253d;
+padding:22px;
+border-radius:18px;
+font-size:20px;
+text-align:center;
+border-left:5px solid #00ffd5;
 }
 
 </style>
