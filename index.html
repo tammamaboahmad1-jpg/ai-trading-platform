@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="ar">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -8,7 +9,8 @@
 
 <link rel="stylesheet" href="style.css">
 
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+
 </head>
 
 <body>
@@ -23,35 +25,71 @@
 🚀 T AI
 </div>
 
-<div class="user-box">
+<div class="profile">
 
-<h2>أهلاً، أحمد</h2>
-
-<div class="vip">
-VIP MEMBER 👑
+<div class="avatar">
+👤
 </div>
 
-<div class="balance">
+<h2>
+أهلاً، أحمد
+</h2>
+
+<p>
+VIP MEMBER 👑
+</p>
+
+</div>
+
+<div class="balance-box">
+
+<h3>
+الرصيد الإجمالي
+</h3>
+
+<h1>
 $10,000
+</h1>
+
+<div class="profit">
++15.45%
 </div>
 
 </div>
 
 <div class="menu">
 
-<button>🏠 الرئيسية</button>
+<button class="active">
+🏠 الرئيسية
+</button>
 
-<button>📊 الإشارات</button>
+<button>
+📊 الإشارات
+</button>
 
-<button>💰 المحفظة</button>
+<button>
+💰 المحفظة
+</button>
 
-<button>👑 VIP</button>
+<button>
+👑 VIP
+</button>
 
-<button>🎓 الأكاديمية</button>
+<button>
+🎓 الأكاديمية
+</button>
 
-<button>⚙️ الإعدادات</button>
+<button>
+🌐 اللغة
+</button>
 
-<button>🚪 تسجيل الخروج</button>
+<button>
+⚙️ الإعدادات
+</button>
+
+<button>
+🚪 تسجيل الخروج
+</button>
 
 </div>
 
@@ -61,21 +99,35 @@ $10,000
 
 <div class="main">
 
+<!-- TOPBAR -->
+
 <div class="topbar">
 
-<h1>
+<div class="welcome">
 🚀 منصة الذكاء الاصطناعي
-</h1>
+</div>
+
+<div class="top-icons">
 
 <div class="live">
 🟢 مباشر
 </div>
 
+<div class="icon">
+🔔
 </div>
 
-<!-- CARDS -->
+<div class="icon">
+🌙
+</div>
 
-<div class="cards">
+</div>
+
+</div>
+
+<!-- STATS -->
+
+<div class="stats">
 
 <div class="card">
 
@@ -83,8 +135,12 @@ $10,000
 رصيد التداول
 </h3>
 
-<p>
+<h1>
 $8,500
+</h1>
+
+<p class="green">
++12.32%
 </p>
 
 </div>
@@ -95,63 +151,29 @@ $8,500
 إجمالي الأرباح
 </h3>
 
-<p>
-+$1,500
+<h1>
+$1,500
+</h1>
+
+<p class="green">
++8.67%
 </p>
 
 </div>
 
-<div class="card">
+<div class="card vip-card">
 
 <h3>
-نسبة النجاح
+حالة العضوية
 </h3>
 
+<h1>
+VIP 👑
+</h1>
+
 <p>
-91%
+185 يوم متبقي
 </p>
-
-</div>
-
-</div>
-
-<!-- SIGNALS -->
-
-<div class="signal-box">
-
-<div class="signal-title">
-📈 إشارات مباشرة
-</div>
-
-<div class="signal buy">
-
-✅ شراء BTC/USDT
-
-<br><br>
-
-سعر الدخول:
-64,250
-
-<br><br>
-
-الهدف:
-66,900 🚀
-
-</div>
-
-<div class="signal sell">
-
-📉 بيع ETH/USDT
-
-<br><br>
-
-سعر الدخول:
-3,450
-
-<br><br>
-
-الهدف:
-3,180
 
 </div>
 
@@ -159,15 +181,92 @@ $8,500
 
 <!-- MARKET -->
 
-<div class="market">
+<div class="market-box">
 
-<div class="signal-title">
-🔥 الأسواق المباشرة
+<div class="market-title">
+📈 السوق المباشر
 </div>
 
-<div class="market-item">
+<div class="market-price">
 
-<span>BTC/USD</span>
+BTC/USD
+
+<span>
+43,680$
+</span>
+
+</div>
+
+<div class="chart">
+
+<div class="line"></div>
+
+</div>
+
+<div class="times">
+
+<button>1M</button>
+<button>5M</button>
+<button class="active-time">15M</button>
+<button>1H</button>
+<button>4H</button>
+
+</div>
+
+</div>
+
+<!-- SIGNAL -->
+
+<div class="signal-box">
+
+<div class="signal-title">
+
+🤖 آخر إشارة AI
+
+</div>
+
+<div class="signal buy">
+
+BUY BTC/USD
+
+</div>
+
+<div class="signal-info">
+
+<div>
+سعر الدخول:
+43,250$
+</div>
+
+<div>
+الهدف:
+44,500$
+</div>
+
+<div>
+وقف الخسارة:
+42,500$
+</div>
+
+</div>
+
+<button class="details">
+
+عرض التفاصيل
+
+</button>
+
+</div>
+
+<!-- MARKET LIST -->
+
+<div class="coins">
+
+<div class="coin">
+
+<span>
+BTC/USD
+</span>
 
 <span class="green">
 +2.45%
@@ -175,33 +274,101 @@ $8,500
 
 </div>
 
-<div class="market-item">
+<div class="coin">
 
-<span>ETH/USD</span>
+<span>
+ETH/USD
+</span>
 
 <span class="red">
--1.22%
+-1.23%
 </span>
 
 </div>
 
-<div class="market-item">
+<div class="coin">
 
-<span>SOL/USD</span>
+<span>
+SOL/USD
+</span>
 
 <span class="green">
-+5.11%
++3.85%
 </span>
 
 </div>
 
-<div class="market-item">
+<div class="coin">
 
-<span>GOLD</span>
+<span>
+GOLD
+</span>
 
 <span class="green">
-+0.94%
++1.12%
 </span>
+
+</div>
+
+</div>
+
+<!-- WALLET -->
+
+<div class="wallet">
+
+<h2>
+💰 المحفظة
+</h2>
+
+<div class="wallet-balance">
+
+$10,000
+
+</div>
+
+<div class="wallet-buttons">
+
+<button class="deposit">
+إيداع
+</button>
+
+<button class="withdraw">
+سحب
+</button>
+
+</div>
+
+</div>
+
+<!-- AI ACADEMY -->
+
+<div class="academy">
+
+<h2>
+🎓 أكاديمية الذكاء الاصطناعي
+</h2>
+
+<div class="lesson">
+
+📘 تعلم التداول للمبتدئين
+
+</div>
+
+<div class="lesson">
+
+📗 إدارة رأس المال
+
+</div>
+
+<div class="lesson">
+
+📕 تحليل الشموع اليابانية
+
+</div>
+
+<div class="lesson">
+
+📙 إشارات الذكاء الاصطناعي
 
 </div>
 
