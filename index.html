@@ -1,70 +1,290 @@
-<!-- زر الاشتراك الأسبوعي -->
-<div class="vip-box">
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
 
-<h2>🔥 اشتراك VIP</h2>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<p>
-احصل على:
-<br><br>
-✅ إشارات AI احترافية
-<br>
-✅ تحليل مباشر
-<br>
-✅ صفقات VIP
-<br>
-✅ تعليم التداول بالذكاء الاصطناعي
-<br>
-✅ تنبيهات فورية
-</p>
+<title>AI Trading Platform</title>
 
-<a href="https://buy.stripe.com/test_6oUaEZ64F6ccbDx3rq1Nu00" target="_blank">
-<button class="vip-btn">
-اشترك الآن - 9 AED أسبوعياً
-</button>
-</a>
-
-</div>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
 
 <style>
 
-.vip-box{
-background:#07142b;
-padding:30px;
-border-radius:25px;
-margin-top:40px;
-text-align:center;
-box-shadow:0 0 25px #00ffcc55;
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Cairo',sans-serif;
 }
 
-.vip-box h2{
+body{
+background:#020617;
+color:white;
+padding:20px;
+}
+
+.logo{
+text-align:center;
+margin-top:30px;
+margin-bottom:40px;
+}
+
+.logo h1{
+font-size:55px;
 color:#00ffd5;
+text-shadow:0 0 20px #00ffd5;
+}
+
+.logo p{
+color:#9ca3af;
+margin-top:10px;
+font-size:20px;
+}
+
+.main-box{
+background:#07142b;
+padding:30px;
+border-radius:30px;
+box-shadow:0 0 30px #00ffd533;
+max-width:900px;
+margin:auto;
+}
+
+.section-title{
 font-size:38px;
+margin-bottom:20px;
+color:#00ffd5;
+text-align:center;
+}
+
+.ai-box{
+background:#08192f;
+padding:25px;
+border-radius:20px;
+margin-top:25px;
+}
+
+.ai-box h3{
+font-size:28px;
+margin-bottom:15px;
+color:#00e1ff;
+}
+
+.ai-box p{
+font-size:18px;
+line-height:2;
+color:#d1d5db;
+}
+
+.signal{
+margin-top:20px;
+background:#00ffd522;
+padding:20px;
+border-radius:20px;
+font-size:22px;
+text-align:center;
+font-weight:bold;
+}
+
+.vip-container{
+display:grid;
+grid-template-columns:1fr;
+gap:25px;
+margin-top:40px;
+}
+
+.plan{
+background:#08192f;
+padding:25px;
+border-radius:25px;
+text-align:center;
+transition:0.3s;
+border:2px solid transparent;
+}
+
+.plan:hover{
+transform:translateY(-5px);
+border-color:#00ffd5;
+box-shadow:0 0 25px #00ffd577;
+}
+
+.plan h2{
+font-size:32px;
+margin-bottom:15px;
+}
+
+.price{
+font-size:45px;
+font-weight:bold;
+color:#00ffd5;
 margin-bottom:20px;
 }
 
-.vip-box p{
-color:white;
-font-size:20px;
-line-height:2;
-margin-bottom:30px;
+.features{
+margin-bottom:25px;
+line-height:2.2;
+font-size:18px;
+color:#d1d5db;
 }
 
-.vip-btn{
+.buy-btn{
 background:linear-gradient(45deg,#00ffd5,#0066ff);
 border:none;
-padding:20px;
+padding:18px;
 width:100%;
-border-radius:20px;
-font-size:24px;
+border-radius:18px;
+font-size:22px;
 font-weight:bold;
 color:white;
 cursor:pointer;
 transition:0.3s;
 }
 
-.vip-btn:hover{
+.buy-btn:hover{
 transform:scale(1.05);
 box-shadow:0 0 25px #00ffd5;
 }
 
+.footer{
+margin-top:50px;
+text-align:center;
+color:#6b7280;
+font-size:18px;
+}
+
 </style>
+</head>
+
+<body>
+
+<div class="logo">
+<h1>🔥 T AI Trading</h1>
+<p>
+منصة تداول احترافية بالذكاء الاصطناعي
+</p>
+</div>
+
+<div class="main-box">
+
+<h2 class="section-title">
+🚀 AI Trading System
+</h2>
+
+<div class="ai-box">
+
+<h3>🤖 تحليل الذكاء الاصطناعي</h3>
+
+<p>
+يقوم نظامنا بتحليل السوق مباشرة باستخدام الذكاء الاصطناعي واكتشاف:
+<br><br>
+✅ فرص الدخول
+<br>
+✅ الصفقات القوية
+<br>
+✅ تحليل العملات
+<br>
+✅ إدارة المخاطر
+<br>
+✅ تنبيهات مباشرة VIP
+</p>
+
+<div class="signal">
+🔥 BTC/USDT → BUY
+</div>
+
+</div>
+
+<div class="vip-container">
+
+<!-- أسبوعي -->
+<div class="plan">
+
+<h2>🔥 VIP Weekly</h2>
+
+<div class="price">
+9 AED
+</div>
+
+<div class="features">
+✅ إشارات VIP
+<br>
+✅ تنبيهات مباشرة
+<br>
+✅ تحليل AI
+<br>
+✅ دخول خاص
+</div>
+
+<a href="https://buy.stripe.com/test_6oUaEZ64F6ccbDx3rq1Nu00" target="_blank">
+<button class="buy-btn">
+اشترك الآن
+</button>
+</a>
+
+</div>
+
+<!-- شهري -->
+<div class="plan">
+
+<h2>👑 VIP Monthly</h2>
+
+<div class="price">
+30 AED
+</div>
+
+<div class="features">
+✅ جميع ميزات VIP
+<br>
+✅ صفقات يومية
+<br>
+✅ دعم خاص
+<br>
+✅ تعليم احترافي
+</div>
+
+<a href="https://buy.stripe.com/test_28E6oJ50B8kkgXRgec1Nu01" target="_blank">
+<button class="buy-btn">
+اشترك شهرياً
+</button>
+</a>
+
+</div>
+
+<!-- سنوي -->
+<div class="plan">
+
+<h2>🚀 VIP Yearly</h2>
+
+<div class="price">
+300 AED
+</div>
+
+<div class="features">
+✅ وصول كامل
+<br>
+✅ جميع الأدوات
+<br>
+✅ إشارات غير محدودة
+<br>
+✅ أولوية VIP
+</div>
+
+<a href="https://buy.stripe.com/test_5kQ14pct3fMMfTN9PO1Nu02" target="_blank">
+<button class="buy-btn">
+اشترك سنوياً
+</button>
+</a>
+
+</div>
+
+</div>
+
+<div class="footer">
+T AI Platform © 2026
+</div>
+
+</div>
+
+</body>
+</html>
