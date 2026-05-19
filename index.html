@@ -1,111 +1,89 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<title>AI Trading Platform</title>
+  <title>AI Trading Platform</title>
 
-<style>
+  <style>
 
-body{
-margin:0;
-background:#020b2d;
-color:white;
-font-family:Arial;
-text-align:center;
-}
+    body{
+      margin:0;
+      background:#020b2d;
+      color:white;
+      font-family:Arial;
+      text-align:center;
+    }
 
-h1{
-font-size:55px;
-margin-top:40px;
-}
+    .topbar{
+      background:#111827;
+      padding:20px;
+      font-size:30px;
+      font-weight:bold;
+    }
 
-.box{
-background:#111827;
-width:85%;
-max-width:500px;
-margin:30px auto;
-padding:30px;
-border-radius:20px;
-}
+    h1{
+      font-size:55px;
+      margin-top:40px;
+    }
 
-input{
-width:90%;
-padding:15px;
-margin:10px 0;
-border:none;
-border-radius:10px;
-font-size:18px;
-}
+    .box{
+      background:#111827;
+      width:85%;
+      max-width:500px;
+      margin:30px auto;
+      padding:30px;
+      border-radius:20px;
+    }
 
-button{
-padding:15px 30px;
-border:none;
-border-radius:12px;
-font-size:20px;
-cursor:pointer;
-margin-top:15px;
-}
+    input{
+      width:90%;
+      padding:15px;
+      margin:10px 0;
+      border:none;
+      border-radius:10px;
+      font-size:18px;
+    }
 
-.green{
-background:#00c853;
-color:white;
-}
+    button{
+      padding:15px 30px;
+      border:none;
+      border-radius:12px;
+      font-size:20px;
+      cursor:pointer;
+      margin-top:15px;
+      color:white;
+    }
 
-.red{
-background:#ff1744;
-color:white;
-}
+    .green{
+      background:#00c853;
+    }
 
-.signal{
-font-size:35px;
-margin-top:20px;
-font-weight:bold;
-}
+    .red{
+      background:#ff1744;
+    }
 
-.price{
-font-size:28px;
-margin-top:10px;
-}
+    .blue{
+      background:#2962ff;
+    }
 
-.hidden{
-display:none;
-}
+    .price{
+      font-size:45px;
+      font-weight:bold;
+      margin-top:10px;
+    }
 
-.topbar{
-background:#111827;
-padding:20px;
-font-size:22px;
-font-weight:bold;
-}
+    .signal{
+      font-size:35px;
+      margin-top:20px;
+      font-weight:bold;
+    }
 
-.menu{
-display:flex;
-justify-content:center;
-gap:15px;
-flex-wrap:wrap;
-margin-top:20px;
-}
+    .hidden{
+      display:none;
+    }
 
-.card{
-background:#111827;
-padding:25px;
-border-radius:20px;
-width:85%;
-max-width:450px;
-margin:20px auto;
-}
+  </style>
 
-.small{
-font-size:18px;
-opacity:0.8;
-}
-
-.big{
-font-size:40px;
-font-weight:bold;
-margin-top:10px;
-}
-
-</style>
 </head>
 
 <body>
@@ -134,12 +112,15 @@ Enter Platform
 
 <h1>📈 Trading Dashboard</h1>
 
-<div class="card">
-<div class="small">Balance</div>
-<div class="big">$10,000</div>
+<div class="box">
+
+<h2>Balance</h2>
+
+<div class="price">$10,000</div>
+
 </div>
 
-<div class="card">
+<div class="box">
 
 <h2>🤖 AI Signal</h2>
 
@@ -153,7 +134,7 @@ Generate Signal
 
 </div>
 
-<div class="card">
+<div class="box">
 
 <h2>📉 Open Trade</h2>
 
@@ -167,25 +148,25 @@ SELL
 
 </div>
 
-<div class="card">
+<div class="box">
 
 <h2>💳 Subscription</h2>
 
-<div class="price">
+<div style="font-size:40px;margin-top:10px;">
 Premium Plan - $99
 </div>
 
-<button class="green" onclick="buyPremium()">
+<button class="green">
 Upgrade Premium
 </button>
 
 </div>
 
-<div class="card">
+<div class="box">
 
 <h2>🎓 AI Academy</h2>
 
-<p>
+<p style="font-size:28px;">
 Learn Trading + AI Analysis
 </p>
 
@@ -195,11 +176,11 @@ Open Academy
 
 </div>
 
-<div class="card">
+<div class="box">
 
 <h2>👤 User Wallet</h2>
 
-<p>
+<p style="font-size:28px;">
 Deposit / Withdraw / Manage Funds
 </p>
 
@@ -215,36 +196,46 @@ Withdraw
 
 </div>
 
-<script>
+<script type="module">
 
-function enterPlatform(){
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 
-document.getElementById("loginBox").style.display="none";
+const firebaseConfig = {
+  apiKey: "AIzaSyBUmHBoRmQ4naiC4TwouANrYAeScKW9DNk",
+  authDomain: "ai-trading-platform-cde38.firebaseapp.com",
+  projectId: "ai-trading-platform-cde38",
+  storageBucket: "ai-trading-platform-cde38.firebasestorage.app",
+  messagingSenderId: "431162854518",
+  appId: "1:431162854518:web:bafe44171a3c042782a357"
+};
 
-document.getElementById("platform").classList.remove("hidden");
+const app = initializeApp(firebaseConfig);
 
-}
+console.log("Firebase Connected 🔥");
 
-function generateSignal(){
+window.enterPlatform = function(){
 
-let signals=[
-"🚀 BUY BTC",
-"📉 SELL ETH",
-"🔥 BUY SOL",
-"⚡ BUY GOLD",
-"❌ SELL NASDAQ"
-];
+  document.getElementById("loginBox").style.display = "none";
 
-let randomSignal=
-signals[Math.floor(Math.random()*signals.length)];
-
-document.getElementById("signal").innerHTML=randomSignal;
+  document.getElementById("platform").classList.remove("hidden");
 
 }
 
-function buyPremium(){
+window.generateSignal = function(){
 
-alert("🔥 PREMIUM ACTIVATED 🔥");
+  const signals = [
+    "BUY BTC 🚀",
+    "SELL ETH 📉",
+    "BUY SOL 🔥",
+    "SELL XRP ⚠️",
+    "BUY GOLD 💰"
+  ];
+
+  const randomSignal =
+    signals[Math.floor(Math.random()*signals.length)];
+
+  document.getElementById("signal").innerHTML =
+    randomSignal;
 
 }
 
