@@ -1,180 +1,12 @@
-<!-- 🔥 WALLET + WITHDRAW + AI ACADEMY -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<div class="app">
+<title>T AI PLATFORM</title>
 
-<h1 class="main-title">
-🚀 T AI PLATFORM
-</h1>
-
-<!-- 👤 USER INFO -->
-
-<div class="user-box">
-
-<div>
-👤 USER: VIP MEMBER
-</div>
-
-<div class="vip-status">
-👑 VIP ACTIVE
-</div>
-
-</div>
-
-<!-- 💰 WALLET -->
-
-<div class="wallet-box">
-
-<h2>
-💰 USER WALLET
-</h2>
-
-<div class="balance">
-12,840 USD
-</div>
-
-<div class="wallet-buttons">
-
-<button class="deposit-btn">
-💳 Deposit
-</button>
-
-<button class="withdraw-btn">
-💸 Withdraw
-</button>
-
-</div>
-
-</div>
-
-<!-- 📜 TRANSACTIONS -->
-
-<div class="transactions">
-
-<h2>
-📜 Transaction History
-</h2>
-
-<div class="tx green">
-+ 420 USD Profit
-</div>
-
-<div class="tx red">
-- 90 USD Loss
-</div>
-
-<div class="tx green">
-+ 1,240 USD Profit
-</div>
-
-<div class="tx blue">
-💳 VIP Monthly Activated
-</div>
-
-</div>
-
-<!-- 💸 WITHDRAW -->
-
-<div class="withdraw-box">
-
-<h2>
-🏦 Withdraw System
-</h2>
-
-<input type="text"
-placeholder="USDT Wallet / Bank IBAN">
-
-<input type="number"
-placeholder="Amount">
-
-<button class="withdraw-send">
-Request Withdraw
-</button>
-
-<p class="withdraw-note">
-⏳ Withdraw requests reviewed by admin
-</p>
-
-</div>
-
-<!-- 🤖 AI SIGNALS -->
-
-<div class="signals">
-
-<h2>
-🤖 AI LIVE SIGNALS
-</h2>
-
-<div class="signal buy">
-📈 BUY BTC/USDT
-<br><br>
-ENTRY: 64,920
-</div>
-
-<div class="signal sell">
-📉 SELL ETH/USDT
-<br><br>
-ENTRY: 3,280
-</div>
-
-</div>
-
-<!-- 🎓 AI ACADEMY -->
-
-<div class="academy">
-
-<h2>
-🎓 AI Trading Academy
-</h2>
-
-<div class="lesson">
-
-📊 Lesson 1:
-<br>
-How to read candlestick charts
-
-</div>
-
-<div class="lesson">
-
-💰 Lesson 2:
-<br>
-Risk Management Basics
-
-</div>
-
-<div class="lesson">
-
-🤖 Lesson 3:
-<br>
-Using AI For Trading Decisions
-
-</div>
-
-<div class="lesson">
-
-🏆 VIP Strategy:
-<br>
-Scalping & Smart Entries
-
-</div>
-
-<button class="academy-btn">
-
-▶️ Open Full Academy
-
-</button>
-
-</div>
-
-<!-- 🔔 NOTIFICATION -->
-
-<div class="notification">
-
-🔔 New VIP Signal Sent To Members
-
-</div>
-
-</div>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
 
 <style>
 
@@ -182,184 +14,375 @@ Scalping & Smart Entries
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:Cairo;
+font-family:'Cairo',sans-serif;
 }
 
 body{
-background:#040b16;
-padding:20px;
+background:#0b1220;
 color:white;
+min-height:100vh;
+padding:20px;
 }
 
-.app{
-max-width:500px;
-margin:auto;
-}
-
-.main-title{
+.logo{
 text-align:center;
-font-size:34px;
-margin-bottom:25px;
+font-size:38px;
+margin-top:20px;
+margin-bottom:30px;
+font-weight:bold;
 color:#00ffd5;
 }
 
-.user-box{
-display:flex;
-justify-content:space-between;
-align-items:center;
-background:#101b2d;
-padding:18px;
-border-radius:18px;
+.auth-box{
+
+background:#121b2d;
+padding:25px;
+border-radius:20px;
+max-width:420px;
+margin:auto;
+box-shadow:0 0 30px rgba(0,255,213,0.2);
+
+}
+
+.auth-box h2{
+text-align:center;
 margin-bottom:20px;
 }
 
-.vip-status{
-color:gold;
-font-weight:bold;
-}
+input{
 
-.wallet-box,
-.transactions,
-.withdraw-box,
-.signals,
-.academy{
-background:#101b2d;
-padding:22px;
-border-radius:22px;
-margin-bottom:22px;
-}
-
-.balance{
-font-size:40px;
-font-weight:bold;
-margin-top:18px;
-color:#00ff95;
-text-align:center;
-}
-
-.wallet-buttons{
-display:flex;
-gap:15px;
-margin-top:20px;
-}
-
-.wallet-buttons button{
-flex:1;
+width:100%;
 padding:15px;
-border:none;
-border-radius:15px;
-font-size:18px;
-font-weight:bold;
-cursor:pointer;
-}
-
-.deposit-btn{
-background:#00c853;
-color:white;
-}
-
-.withdraw-btn{
-background:#1565ff;
-color:white;
-}
-
-.tx{
-padding:15px;
-border-radius:12px;
 margin-top:12px;
-font-size:18px;
-font-weight:bold;
+border:none;
+border-radius:12px;
+background:#1c2740;
+color:white;
+font-size:16px;
+
 }
 
-.green{
-background:#052e16;
-color:#00ff95;
-}
+button{
 
-.red{
-background:#450a0a;
-color:#ff5e5e;
-}
-
-.blue{
-background:#082f49;
-color:#38bdf8;
-}
-
-.withdraw-box input{
 width:100%;
 padding:15px;
 margin-top:15px;
 border:none;
-border-radius:12px;
-background:#1f2937;
+border-radius:14px;
+background:linear-gradient(45deg,#00ffd5,#00a2ff);
 color:white;
-font-size:17px;
-}
-
-.withdraw-send{
-width:100%;
-padding:16px;
-margin-top:18px;
-border:none;
-border-radius:15px;
-background:#00ffd5;
-font-size:20px;
+font-size:18px;
 font-weight:bold;
 cursor:pointer;
+
 }
 
-.withdraw-note{
-margin-top:12px;
-font-size:15px;
-color:#94a3b8;
-text-align:center;
+.dashboard{
+
+display:none;
+margin-top:30px;
+
+}
+
+.card{
+
+background:#121b2d;
+padding:20px;
+border-radius:18px;
+margin-bottom:20px;
+box-shadow:0 0 20px rgba(0,0,0,0.3);
+
+}
+
+.card h3{
+margin-bottom:15px;
+color:#00ffd5;
 }
 
 .signal{
-padding:20px;
-border-radius:18px;
-margin-top:15px;
+padding:15px;
+border-radius:14px;
 font-size:20px;
 font-weight:bold;
+text-align:center;
+margin-top:10px;
 }
 
 .buy{
-background:#00c853;
+background:#0f5132;
 }
 
 .sell{
-background:#d50000;
+background:#842029;
 }
 
-.lesson{
-background:#16253d;
-padding:18px;
+.vip{
+
+background:linear-gradient(45deg,#ffcc00,#ff8800);
+color:black;
+font-weight:bold;
+text-align:center;
+padding:15px;
+border-radius:15px;
+
+}
+
+.profit{
+
+font-size:30px;
+font-weight:bold;
+color:#00ff88;
+text-align:center;
+
+}
+
+.withdraw{
+
+background:#1c2740;
+padding:15px;
 border-radius:15px;
 margin-top:15px;
-font-size:18px;
+
 }
 
-.academy-btn{
-width:100%;
-padding:18px;
-margin-top:20px;
-border:none;
-border-radius:15px;
-background:linear-gradient(45deg,#7c3aed,#06b6d4);
-font-size:20px;
-font-weight:bold;
-color:white;
-cursor:pointer;
+a{
+text-decoration:none;
 }
 
-.notification{
-background:#16253d;
-padding:22px;
-border-radius:18px;
-font-size:20px;
+.footer{
 text-align:center;
-border-left:5px solid #00ffd5;
+margin-top:40px;
+opacity:0.6;
+font-size:14px;
 }
 
 </style>
+</head>
+
+<body>
+
+<h1 class="logo">🚀 T AI PLATFORM</h1>
+
+<div class="auth-box">
+
+<h2>🔐 LOGIN / REGISTER</h2>
+
+<input type="email" id="email" placeholder="Email">
+
+<input type="password" id="password" placeholder="Password">
+
+<button onclick="login()">LOGIN</button>
+
+<button onclick="register()">CREATE ACCOUNT</button>
+
+</div>
+
+<div class="dashboard" id="dashboard">
+
+<div class="card">
+
+<h3>📈 LIVE SIGNAL</h3>
+
+<div class="signal buy">
+BUY BTC / USDT 🚀
+</div>
+
+</div>
+
+<div class="card">
+
+<h3>💰 TODAY PROFIT</h3>
+
+<div class="profit">
++ 2,450 USD
+</div>
+
+</div>
+
+<div class="card">
+
+<h3>👑 VIP ACCESS</h3>
+
+<div class="vip">
+VIP ACTIVE
+</div>
+
+</div>
+
+<div class="card">
+
+<h3>💸 WITHDRAW PROFITS</h3>
+
+<div class="withdraw">
+
+<p>Available Balance:</p>
+
+<h2>$ 12,840</h2>
+
+<button>
+Withdraw Now
+</button>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<h3>🎓 AI Academy</h3>
+
+<p>
+Learn Trading, AI Analysis, Risk Management and VIP Strategies.
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>📊 Platform Stats</h3>
+
+<p>👥 Active Users: 1,284</p>
+<p>📈 Win Rate: 91%</p>
+<p>💵 Total Profit: $128,450</p>
+
+</div>
+
+<div class="card">
+
+<h3>👑 VIP Plans</h3>
+
+<a href="https://buy.stripe.com/test_6oUaEZ64F6ccbDx3rq1Nu00">
+
+<button>
+VIP WEEKLY - 9 AED
+</button>
+
+</a>
+
+<a href="https://buy.stripe.com/test_28E6oJ50B8kkgXRgec1Nu01">
+
+<button>
+VIP MONTHLY - 30 AED
+</button>
+
+</a>
+
+<a href="https://buy.stripe.com/test_5kQ14pct3fMMfTN9PO1Nu02">
+
+<button>
+VIP YEARLY - 300 AED
+</button>
+
+</a>
+
+</div>
+
+</div>
+
+<div class="footer">
+T AI PLATFORM © 2026
+</div>
+
+<!-- FIREBASE -->
+
+<script type="module">
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+import {
+getAuth,
+createUserWithEmailAndPassword,
+signInWithEmailAndPassword
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+import {
+getFirestore,
+setDoc,
+doc
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+const firebaseConfig = {
+
+apiKey: "AIzaSyBUmHBoRmQ4naiC4TwouANrYAeScKW9DNk",
+
+authDomain: "ai-trading-platform-cde38.firebaseapp.com",
+
+projectId: "ai-trading-platform-cde38",
+
+storageBucket: "ai-trading-platform-cde38.firebasestorage.app",
+
+messagingSenderId: "431162854518",
+
+appId: "1:431162854518:web:bafe44171a3c042782a357"
+
+};
+
+const app = initializeApp(firebaseConfig);
+
+const auth = getAuth(app);
+
+const db = getFirestore(app);
+
+window.register = async function(){
+
+const email = document.getElementById("email").value;
+
+const password = document.getElementById("password").value;
+
+try{
+
+const userCredential =
+await createUserWithEmailAndPassword(auth,email,password);
+
+await setDoc(doc(db,"users",userCredential.user.uid),{
+
+email: email,
+
+vip: false,
+
+balance: 0,
+
+profit: 0,
+
+created: new Date().toString()
+
+});
+
+alert("ACCOUNT CREATED SUCCESSFULLY 🚀");
+
+}
+catch(error){
+
+alert(error.message);
+
+}
+
+}
+
+window.login = async function(){
+
+const email = document.getElementById("email").value;
+
+const password = document.getElementById("password").value;
+
+try{
+
+await signInWithEmailAndPassword(auth,email,password);
+
+alert("WELCOME BACK 🔥");
+
+document.getElementById("dashboard").style.display="block";
+
+}
+catch(error){
+
+alert(error.message);
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
