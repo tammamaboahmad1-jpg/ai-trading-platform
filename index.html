@@ -1,96 +1,91 @@
-<!-- 🔥 NOTIFICATION SYSTEM + LIVE PROFITS -->
+<!-- 🔥 LOGIN + REGISTER + ADMIN SYSTEM -->
 
-<div class="live-container">
+<div class="auth-container">
 
-<h2 class="title">
-🚀 LIVE TRADING CENTER
-</h2>
+<h1 class="logo">
+🚀 T AI PLATFORM
+</h1>
 
-<div class="notify-box">
+<div class="auth-box">
 
-<div class="notify green">
-✅ BUY SIGNAL SENT
+<h2>🔐 تسجيل الدخول</h2>
+
+<input type="email" placeholder="Email" id="email">
+
+<input type="password" placeholder="Password" id="password">
+
+<button onclick="login()" class="login-btn">
+LOGIN
+</button>
+
+<button onclick="register()" class="register-btn">
+CREATE ACCOUNT
+</button>
+
+<p id="msg"></p>
+
+</div>
+
+</div>
+
+<!-- 👑 DASHBOARD -->
+
+<div class="dashboard" id="dashboard">
+
+<div class="topbar">
+
+<h2>👑 ADMIN DASHBOARD</h2>
+
+<button onclick="logout()" class="logout-btn">
+Logout
+</button>
+
+</div>
+
+<div class="cards">
+
+<div class="card green">
+<h3>📈 Signals</h3>
+<p>LIVE ACTIVE</p>
+</div>
+
+<div class="card blue">
+<h3>💰 Profits</h3>
+<p>+ 24,850 USD</p>
+</div>
+
+<div class="card gold">
+<h3>👑 VIP Users</h3>
+<p>128 Members</p>
+</div>
+
+</div>
+
+<div class="notify">
+
+🔔 New VIP Member Joined
+
+</div>
+
 <br>
-BTC / USDT
-</div>
 
-<div class="notify red">
-📉 SELL SIGNAL CLOSED
-<br>
-ETH / USDT
-</div>
-
-<div class="notify gold">
-👑 VIP SIGNAL ACTIVE
-<br>
-XAUUSD +320 PIPS
-</div>
-
-</div>
-
-<div class="profit-box">
-
-<h3>💰 Platform Earnings</h3>
-
-<div id="money">
-+ 24,850 USD
-</div>
-
-<p>
-🔥 أرباح المنصة من اشتراكات وتداول الأعضاء
-</p>
-
-</div>
-
-<div class="trade-box">
-
-<h3>📊 Live Trades</h3>
-
-<div class="trade">
-BTC + 450$
-</div>
-
-<div class="trade">
-ETH + 220$
-</div>
-
-<div class="trade">
-XAUUSD + 1200$
-</div>
-
-<div class="trade">
-NASDAQ + 860$
-</div>
-
-</div>
-
-<div class="vip-area">
-
-<h2>👑 VIP ACCESS</h2>
-
-<p>
-اختر خطة الاشتراك المناسبة
-</p>
+<div class="vip-buttons">
 
 <a href="https://buy.stripe.com/test_6oUaEZ64F6ccbDx3rq1Nu00">
-<button class="vip-btn">
-🔥 اشتراك أسبوعي
+<button>
+🔥 Weekly VIP
 </button>
 </a>
-
-<br><br>
 
 <a href="https://buy.stripe.com/test_28E6oJ50B8kkgXRgec1Nu01">
-<button class="vip-btn">
-🚀 اشتراك شهري
+<button>
+🚀 Monthly VIP
 </button>
 </a>
 
-<br><br>
-
 <a href="https://buy.stripe.com/test_5kQ14pct3fMMfTN9PO1Nu02">
-<button class="vip-btn">
-💎 اشتراك سنوي
+<button>
+💎 Yearly VIP
 </button>
 </a>
 
@@ -101,36 +96,105 @@ NASDAQ + 860$
 <style>
 
 body{
+margin:0;
 background:#050816;
 font-family:Cairo;
 color:white;
-padding:20px;
 }
 
-.title{
-text-align:center;
-font-size:35px;
+.auth-container{
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+flex-direction:column;
+}
+
+.logo{
+font-size:40px;
 margin-bottom:30px;
 color:#00e5ff;
 }
 
-.live-container{
-max-width:900px;
-margin:auto;
+.auth-box{
+background:#111827;
+padding:40px;
+border-radius:20px;
+width:90%;
+max-width:400px;
+text-align:center;
+box-shadow:0 0 25px rgba(0,229,255,0.3);
 }
 
-.notify-box{
-display:flex;
-flex-direction:column;
-gap:20px;
+.auth-box h2{
+margin-bottom:25px;
 }
 
-.notify{
+.auth-box input{
+width:100%;
+padding:15px;
+margin-top:15px;
+border:none;
+border-radius:12px;
+background:#1f2937;
+color:white;
+font-size:18px;
+}
+
+.login-btn,
+.register-btn{
+width:100%;
+padding:15px;
+margin-top:20px;
+border:none;
+border-radius:12px;
+font-size:18px;
+font-weight:bold;
+cursor:pointer;
+}
+
+.login-btn{
+background:#06b6d4;
+color:white;
+}
+
+.register-btn{
+background:#7c3aed;
+color:white;
+}
+
+.dashboard{
+display:none;
 padding:20px;
-border-radius:15px;
+}
+
+.topbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.logout-btn{
+background:red;
+border:none;
+padding:10px 20px;
+border-radius:10px;
+color:white;
+font-weight:bold;
+}
+
+.cards{
+display:grid;
+grid-template-columns:1fr;
+gap:20px;
+margin-top:30px;
+}
+
+.card{
+padding:25px;
+border-radius:20px;
 font-size:22px;
 font-weight:bold;
-animation:pulse 2s infinite;
 }
 
 .green{
@@ -138,9 +202,9 @@ background:#052e16;
 color:#00ff88;
 }
 
-.red{
-background:#450a0a;
-color:#ff5e5e;
+.blue{
+background:#082f49;
+color:#38bdf8;
 }
 
 .gold{
@@ -148,56 +212,32 @@ background:#3b0764;
 color:#ffd700;
 }
 
-.profit-box{
-background:#111827;
-padding:30px;
+.notify{
 margin-top:30px;
-border-radius:20px;
-text-align:center;
-}
-
-#money{
-font-size:45px;
-font-weight:bold;
-color:#00ff95;
-margin-top:15px;
-}
-
-.trade-box{
-background:#0f172a;
-padding:30px;
-margin-top:30px;
-border-radius:20px;
-}
-
-.trade{
 background:#111827;
-padding:15px;
-margin-top:15px;
-border-radius:12px;
+padding:20px;
+border-radius:15px;
 font-size:22px;
-font-weight:bold;
-}
-
-.vip-area{
-background:#111827;
-padding:30px;
-margin-top:30px;
-border-radius:20px;
 text-align:center;
+animation:pulse 2s infinite;
 }
 
-.vip-btn{
-background:linear-gradient(45deg,#7c3aed,#06b6d4);
-border:none;
-padding:18px 35px;
+.vip-buttons{
+display:flex;
+flex-direction:column;
+gap:20px;
+margin-top:30px;
+}
+
+.vip-buttons button{
+padding:18px;
 font-size:20px;
 font-weight:bold;
-color:white;
+border:none;
 border-radius:15px;
+background:linear-gradient(45deg,#7c3aed,#06b6d4);
+color:white;
 cursor:pointer;
-width:90%;
-max-width:350px;
 }
 
 @keyframes pulse{
@@ -213,3 +253,44 @@ transform:scale(1);
 }
 
 </style>
+
+<script>
+
+function login(){
+
+let email =
+document.getElementById("email").value;
+
+let password =
+document.getElementById("password").value;
+
+if(email === "admin@gmail.com"
+&& password === "123456"){
+
+document.querySelector(".auth-container").style.display="none";
+
+document.getElementById("dashboard").style.display="block";
+
+}else{
+
+document.getElementById("msg").innerHTML =
+"❌ Wrong Login";
+
+}
+
+}
+
+function register(){
+
+document.getElementById("msg").innerHTML =
+"✅ Account Created";
+
+}
+
+function logout(){
+
+location.reload();
+
+}
+
+</script>
