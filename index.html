@@ -1,637 +1,70 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<!-- زر الاشتراك الأسبوعي -->
+<div class="vip-box">
 
-<head>
+<h2>🔥 اشتراك VIP</h2>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<p>
+احصل على:
+<br><br>
+✅ إشارات AI احترافية
+<br>
+✅ تحليل مباشر
+<br>
+✅ صفقات VIP
+<br>
+✅ تعليم التداول بالذكاء الاصطناعي
+<br>
+✅ تنبيهات فورية
+</p>
 
-<title>AI Trading Platform</title>
+<a href="https://buy.stripe.com/test_6oUaEZ64F6ccbDx3rq1Nu00" target="_blank">
+<button class="vip-btn">
+اشترك الآن - 9 AED أسبوعياً
+</button>
+</a>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700;900&display=swap" rel="stylesheet">
-
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</div>
 
 <style>
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Cairo',sans-serif;
-}
-
-body{
-background:#020617;
-color:white;
-overflow-x:hidden;
-}
-
-/* NAVBAR */
-
-.navbar{
-width:100%;
-padding:20px;
-background:#031225;
-display:flex;
-justify-content:space-between;
-align-items:center;
-border-bottom:2px solid #00ff99;
-position:sticky;
-top:0;
-z-index:999;
-box-shadow:0 0 30px #00ff9950;
-}
-
-.logo{
-display:flex;
-align-items:center;
-gap:12px;
-font-size:32px;
-font-weight:900;
-color:#00ff99;
-}
-
-.logo span{
-color:white;
-}
-
-.menu{
-display:flex;
-gap:15px;
-flex-wrap:wrap;
-}
-
-.menu button{
-background:linear-gradient(45deg,#00ff99,#0066ff);
-border:none;
-padding:12px 18px;
-border-radius:16px;
-color:white;
-font-size:16px;
-font-weight:bold;
-cursor:pointer;
-transition:0.3s;
-}
-
-.menu button:hover{
-transform:scale(1.05);
-box-shadow:0 0 20px #00ff99;
-}
-
-/* HERO */
-
-.hero{
-padding:80px 20px;
+.vip-box{
+background:#07142b;
+padding:30px;
+border-radius:25px;
+margin-top:40px;
 text-align:center;
-background:
-radial-gradient(circle at top,#00ff9940,transparent 50%),
-#020617;
+box-shadow:0 0 25px #00ffcc55;
 }
 
-.hero h1{
-font-size:75px;
-font-weight:900;
+.vip-box h2{
+color:#00ffd5;
+font-size:38px;
 margin-bottom:20px;
 }
 
-.hero p{
-font-size:25px;
-color:#94a3b8;
-}
-
-/* GRID */
-
-.container{
-width:95%;
-max-width:1500px;
-margin:auto;
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-gap:25px;
-padding-bottom:80px;
-}
-
-/* CARD */
-
-.card{
-background:#071226;
-border-radius:30px;
-padding:25px;
-border:1px solid #00ff9930;
-box-shadow:0 0 25px #00ff9920;
-position:relative;
-overflow:hidden;
-transition:0.3s;
-}
-
-.card:hover{
-transform:translateY(-5px);
-box-shadow:0 0 35px #00ff9950;
-}
-
-.card h2{
-font-size:32px;
-margin-bottom:20px;
-}
-
-/* LIVE */
-
-.live{
-position:absolute;
-top:20px;
-left:20px;
-background:#00ff99;
-color:black;
-padding:6px 14px;
-border-radius:20px;
-font-weight:bold;
-animation:pulse 1s infinite;
-}
-
-@keyframes pulse{
-0%{transform:scale(1);}
-50%{transform:scale(1.08);}
-100%{transform:scale(1);}
-}
-
-/* BALANCE */
-
-.balance{
-font-size:55px;
-font-weight:900;
-color:#00ff99;
-margin-top:20px;
-}
-
-/* BUTTON */
-
-.action-btn{
-width:100%;
-margin-top:18px;
-padding:16px;
-border:none;
-border-radius:18px;
-background:linear-gradient(45deg,#00ff99,#0066ff);
+.vip-box p{
 color:white;
 font-size:20px;
-font-weight:bold;
-cursor:pointer;
-transition:0.3s;
-}
-
-.action-btn:hover{
-transform:scale(1.03);
-box-shadow:0 0 25px #00ff99;
-}
-
-/* SIGNAL */
-
-.signal{
-padding:25px;
-border-radius:25px;
-text-align:center;
-font-size:35px;
-font-weight:900;
-margin-top:20px;
-}
-
-.buy{
-background:#00ff9920;
-border:2px solid #00ff99;
-color:#00ff99;
-}
-
-.sell{
-background:#ff004020;
-border:2px solid #ff0040;
-color:#ff0040;
-}
-
-/* VIP */
-
-.vip-title{
-font-size:45px;
-font-weight:900;
-color:gold;
-text-align:center;
-margin-bottom:20px;
-}
-
-.plan{
-padding:20px;
-background:#020b18;
-border-radius:20px;
-margin-top:20px;
-border:1px solid #00ff9940;
-}
-
-.plan h3{
-font-size:30px;
-}
-
-.price{
-font-size:50px;
-font-weight:900;
-color:#00ff99;
-margin-top:10px;
-}
-
-/* AI */
-
-.ai-box{
-line-height:2.2;
-font-size:18px;
-color:#cbd5e1;
-}
-
-/* ADMIN */
-
-.admin-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-gap:20px;
-margin-top:20px;
-}
-
-.admin-box{
-background:#020b18;
-padding:20px;
-border-radius:20px;
-text-align:center;
-border:1px solid #00ff9940;
-}
-
-.admin-box h3{
-font-size:22px;
-margin-bottom:10px;
-}
-
-.admin-box p{
-font-size:35px;
-font-weight:900;
-color:#00ff99;
-}
-
-/* LOGIN */
-
-.login-box{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:#000000ee;
-display:flex;
-justify-content:center;
-align-items:center;
-z-index:9999;
-}
-
-.login-card{
-width:90%;
-max-width:450px;
-background:#071226;
-padding:40px;
-border-radius:35px;
-border:1px solid #00ff9950;
-box-shadow:0 0 40px #00ff9940;
-}
-
-.login-card h1{
-text-align:center;
-font-size:50px;
+line-height:2;
 margin-bottom:30px;
 }
 
-.input{
-width:100%;
-padding:18px;
-margin-bottom:20px;
+.vip-btn{
+background:linear-gradient(45deg,#00ffd5,#0066ff);
 border:none;
-border-radius:15px;
-background:#020b18;
+padding:20px;
+width:100%;
+border-radius:20px;
+font-size:24px;
+font-weight:bold;
 color:white;
-font-size:18px;
+cursor:pointer;
+transition:0.3s;
 }
 
-.hidden{
-display:none;
-}
-
-/* FOOTER */
-
-footer{
-padding:30px;
-text-align:center;
-color:#94a3b8;
-border-top:1px solid #00ff9930;
-margin-top:40px;
+.vip-btn:hover{
+transform:scale(1.05);
+box-shadow:0 0 25px #00ffd5;
 }
 
 </style>
-
-</head>
-
-<body>
-
-<!-- LOGIN -->
-
-<div class="login-box" id="loginBox">
-
-<div class="login-card">
-
-<h1>🧠 AI Login</h1>
-
-<input class="input" type="email" placeholder="البريد الإلكتروني">
-
-<input class="input" type="password" placeholder="كلمة المرور">
-
-<button class="action-btn" onclick="enterPlatform()">
-دخول المنصة
-</button>
-
-</div>
-
-</div>
-
-<!-- NAVBAR -->
-
-<div class="navbar">
-
-<div class="logo">
-🕴️T
-<span>AI TRADING</span>
-</div>
-
-<div class="menu">
-
-<button>الرئيسية</button>
-<button>الأسواق</button>
-<button>الإشارات</button>
-<button>VIP</button>
-<button>AI</button>
-<button>الأكاديمية</button>
-
-</div>
-
-</div>
-
-<!-- HERO -->
-
-<section class="hero">
-
-<h1>منصة التداول الخارقة</h1>
-
-<p>
-AI + إشارات VIP + تحكم كامل + تداول احترافي
-</p>
-
-</section>
-
-<!-- MAIN -->
-
-<div class="container">
-
-<!-- BALANCE -->
-
-<div class="card">
-
-<div class="live">LIVE</div>
-
-<h2>💰 الرصيد</h2>
-
-<div class="balance">$12,850</div>
-
-<button class="action-btn">
-إيداع
-</button>
-
-<button class="action-btn">
-سحب الأرباح
-</button>
-
-</div>
-
-<!-- SIGNAL -->
-
-<div class="card">
-
-<div class="live">AI</div>
-
-<h2>📈 إشارة AI</h2>
-
-<div class="signal buy">
-BUY BTC/USD
-</div>
-
-<p style="margin-top:20px;font-size:20px;">
-هدف الربح: +320$
-</p>
-
-<p style="margin-top:10px;font-size:20px;">
-وقف الخسارة: -90$
-</p>
-
-<button class="action-btn">
-تنفيذ الصفقة
-</button>
-
-</div>
-
-<!-- MARKET -->
-
-<div class="card">
-
-<h2>📊 السوق المباشر</h2>
-
-<canvas id="chart"></canvas>
-
-</div>
-
-<!-- VIP -->
-
-<div class="card">
-
-<h2 class="vip-title">
-👑 اشتراك VIP
-</h2>
-
-<div class="plan">
-
-<h3>الخطة الأسبوعية</h3>
-
-<div class="price">$19</div>
-
-<button class="action-btn">
-اشترك الآن
-</button>
-
-</div>
-
-<div class="plan">
-
-<h3>الخطة الشهرية</h3>
-
-<div class="price">$49</div>
-
-<button class="action-btn">
-اشترك الآن
-</button>
-
-</div>
-
-<div class="plan">
-
-<h3>خطة 6 أشهر</h3>
-
-<div class="price">$199</div>
-
-<button class="action-btn">
-اشترك الآن
-</button>
-
-</div>
-
-</div>
-
-<!-- AI ACADEMY -->
-
-<div class="card">
-
-<h2>🧠 AI Academy</h2>
-
-<div class="ai-box">
-
-✔️ تعليم التداول من الصفر  
-✔️ احتراف السكالبينغ  
-✔️ قراءة الشموع  
-✔️ إدارة رأس المال  
-✔️ AI تحليل الأسواق  
-✔️ إشارات VIP ذكية  
-✔️ استراتيجيات المحترفين  
-
-</div>
-
-<button class="action-btn">
-ابدأ التعلم
-</button>
-
-</div>
-
-<!-- USER -->
-
-<div class="card">
-
-<h2>👤 حساب العضو</h2>
-
-<p style="font-size:24px;margin-top:20px;">
-العضوية:
-<span style="color:gold;">VIP</span>
-</p>
-
-<p style="font-size:24px;margin-top:15px;">
-مدة الاشتراك:
-180 يوم
-</p>
-
-<p style="font-size:24px;margin-top:15px;">
-الأرباح:
-<span style="color:#00ff99;">+5400$</span>
-</p>
-
-<button class="action-btn">
-إدارة الحساب
-</button>
-
-</div>
-
-<!-- ADMIN -->
-
-<div class="card">
-
-<h2>⚙️ لوحة الأدمن</h2>
-
-<div class="admin-grid">
-
-<div class="admin-box">
-<h3>المشتركين</h3>
-<p>845</p>
-</div>
-
-<div class="admin-box">
-<h3>الأرباح</h3>
-<p>$24K</p>
-</div>
-
-<div class="admin-box">
-<h3>إشارات اليوم</h3>
-<p>18</p>
-</div>
-
-<div class="admin-box">
-<h3>أعضاء VIP</h3>
-<p>215</p>
-</div>
-
-</div>
-
-<button class="action-btn">
-فتح لوحة التحكم
-</button>
-
-</div>
-
-</div>
-
-<footer>
-
-AI Trading Platform © 2026
-
-</footer>
-
-<script>
-
-function enterPlatform(){
-document.getElementById("loginBox").classList.add("hidden");
-}
-
-const ctx=document.getElementById('chart');
-
-new Chart(ctx,{
-type:'line',
-data:{
-labels:['1','2','3','4','5','6','7'],
-datasets:[{
-label:'BTC/USD',
-data:[100,180,140,260,230,320,420],
-borderColor:'#00ff99',
-backgroundColor:'#00ff9920',
-fill:true,
-tension:0.4
-}]
-},
-options:{
-plugins:{
-legend:{
-labels:{
-color:'white'
-}
-}
-},
-scales:{
-x:{
-ticks:{color:'white'}
-},
-y:{
-ticks:{color:'white'}
-}
-}
-}
-});
-
-</script>
-
-</body>
-</html>
