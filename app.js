@@ -1,4 +1,8 @@
-document.getElementById("loginBtn").addEventListener("click", function(){
+window.onload = function () {
+
+const loginBtn = document.getElementById("loginBtn");
+
+loginBtn.onclick = function () {
 
 document.getElementById("loginPage").style.display = "none";
 
@@ -17,4 +21,6 @@ new TradingView.widget({
 "container_id": "tradingview"
 });
 
-});
+};
+
+};
