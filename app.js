@@ -1,72 +1,84 @@
 const signals = [
-
 {
 pair:"BTC/USD",
 type:"BUY",
-entry:"43,250$",
-target:"44,500$"
+entry:"43,250",
+target:"44,500",
+stop:"42,900"
 },
 
 {
 pair:"ETH/USD",
 type:"SELL",
-entry:"3,450$",
-target:"3,180$"
+entry:"2,350",
+target:"2,180",
+stop:"2,420"
 },
 
 {
 pair:"SOL/USD",
 type:"BUY",
-entry:"120$",
-target:"138$"
+entry:"145",
+target:"168",
+stop:"132"
 }
-
 ];
 
-let current = 0;
+const signalBox = document.getElementById("signals");
 
-function changeSignal(){
+if(signalBox){
 
-const signal = document.querySelector(".signal");
+signals.forEach(signal=>{
 
-const info = document.querySelector(".signal-info");
+const div = document.createElement("div");
 
-if(!signal || !info) return;
+div.className = "signal-card";
 
-const s = signals[current];
+div.innerHTML = `
 
-signal.innerHTML = `${s.type} ${s.pair}`;
-
-if(s.type === "BUY"){
-signal.classList.remove("sell");
-signal.classList.add("buy");
-}else{
-signal.classList.remove("buy");
-signal.classList.add("sell");
-}
-
-info.innerHTML = `
-
-<div>
-سعر الدخول:
-${s.entry}
+<div class="signal-top">
+<h3>${signal.pair}</h3>
+<span class="${signal.type}">
+${signal.type}
+</span>
 </div>
 
-<div>
-الهدف:
-${s.target}
+<div class="signal-data">
+
+<p>سعر الدخول:
+<b>${signal.entry}</b>
+</p>
+
+<p>الهدف:
+<b>${signal.target}</b>
+</p>
+
+<p>وقف الخسارة:
+<b>${signal.stop}</b>
+</p>
+
 </div>
 
 `;
 
-current++;
+signalBox.appendChild(div);
 
-if(current >= signals.length){
-current = 0;
-}
+});
 
 }
 
-setInterval(changeSignal,4000);
+setInterval(()=>{
 
-changeSignal();
+const prices = document.querySelectorAll(".price");
+
+prices.forEach(price=>{
+
+let random =
+(Math.random()*1000).toFixed(2);
+
+price.innerHTML =
+"$"+random;
+
+});
+
+},3000);
