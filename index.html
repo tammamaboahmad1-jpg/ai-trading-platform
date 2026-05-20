@@ -12,6 +12,8 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700;900&display=swap" rel="stylesheet">
 
+<script src="https://s3.tradingview.com/tv.js"></script>
+
 </head>
 
 <body>
@@ -87,10 +89,6 @@
 </div>
 
 <div class="icon">
-🌙
-</div>
-
-<div class="icon">
 🔔
 </div>
 
@@ -98,7 +96,7 @@
 
 </div>
 
-<!-- STATS -->
+<!-- CARDS -->
 
 <div class="stats">
 
@@ -126,53 +124,17 @@
 
 </div>
 
-<div class="card vip-card">
-
-<h3>حالة العضوية</h3>
-
-<h1>VIP</h1>
-
-<div class="green">
-185 يوم
 </div>
 
-</div>
+<!-- LIVE CHART -->
 
-</div>
+<div class="chart-box">
 
-<!-- MARKET -->
+<h2>
+📈 السوق المباشر BTC/USD
+</h2>
 
-<div class="market-box">
-
-<div class="market-title">
-السوق المباشر BTC/USD
-</div>
-
-<div class="market-price">
-$43,680.50 <span>+2.45%</span>
-</div>
-
-<div class="chart">
-
-<div class="line"></div>
-
-</div>
-
-<div class="times">
-
-<button>1M</button>
-
-<button>5M</button>
-
-<button class="active-time">15M</button>
-
-<button>1H</button>
-
-<button>4H</button>
-
-<button>1D</button>
-
-</div>
+<div id="tradingview_chart"></div>
 
 </div>
 
@@ -181,7 +143,7 @@ $43,680.50 <span>+2.45%</span>
 <div class="signal-box">
 
 <div class="signal-title">
-آخر إشارة من AI
+🤖 آخر إشارة من AI
 </div>
 
 <div class="signal buy">
@@ -210,43 +172,41 @@ BUY BTC/USD
 
 </div>
 
-<!-- COINS -->
+<!-- LIVE SIGNALS -->
 
-<div class="coins">
+<div class="live-signals">
 
-<div class="market-title">
-الأسواق الرابحة
-</div>
+<h2>
+🔥 إشارات مباشرة
+</h2>
 
-<div class="coin">
+<div class="signal-card green-card">
 
-<div>BTC/USD</div>
+✅ BUY BTC/USDT
 
-<div class="green">+2.45%</div>
-
-</div>
-
-<div class="coin">
-
-<div>ETH/USD</div>
-
-<div class="red">-1.23%</div>
+<span>
++230$
+</span>
 
 </div>
 
-<div class="coin">
+<div class="signal-card red-card">
 
-<div>SOL/USD</div>
+❌ SELL ETH/USDT
 
-<div class="green">+3.85%</div>
+<span>
+-70$
+</span>
 
 </div>
 
-<div class="coin">
+<div class="signal-card green-card">
 
-<div>GOLD/USD</div>
+✅ BUY SOL/USDT
 
-<div class="green">+1.12%</div>
+<span>
++180$
+</span>
 
 </div>
 
@@ -278,37 +238,29 @@ $10,000
 
 </div>
 
-<!-- ACADEMY -->
-
-<div class="academy">
-
-<h2>
-🎓 أكاديمية التداول
-</h2>
-
-<div class="lesson">
-📘 أساسيات التداول
-</div>
-
-<div class="lesson">
-📈 قراءة الشموع اليابانية
-</div>
-
-<div class="lesson">
-🤖 استراتيجيات الذكاء الاصطناعي
-</div>
-
-<div class="lesson">
-💎 إدارة رأس المال
 </div>
 
 </div>
 
-</div>
+<script>
 
-</div>
+new TradingView.widget({
+  "width": "100%",
+  "height": 400,
+  "symbol": "BINANCE:BTCUSDT",
+  "interval": "15",
+  "timezone": "Etc/UTC",
+  "theme": "dark",
+  "style": "1",
+  "locale": "ar",
+  "toolbar_bg": "#020b1d",
+  "enable_publishing": false,
+  "hide_side_toolbar": false,
+  "allow_symbol_change": true,
+  "container_id": "tradingview_chart"
+});
 
-<script src="app.js"></script>
+</script>
 
 </body>
 </html>
