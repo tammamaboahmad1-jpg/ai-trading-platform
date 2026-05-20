@@ -4,13 +4,22 @@
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
 
 <title>T AI PLATFORM</title>
 
-<link rel="stylesheet" href="style.css">
+<link rel="manifest" href="manifest.json">
 
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700;900&display=swap" rel="stylesheet">
+<meta name="theme-color"
+content="#071733">
+
+<link rel="stylesheet"
+href="style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700;900&display=swap"
+rel="stylesheet">
 
 <script src="https://s3.tradingview.com/tv.js"></script>
 
@@ -20,7 +29,8 @@
 
 <!-- LOGIN -->
 
-<div id="loginPage" class="login-page">
+<div id="loginPage"
+class="login-page">
 
 <div class="login-box">
 
@@ -58,7 +68,8 @@ placeholder="كلمة المرور"
 
 <!-- APP -->
 
-<div id="appPage" style="display:none;">
+<div id="appPage"
+style="display:none;">
 
 <div class="topbar">
 
@@ -90,14 +101,12 @@ VIP MEMBER 👑
 
 </div>
 
-<!-- ADMIN PANEL -->
+<!-- ADMIN -->
 
 <div class="card">
 
 <div class="section-title">
-
 👑 لوحة الإدارة
-
 </div>
 
 <div class="admin-grid">
@@ -116,7 +125,7 @@ VIP MEMBER 👑
 
 <div class="admin-box">
 
-💳 طلبات الإيداع
+💳 الإيداعات
 
 <br><br>
 
@@ -128,7 +137,7 @@ VIP MEMBER 👑
 
 <div class="admin-box">
 
-💸 طلبات السحب
+💸 السحوبات
 
 <br><br>
 
@@ -140,7 +149,7 @@ VIP MEMBER 👑
 
 <div class="admin-box">
 
-🪪 طلبات التوثيق
+🪪 التوثيق
 
 <br><br>
 
@@ -193,15 +202,11 @@ placeholder="Binance ID أو عنوان USDT"
 />
 
 <button onclick="depositMoney()">
-
 إيداع USDT 🚀
-
 </button>
 
 <button onclick="withdrawMoney()">
-
 سحب الأرباح 💸
-
 </button>
 
 </div>
@@ -263,23 +268,20 @@ placeholder="رقم الهوية"
 </select>
 
 <button onclick="submitKYC()">
-
 إرسال التوثيق 🚀
-
 </button>
 
 <div id="kycStatus">
-
 الحالة:
 غير موثق ❌
-
 </div>
 
 </div>
 
 </div>
 
-<script type="module" src="app.js"></script>
+<script type="module"
+src="app.js"></script>
 
 </body>
 
