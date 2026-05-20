@@ -63,6 +63,10 @@ if(text.includes("الإعدادات")){
 loadPage("settings");
 }
 
+if(text.includes("توثيق")){
+loadPage("verify");
+}
+
 });
 
 });
@@ -80,14 +84,68 @@ document.querySelector(".signals");
 if(page === "home"){
 
 market.style.display = "block";
-signals.style.display = "block";
+
+signals.innerHTML = `
+
+<h2>🤖 إشارات الذكاء الاصطناعي</h2>
+
+<div class="signal buy">
+
+شراء BTC/USD
+<br>
+دخول: 43,250
+<br>
+هدف: 44,500
+
+</div>
+
+<div class="signal sell">
+
+بيع ETH/USD
+<br>
+دخول: 2,350
+<br>
+هدف: 2,180
+
+</div>
+
+`;
 
 }
 
 if(page === "signals"){
 
 market.style.display = "none";
-signals.style.display = "block";
+
+signals.innerHTML = `
+
+<h2>📊 الإشارات المباشرة</h2>
+
+<div class="signal buy">
+
+BUY BTC/USD
+<br>
+ربح: +230$
+
+</div>
+
+<div class="signal buy">
+
+BUY SOL/USD
+<br>
+ربح: +180$
+
+</div>
+
+<div class="signal sell">
+
+SELL ETH/USD
+<br>
+خسارة: -70$
+
+</div>
+
+`;
 
 }
 
@@ -112,6 +170,12 @@ $10,000
 الأرباح:
 <br>
 +$2,450
+
+</div>
+
+<div class="signal buy">
+
+💳 إيداع وسحب متاح
 
 </div>
 
@@ -188,6 +252,45 @@ signals.innerHTML = `
 <div class="signal buy">
 
 🌙 الوضع الليلي
+
+</div>
+
+`;
+
+}
+
+if(page === "verify"){
+
+market.style.display = "none";
+
+signals.innerHTML = `
+
+<h2>🪪 توثيق الحساب</h2>
+
+<div class="signal buy">
+
+📸 رفع الهوية
+
+<br><br>
+
+<input type="file">
+
+</div>
+
+<div class="signal buy">
+
+🤳 رفع صورة شخصية
+
+<br><br>
+
+<input type="file">
+
+</div>
+
+<div class="signal sell">
+
+⏳ حالة التوثيق:
+قيد المراجعة
 
 </div>
 
