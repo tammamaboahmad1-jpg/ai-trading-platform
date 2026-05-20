@@ -17,6 +17,41 @@
 
 <body>
 
+<!-- LOGIN SCREEN -->
+
+<div class="login-screen" id="loginScreen">
+
+<div class="login-box">
+
+<h1>🚀 T AI PLATFORM</h1>
+
+<p>
+منصة الذكاء الاصطناعي للتداول
+</p>
+
+<input type="email" placeholder="البريد الإلكتروني">
+
+<input type="password" placeholder="كلمة المرور">
+
+<button onclick="enterPlatform()">
+دخول المنصة
+</button>
+
+<div class="login-links">
+
+<span>إنشاء حساب</span>
+<span>نسيت كلمة المرور؟</span>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- PLATFORM -->
+
+<div id="platform" style="display:none;">
+
 <div class="topbar">
 
 <div class="logo">
@@ -132,7 +167,17 @@
 
 </div>
 
+</div>
+
 <script>
+
+function enterPlatform(){
+
+document.getElementById("loginScreen").style.display = "none";
+
+document.getElementById("platform").style.display = "block";
+
+}
 
 new TradingView.widget({
 "width":"100%",
