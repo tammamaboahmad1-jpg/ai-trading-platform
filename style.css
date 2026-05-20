@@ -19,98 +19,98 @@ min-height:100vh;
 
 .sidebar{
 width:280px;
-background:#04142d;
-padding:25px;
+background:#04142c;
+padding:30px 20px;
 border-left:1px solid rgba(255,255,255,0.05);
 }
 
 .logo{
-font-size:34px;
+font-size:42px;
 font-weight:900;
 color:#00ffb3;
 margin-bottom:40px;
 }
 
 .profile{
-background:#081b38;
-padding:20px;
-border-radius:20px;
-margin-bottom:25px;
+background:#071b38;
+padding:30px;
+border-radius:25px;
 text-align:center;
+margin-bottom:25px;
 }
 
 .avatar{
-font-size:50px;
-margin-bottom:10px;
+font-size:80px;
+margin-bottom:15px;
 }
 
 .profile h2{
-font-size:28px;
+font-size:36px;
 margin-bottom:10px;
 }
 
 .profile p{
 color:#00ffb3;
+font-size:24px;
 font-weight:bold;
 }
 
 .balance-box{
-background:#081b38;
-padding:25px;
-border-radius:20px;
+background:#071b38;
+padding:30px;
+border-radius:25px;
 margin-bottom:25px;
 }
 
 .balance-box h3{
-margin-bottom:15px;
-font-size:20px;
-color:#bbb;
+font-size:24px;
+color:#888;
+margin-bottom:20px;
 }
 
 .balance-box h1{
-font-size:50px;
-margin-bottom:10px;
+font-size:58px;
+margin-bottom:20px;
 }
 
 .profit{
 color:#00ff88;
-font-size:24px;
+font-size:40px;
 font-weight:bold;
 }
 
 .menu{
 display:flex;
 flex-direction:column;
-gap:15px;
+gap:20px;
 }
 
 .menu button{
-background:#081b38;
+background:#071b38;
 border:none;
-padding:18px;
-border-radius:18px;
+padding:25px;
+border-radius:22px;
 color:white;
-font-size:20px;
+font-size:28px;
 cursor:pointer;
 transition:0.3s;
 }
 
 .menu button:hover{
-background:#00ffb3;
+background:#00f0aa;
 color:black;
 }
 
 .active{
-background:#00ffb3 !important;
+background:#00f0aa !important;
 color:black !important;
-font-weight:bold;
 }
 
 /* MAIN */
 
 .main{
 flex:1;
-padding:25px;
+padding:30px;
 }
 
 .topbar{
@@ -121,7 +121,7 @@ margin-bottom:30px;
 }
 
 .welcome{
-font-size:38px;
+font-size:40px;
 font-weight:900;
 color:#00ffb3;
 }
@@ -129,263 +129,204 @@ color:#00ffb3;
 .top-icons{
 display:flex;
 align-items:center;
-gap:15px;
+gap:20px;
 }
 
 .live{
-background:#0bbd5a;
-padding:12px 20px;
-border-radius:15px;
+background:#00aa55;
+padding:15px 25px;
+border-radius:18px;
+font-size:22px;
 font-weight:bold;
 }
 
 .icon{
-width:50px;
-height:50px;
-background:#081b38;
-border-radius:50%;
+background:#071b38;
+width:60px;
+height:60px;
 display:flex;
-align-items:center;
 justify-content:center;
-font-size:22px;
+align-items:center;
+border-radius:50%;
+font-size:28px;
 }
 
 /* STATS */
 
 .stats{
 display:grid;
-grid-template-columns:repeat(3,1fr);
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
 gap:20px;
-margin-bottom:25px;
+margin-bottom:30px;
 }
 
 .card{
-background:#081b38;
-padding:25px;
-border-radius:20px;
+background:#071b38;
+padding:30px;
+border-radius:25px;
 }
 
 .card h3{
-color:#bbb;
+font-size:22px;
+color:#999;
 margin-bottom:15px;
 }
 
 .card h1{
-font-size:45px;
-margin-bottom:15px;
+font-size:52px;
+margin-bottom:10px;
 }
 
 .green{
 color:#00ff88;
+font-size:30px;
 font-weight:bold;
-font-size:22px;
 }
 
-.vip-card{
-border:2px solid gold;
-}
+/* CHART */
 
-/* MARKET */
-
-.market-box{
-background:#081b38;
+.chart-box{
+background:#071b38;
 padding:25px;
 border-radius:25px;
-margin-bottom:25px;
+margin-bottom:30px;
 }
 
-.market-title{
-font-size:28px;
-font-weight:bold;
+.chart-box h2{
+font-size:32px;
 margin-bottom:20px;
 }
 
-.market-price{
-font-size:40px;
-font-weight:bold;
-margin-bottom:20px;
-}
-
-.market-price span{
-color:#00ff88;
-}
-
-.chart{
-height:220px;
-background:#02101f;
+#tradingview_chart{
+height:500px;
 border-radius:20px;
-position:relative;
 overflow:hidden;
-margin-bottom:20px;
-}
-
-.line{
-position:absolute;
-width:100%;
-height:100%;
-background:linear-gradient(transparent,rgba(0,255,179,0.2));
-}
-
-.times{
-display:flex;
-gap:10px;
-}
-
-.times button{
-background:#02101f;
-border:none;
-color:white;
-padding:10px 20px;
-border-radius:10px;
-cursor:pointer;
-}
-
-.active-time{
-background:#00ffb3 !important;
-color:black !important;
 }
 
 /* SIGNAL */
 
 .signal-box{
-background:#081b38;
-padding:25px;
+background:#071b38;
+padding:30px;
 border-radius:25px;
-margin-bottom:25px;
+margin-bottom:30px;
 }
 
 .signal-title{
-font-size:30px;
-font-weight:bold;
-margin-bottom:20px;
+font-size:34px;
+margin-bottom:25px;
 }
 
 .signal{
-padding:20px;
-border-radius:15px;
-font-size:35px;
+font-size:46px;
 font-weight:bold;
 margin-bottom:20px;
-text-align:center;
 }
 
 .buy{
-background:#00b35f;
+color:#00ff88;
 }
 
 .signal-info{
 display:flex;
 flex-direction:column;
 gap:15px;
-font-size:22px;
-margin-bottom:20px;
+font-size:24px;
+margin-bottom:25px;
 }
 
 .details{
-width:100%;
-padding:18px;
+background:#00f0aa;
 border:none;
-border-radius:15px;
-background:#00ffb3;
-font-size:22px;
+padding:20px;
+border-radius:18px;
+font-size:24px;
 font-weight:bold;
 cursor:pointer;
 }
 
-/* COINS */
+/* LIVE SIGNALS */
 
-.coins{
-background:#081b38;
-padding:25px;
+.live-signals{
+background:#071b38;
+padding:30px;
 border-radius:25px;
+margin-bottom:30px;
+}
+
+.live-signals h2{
+font-size:32px;
 margin-bottom:25px;
 }
 
-.coin{
+.signal-card{
+padding:25px;
+border-radius:20px;
+margin-bottom:20px;
+font-size:26px;
+font-weight:bold;
 display:flex;
 justify-content:space-between;
-padding:18px 0;
-border-bottom:1px solid rgba(255,255,255,0.08);
-font-size:22px;
 }
 
-.red{
-color:#ff4d4d;
-font-weight:bold;
+.green-card{
+background:#013d2c;
+color:#00ff88;
+}
+
+.red-card{
+background:#3d0101;
+color:#ff4c4c;
 }
 
 /* WALLET */
 
 .wallet{
-background:#081b38;
-padding:25px;
+background:#071b38;
+padding:30px;
 border-radius:25px;
-margin-bottom:25px;
+margin-bottom:30px;
 }
 
 .wallet h2{
+font-size:34px;
 margin-bottom:20px;
-font-size:35px;
 }
 
 .wallet-balance{
-font-size:55px;
+font-size:58px;
 font-weight:bold;
-margin-bottom:20px;
+margin-bottom:30px;
 }
 
 .wallet-buttons{
 display:flex;
-gap:15px;
+gap:20px;
+}
+
+.deposit,
+.withdraw{
+flex:1;
+border:none;
+padding:22px;
+border-radius:20px;
+font-size:24px;
+font-weight:bold;
+cursor:pointer;
 }
 
 .deposit{
-flex:1;
-padding:18px;
-border:none;
-border-radius:15px;
 background:#00ff88;
-font-size:22px;
-font-weight:bold;
-cursor:pointer;
 }
 
 .withdraw{
-flex:1;
-padding:18px;
-border:none;
-border-radius:15px;
-background:#0066ff;
+background:#0077ff;
 color:white;
-font-size:22px;
-font-weight:bold;
-cursor:pointer;
-}
-
-/* ACADEMY */
-
-.academy{
-background:#081b38;
-padding:25px;
-border-radius:25px;
-}
-
-.academy h2{
-margin-bottom:20px;
-font-size:35px;
-}
-
-.lesson{
-background:#02101f;
-padding:20px;
-border-radius:15px;
-margin-bottom:15px;
-font-size:22px;
 }
 
 /* MOBILE */
 
-@media(max-width:1000px){
+@media(max-width:900px){
 
 .app{
 flex-direction:column;
@@ -395,18 +336,34 @@ flex-direction:column;
 width:100%;
 }
 
-.stats{
-grid-template-columns:1fr;
+.main{
+padding:20px;
 }
 
-.topbar{
-flex-direction:column;
-gap:20px;
-align-items:flex-start;
+.logo{
+font-size:34px;
 }
 
-.wallet-buttons{
-flex-direction:column;
+.profile h2{
+font-size:28px;
+}
+
+.balance-box h1,
+.wallet-balance,
+.card h1{
+font-size:42px;
+}
+
+.menu button{
+font-size:24px;
+}
+
+.welcome{
+font-size:30px;
+}
+
+#tradingview_chart{
+height:400px;
 }
 
 }
