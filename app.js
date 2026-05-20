@@ -1,84 +1,22 @@
-const signals = [
-{
-pair:"BTC/USD",
-type:"BUY",
-entry:"43,250",
-target:"44,500",
-stop:"42,900"
-},
+function enterPlatform(){
 
-{
-pair:"ETH/USD",
-type:"SELL",
-entry:"2,350",
-target:"2,180",
-stop:"2,420"
-},
+document.getElementById("loginPage").style.display = "none";
 
-{
-pair:"SOL/USD",
-type:"BUY",
-entry:"145",
-target:"168",
-stop:"132"
-}
-];
+document.getElementById("appPage").style.display = "block";
 
-const signalBox = document.getElementById("signals");
-
-if(signalBox){
-
-signals.forEach(signal=>{
-
-const div = document.createElement("div");
-
-div.className = "signal-card";
-
-div.innerHTML = `
-
-<div class="signal-top">
-<h3>${signal.pair}</h3>
-<span class="${signal.type}">
-${signal.type}
-</span>
-</div>
-
-<div class="signal-data">
-
-<p>سعر الدخول:
-<b>${signal.entry}</b>
-</p>
-
-<p>الهدف:
-<b>${signal.target}</b>
-</p>
-
-<p>وقف الخسارة:
-<b>${signal.stop}</b>
-</p>
-
-</div>
-
-`;
-
-signalBox.appendChild(div);
-
+new TradingView.widget({
+"autosize": true,
+"symbol": "BINANCE:BTCUSDT",
+"interval": "15",
+"timezone": "Etc/UTC",
+"theme": "dark",
+"style": "1",
+"locale": "ar",
+"toolbar_bg": "#071733",
+"enable_publishing": false,
+"hide_top_toolbar": false,
+"hide_legend": false,
+"container_id": "tradingview"
 });
 
 }
-
-setInterval(()=>{
-
-const prices = document.querySelectorAll(".price");
-
-prices.forEach(price=>{
-
-let random =
-(Math.random()*1000).toFixed(2);
-
-price.innerHTML =
-"$"+random;
-
-});
-
-},3000);
