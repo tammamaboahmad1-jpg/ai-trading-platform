@@ -1,0 +1,16 @@
+{
+  "name": "T AI PLATFORM",
+  "short_name": "T AI",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#071733",
+  "theme_color": "#071733",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "https://cdn-icons-png.flaticon.com/512/5968/5968260.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
