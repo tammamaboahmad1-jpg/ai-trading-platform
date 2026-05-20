@@ -1,40 +1,54 @@
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { initializeApp }
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 
 import {
 getAuth,
 createUserWithEmailAndPassword,
 signInWithEmailAndPassword,
 onAuthStateChanged
-} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+}
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
 import {
 getFirestore,
 doc,
 setDoc,
-getDoc
-} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+getDoc,
+collection,
+getDocs
+}
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 const firebaseConfig = {
 
-apiKey: "AIzaSyBUmHBoRmQ4naiC4TwouANrYAeScKW9DNk",
+apiKey:
+"AIzaSyBUmHBoRmQ4naiC4TwouANrYAeScKW9DNk",
 
-authDomain: "ai-trading-platform-cde38.firebaseapp.com",
+authDomain:
+"ai-trading-platform-cde38.firebaseapp.com",
 
-projectId: "ai-trading-platform-cde38",
+projectId:
+"ai-trading-platform-cde38",
 
-storageBucket: "ai-trading-platform-cde38.firebasestorage.app",
+storageBucket:
+"ai-trading-platform-cde38.firebasestorage.app",
 
-messagingSenderId: "431162854518",
+messagingSenderId:
+"431162854518",
 
-appId: "1:431162854518:web:bafe44171a3c042782a357"
+appId:
+"1:431162854518:web:bafe44171a3c042782a357"
 
 };
 
-const app = initializeApp(firebaseConfig);
+const app =
+initializeApp(firebaseConfig);
 
-const auth = getAuth(app);
+const auth =
+getAuth(app);
 
-const db = getFirestore(app);
+const db =
+getFirestore(app);
 
 const loginBtn =
 document.getElementById("loginBtn");
@@ -48,11 +62,14 @@ document.getElementById("email");
 const passwordInput =
 document.getElementById("password");
 
-registerBtn.onclick = async function(){
+registerBtn.onclick =
+async function(){
 
-const email = emailInput.value;
+const email =
+emailInput.value;
 
-const password = passwordInput.value;
+const password =
+passwordInput.value;
 
 try{
 
@@ -64,20 +81,25 @@ password
 );
 
 await setDoc(
-doc(db,"users",userCredential.user.uid),
+doc(
+db,
+"users",
+userCredential.user.uid
+),
 {
 
-email: email,
+email,
 
-balance: 10000,
+balance:10000,
 
-profit: 2450,
+profit:2450,
 
-vip: true,
+vip:true,
 
-verified: false,
+verified:false,
 
-createdAt: new Date().toString()
+createdAt:
+new Date().toString()
 
 }
 
@@ -96,34 +118,24 @@ alert(error.message);
 
 };
 
-loginBtn.onclick = async function(){
+loginBtn.onclick =
+async function(){
 
-const email = emailInput.value;
+const email =
+emailInput.value;
 
-const password = passwordInput.value;
+const password =
+passwordInput.value;
 
 try{
 
-const userCredential =
 await signInWithEmailAndPassword(
 auth,
 email,
 password
 );
 
-const docRef =
-doc(db,"users",userCredential.user.uid);
-
-const userSnap =
-await getDoc(docRef);
-
-if(userSnap.exists()){
-
-showPlatform(
-userSnap.data().email
-);
-
-}
+showPlatform(email);
 
 }
 catch(error){
@@ -145,54 +157,104 @@ document.getElementById("appPage")
 document.getElementById("userEmail")
 .innerText = email;
 
+loadAdminData();
+
 new TradingView.widget({
+
 "autosize": true,
-"symbol": "BINANCE:BTCUSDT",
+
+"symbol":
+"BINANCE:BTCUSDT",
+
 "interval": "15",
-"timezone": "Etc/UTC",
-"theme": "dark",
-"style": "1",
-"locale": "ar",
-"toolbar_bg": "#071733",
-"enable_publishing": false,
-"container_id": "tradingview"
-});
 
-}
+"timezone":"Etc/UTC",
 
-onAuthStateChanged(auth,(user)=>{
+"theme":"dark",
 
-if(user){
+"style":"1",
 
-showPlatform(user.email);
+"locale":"ar",
 
-}
+"toolbar_bg":"#071733",
+
+"enable_publishing":false,
+
+"container_id":"tradingview"
 
 });
 
-window.submitKYC = async function(){
+}
 
-const user = auth.currentUser;
+async function loadAdminData(){
 
-if(!user){
+const usersSnap =
+await getDocs(
+collection(db,"users")
+);
 
-alert("يجب تسجيل الدخول");
+document.getElementById(
+"usersCount"
+).innerText =
+usersSnap.size;
 
-return;
+const depositsSnap =
+await getDocs(
+collection(db,"deposits")
+);
+
+document.getElementById(
+"depositsCount"
+).innerText =
+depositsSnap.size;
+
+const withdrawsSnap =
+await getDocs(
+collection(db,"withdraws")
+);
+
+document.getElementById(
+"withdrawsCount"
+).innerText =
+withdrawsSnap.size;
+
+const kycSnap =
+await getDocs(
+collection(db,"kyc")
+);
+
+document.getElementById(
+"kycCount"
+).innerText =
+kycSnap.size;
 
 }
+
+window.submitKYC =
+async function(){
+
+const user =
+auth.currentUser;
 
 const fullName =
-document.getElementById("fullName").value;
+document.getElementById(
+"fullName"
+).value;
 
 const country =
-document.getElementById("country").value;
+document.getElementById(
+"country"
+).value;
 
 const idNumber =
-document.getElementById("idNumber").value;
+document.getElementById(
+"idNumber"
+).value;
 
 const documentType =
-document.getElementById("documentType").value;
+document.getElementById(
+"documentType"
+).value;
 
 await setDoc(
 doc(db,"kyc",user.uid),
@@ -208,37 +270,39 @@ documentType,
 
 status:"pending",
 
-createdAt:new Date().toString()
+createdAt:
+new Date().toString()
 
 }
 
 );
 
-document.getElementById("kycStatus")
-.innerHTML =
+document.getElementById(
+"kycStatus"
+).innerHTML =
 "الحالة: قيد المراجعة ⏳";
 
-alert("تم إرسال طلب التوثيق 🚀");
+alert("تم إرسال التوثيق 🚀");
+
+loadAdminData();
 
 };
 
-window.depositMoney = async function(){
+window.depositMoney =
+async function(){
 
-const user = auth.currentUser;
-
-if(!user){
-
-alert("سجل دخول أولاً");
-
-return;
-
-}
+const user =
+auth.currentUser;
 
 const amount =
-document.getElementById("amount").value;
+document.getElementById(
+"amount"
+).value;
 
 const binanceId =
-document.getElementById("binanceId").value;
+document.getElementById(
+"binanceId"
+).value;
 
 await setDoc(
 doc(
@@ -250,13 +314,14 @@ user.uid + Date.now()
 
 email:user.email,
 
-amount:amount,
+amount,
 
-binanceId:binanceId,
+binanceId,
 
 status:"pending",
 
-createdAt:new Date().toString()
+createdAt:
+new Date().toString()
 
 }
 
@@ -264,25 +329,25 @@ createdAt:new Date().toString()
 
 alert("تم إرسال طلب الإيداع 🚀");
 
+loadAdminData();
+
 };
 
-window.withdrawMoney = async function(){
+window.withdrawMoney =
+async function(){
 
-const user = auth.currentUser;
-
-if(!user){
-
-alert("سجل دخول أولاً");
-
-return;
-
-}
+const user =
+auth.currentUser;
 
 const amount =
-document.getElementById("amount").value;
+document.getElementById(
+"amount"
+).value;
 
 const binanceId =
-document.getElementById("binanceId").value;
+document.getElementById(
+"binanceId"
+).value;
 
 await setDoc(
 doc(
@@ -294,13 +359,14 @@ user.uid + Date.now()
 
 email:user.email,
 
-amount:amount,
+amount,
 
-binanceId:binanceId,
+binanceId,
 
 status:"pending",
 
-createdAt:new Date().toString()
+createdAt:
+new Date().toString()
 
 }
 
@@ -308,4 +374,16 @@ createdAt:new Date().toString()
 
 alert("تم إرسال طلب السحب 💸");
 
+loadAdminData();
+
 };
+
+onAuthStateChanged(auth,(user)=>{
+
+if(user){
+
+showPlatform(user.email);
+
+}
+
+});
