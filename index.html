@@ -19,8 +19,6 @@
 
 <body>
 
-<!-- LOGIN PAGE -->
-
 <div id="loginPage" class="login-page">
 
 <div class="login-box">
@@ -57,35 +55,19 @@ placeholder="كلمة المرور"
 
 </div>
 
-<!-- APP PAGE -->
-
 <div id="appPage" style="display:none;">
-
-<!-- TOPBAR -->
 
 <div class="topbar">
 
 <div class="brand">
-
 🚀 T AI
-
 </div>
 
 <div class="top-icons">
-
-<div class="online-dot"></div>
-
-🔔
-
-🌐
-
-👤
-
+🟢 🔔 🌐 👤
 </div>
 
 </div>
-
-<!-- PROFILE -->
 
 <div class="card profile-card">
 
@@ -103,8 +85,6 @@ VIP MEMBER 👑
 
 </div>
 
-<!-- BALANCE -->
-
 <div class="card balance-card">
 
 <div class="balance-title">
@@ -120,8 +100,6 @@ $10,000
 </div>
 
 </div>
-
-<!-- MENU -->
 
 <div class="menu">
 
@@ -151,14 +129,42 @@ $10,000
 
 </div>
 
-<!-- MARKET -->
+<div class="card">
+
+<div class="section-title">
+💳 الإيداع والسحب
+</div>
+
+<input
+type="number"
+id="amount"
+placeholder="المبلغ بالدولار"
+/>
+
+<input
+type="text"
+id="binanceId"
+placeholder="Binance ID أو عنوان USDT"
+/>
+
+<button onclick="depositMoney()">
+
+إيداع USDT 🚀
+
+</button>
+
+<button onclick="withdrawMoney()">
+
+سحب الأرباح 💸
+
+</button>
+
+</div>
 
 <div class="card">
 
 <div class="section-title">
-
 📈 السوق المباشر
-
 </div>
 
 <div id="tradingview"
@@ -167,14 +173,10 @@ style="height:500px;">
 
 </div>
 
-<!-- KYC -->
-
 <div class="card">
 
 <div class="section-title">
-
 🪪 توثيق الحساب
-
 </div>
 
 <input
