@@ -7,6 +7,13 @@ signInWithEmailAndPassword,
 onAuthStateChanged
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
+import {
+getFirestore,
+doc,
+setDoc,
+getDoc
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
 const firebaseConfig = {
 
 apiKey: "AIzaSyBUmHBoRmQ4naiC4TwouANrYAeScKW9DNk",
@@ -27,6 +34,8 @@ const app = initializeApp(firebaseConfig);
 
 const auth = getAuth(app);
 
+const db = getFirestore(app);
+
 const loginBtn =
 document.getElementById("loginBtn");
 
@@ -39,7 +48,7 @@ document.getElementById("email");
 const passwordInput =
 document.getElementById("password");
 
-loginBtn.onclick = async function(){
+registerBtn.onclick = async function(){
 
 const email = emailInput.value;
 
@@ -47,11 +56,34 @@ const password = passwordInput.value;
 
 try{
 
-await signInWithEmailAndPassword(
+const userCredential =
+await createUserWithEmailAndPassword(
 auth,
 email,
 password
 );
+
+await setDoc(
+doc(db,"users",userCredential.user.uid),
+{
+
+email: email,
+
+balance: 10000,
+
+profit: 2450,
+
+vip: true,
+
+verified: false,
+
+createdAt: new Date().toString()
+
+}
+
+);
+
+alert("تم إنشاء الحساب 🚀");
 
 showPlatform(email);
 
@@ -64,7 +96,7 @@ alert(error.message);
 
 };
 
-registerBtn.onclick = async function(){
+loginBtn.onclick = async function(){
 
 const email = emailInput.value;
 
@@ -72,15 +104,26 @@ const password = passwordInput.value;
 
 try{
 
-await createUserWithEmailAndPassword(
+const userCredential =
+await signInWithEmailAndPassword(
 auth,
 email,
 password
 );
 
-alert("تم إنشاء الحساب بنجاح 🚀");
+const docRef =
+doc(db,"users",userCredential.user.uid);
 
-showPlatform(email);
+const userSnap =
+await getDoc(docRef);
+
+if(userSnap.exists()){
+
+showPlatform(
+userSnap.data().email
+);
+
+}
 
 }
 catch(error){
@@ -117,7 +160,7 @@ new TradingView.widget({
 
 }
 
-onAuthStateChanged(auth, (user)=>{
+onAuthStateChanged(auth,(user)=>{
 
 if(user){
 
