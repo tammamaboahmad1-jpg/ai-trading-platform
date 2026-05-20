@@ -1,14 +1,106 @@
-window.onload = function () {
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 
-const loginBtn = document.getElementById("loginBtn");
+import {
+getAuth,
+createUserWithEmailAndPassword,
+signInWithEmailAndPassword,
+onAuthStateChanged
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
-loginBtn.onclick = function () {
+const firebaseConfig = {
 
-document.getElementById("loginPage").style.display = "none";
+apiKey: "AIzaSyBUmHBoRmQ4naiC4TwouANrYAeScKW9DNk",
 
-document.getElementById("appPage").style.display = "block";
+authDomain: "ai-trading-platform-cde38.firebaseapp.com",
 
-loadPage("home");
+projectId: "ai-trading-platform-cde38",
+
+storageBucket: "ai-trading-platform-cde38.firebasestorage.app",
+
+messagingSenderId: "431162854518",
+
+appId: "1:431162854518:web:bafe44171a3c042782a357"
+
+};
+
+const app = initializeApp(firebaseConfig);
+
+const auth = getAuth(app);
+
+const loginBtn =
+document.getElementById("loginBtn");
+
+const registerBtn =
+document.getElementById("registerBtn");
+
+const emailInput =
+document.getElementById("email");
+
+const passwordInput =
+document.getElementById("password");
+
+loginBtn.onclick = async function(){
+
+const email = emailInput.value;
+
+const password = passwordInput.value;
+
+try{
+
+await signInWithEmailAndPassword(
+auth,
+email,
+password
+);
+
+showPlatform(email);
+
+}
+catch(error){
+
+alert(error.message);
+
+}
+
+};
+
+registerBtn.onclick = async function(){
+
+const email = emailInput.value;
+
+const password = passwordInput.value;
+
+try{
+
+await createUserWithEmailAndPassword(
+auth,
+email,
+password
+);
+
+alert("تم إنشاء الحساب بنجاح 🚀");
+
+showPlatform(email);
+
+}
+catch(error){
+
+alert(error.message);
+
+}
+
+};
+
+function showPlatform(email){
+
+document.getElementById("loginPage")
+.style.display = "none";
+
+document.getElementById("appPage")
+.style.display = "block";
+
+document.getElementById("userEmail")
+.innerText = email;
 
 new TradingView.widget({
 "autosize": true,
@@ -23,279 +115,14 @@ new TradingView.widget({
 "container_id": "tradingview"
 });
 
-};
-
-const menuItems = document.querySelectorAll(".menu");
-
-menuItems.forEach(item => {
-
-item.addEventListener("click", function(){
-
-menuItems.forEach(btn=>{
-btn.classList.remove("active");
-});
-
-this.classList.add("active");
-
-const text = this.innerText;
-
-if(text.includes("الرئيسية")){
-loadPage("home");
 }
 
-if(text.includes("الإشارات")){
-loadPage("signals");
-}
+onAuthStateChanged(auth, (user)=>{
 
-if(text.includes("المحفظة")){
-loadPage("wallet");
-}
+if(user){
 
-if(text.includes("VIP")){
-loadPage("vip");
-}
+showPlatform(user.email);
 
-if(text.includes("الأكاديمية")){
-loadPage("academy");
-}
-
-if(text.includes("الإعدادات")){
-loadPage("settings");
-}
-
-if(text.includes("توثيق")){
-loadPage("verify");
 }
 
 });
-
-});
-
-};
-
-function loadPage(page){
-
-const market =
-document.querySelector(".market-card");
-
-const signals =
-document.querySelector(".signals");
-
-if(page === "home"){
-
-market.style.display = "block";
-
-signals.innerHTML = `
-
-<h2>🤖 إشارات الذكاء الاصطناعي</h2>
-
-<div class="signal buy">
-
-شراء BTC/USD
-<br>
-دخول: 43,250
-<br>
-هدف: 44,500
-
-</div>
-
-<div class="signal sell">
-
-بيع ETH/USD
-<br>
-دخول: 2,350
-<br>
-هدف: 2,180
-
-</div>
-
-`;
-
-}
-
-if(page === "signals"){
-
-market.style.display = "none";
-
-signals.innerHTML = `
-
-<h2>📊 الإشارات المباشرة</h2>
-
-<div class="signal buy">
-
-BUY BTC/USD
-<br>
-ربح: +230$
-
-</div>
-
-<div class="signal buy">
-
-BUY SOL/USD
-<br>
-ربح: +180$
-
-</div>
-
-<div class="signal sell">
-
-SELL ETH/USD
-<br>
-خسارة: -70$
-
-</div>
-
-`;
-
-}
-
-if(page === "wallet"){
-
-market.style.display = "none";
-
-signals.innerHTML = `
-
-<h2>💰 المحفظة</h2>
-
-<div class="signal buy">
-
-الرصيد الحالي:
-<br>
-$10,000
-
-</div>
-
-<div class="signal sell">
-
-الأرباح:
-<br>
-+$2,450
-
-</div>
-
-<div class="signal buy">
-
-💳 إيداع وسحب متاح
-
-</div>
-
-`;
-
-}
-
-if(page === "vip"){
-
-market.style.display = "none";
-
-signals.innerHTML = `
-
-<h2>👑 عضوية VIP</h2>
-
-<div class="signal buy">
-
-VIP ACTIVE
-
-<br><br>
-
-185 يوم متبقي
-
-</div>
-
-`;
-
-}
-
-if(page === "academy"){
-
-market.style.display = "none";
-
-signals.innerHTML = `
-
-<h2>🎓 الأكاديمية</h2>
-
-<div class="signal buy">
-
-📘 تعلم التداول
-
-</div>
-
-<div class="signal buy">
-
-📈 تحليل الشموع
-
-</div>
-
-<div class="signal buy">
-
-🤖 إشارات AI
-
-</div>
-
-`;
-
-}
-
-if(page === "settings"){
-
-market.style.display = "none";
-
-signals.innerHTML = `
-
-<h2>⚙️ الإعدادات</h2>
-
-<div class="signal buy">
-
-🌐 تغيير اللغة
-
-</div>
-
-<div class="signal buy">
-
-🌙 الوضع الليلي
-
-</div>
-
-`;
-
-}
-
-if(page === "verify"){
-
-market.style.display = "none";
-
-signals.innerHTML = `
-
-<h2>🪪 توثيق الحساب</h2>
-
-<div class="signal buy">
-
-📸 رفع الهوية
-
-<br><br>
-
-<input type="file">
-
-</div>
-
-<div class="signal buy">
-
-🤳 رفع صورة شخصية
-
-<br><br>
-
-<input type="file">
-
-</div>
-
-<div class="signal sell">
-
-⏳ حالة التوثيق:
-قيد المراجعة
-
-</div>
-
-`;
-
-}
-
-}
