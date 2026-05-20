@@ -4,7 +4,6 @@
 <head>
 
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>T AI PLATFORM</title>
@@ -19,7 +18,7 @@
 
 <body>
 
-<!-- LOGIN PAGE -->
+<!-- LOGIN -->
 
 <div id="loginPage" class="login-page">
 
@@ -29,17 +28,19 @@
 
 <p>منصة الذكاء الاصطناعي للتداول</p>
 
-<input type="email" placeholder="البريد الإلكتروني">
+<input type="email" id="email" placeholder="البريد الإلكتروني">
 
-<input type="password" placeholder="كلمة المرور">
+<input type="password" id="password" placeholder="كلمة المرور">
 
 <button id="loginBtn">
 دخول المنصة
 </button>
 
-<div class="login-links">
+<button id="registerBtn" class="register-btn">
+إنشاء حساب
+</button>
 
-<span>إنشاء حساب</span>
+<div class="login-links">
 
 <span>نسيت كلمة المرور؟</span>
 
@@ -49,7 +50,7 @@
 
 </div>
 
-<!-- APP PAGE -->
+<!-- APP -->
 
 <div id="appPage" style="display:none;">
 
@@ -80,19 +81,17 @@
 
 </header>
 
-<!-- PROFILE -->
-
 <section class="profile-card">
 
 <div class="avatar">👤</div>
 
-<h2>أهلاً، أحمد</h2>
+<h2 id="userEmail">
+أهلاً
+</h2>
 
 <p>VIP MEMBER 👑</p>
 
 </section>
-
-<!-- BALANCE -->
 
 <section class="balance-card">
 
@@ -103,8 +102,6 @@
 <p>+15.45%</p>
 
 </section>
-
-<!-- MENU -->
 
 <section class="menu-grid">
 
@@ -118,11 +115,11 @@
 
 <div class="menu">🎓 الأكاديمية</div>
 
+<div class="menu">🪪 توثيق الحساب</div>
+
 <div class="menu">⚙️ الإعدادات</div>
 
 </section>
-
-<!-- MARKET -->
 
 <section class="market-card">
 
@@ -133,8 +130,6 @@
 <div id="tradingview"></div>
 
 </section>
-
-<!-- SIGNALS -->
 
 <section class="signals">
 
@@ -150,21 +145,11 @@
 
 </div>
 
-<div class="signal sell">
-
-بيع ETH/USD
-<br>
-دخول: 2,350
-<br>
-هدف: 2,180
-
-</div>
-
 </section>
 
 </div>
 
-<script src="app.js"></script>
+<script type="module" src="app.js"></script>
 
 </body>
 
