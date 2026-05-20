@@ -169,3 +169,143 @@ showPlatform(user.email);
 }
 
 });
+
+window.submitKYC = async function(){
+
+const user = auth.currentUser;
+
+if(!user){
+
+alert("يجب تسجيل الدخول");
+
+return;
+
+}
+
+const fullName =
+document.getElementById("fullName").value;
+
+const country =
+document.getElementById("country").value;
+
+const idNumber =
+document.getElementById("idNumber").value;
+
+const documentType =
+document.getElementById("documentType").value;
+
+await setDoc(
+doc(db,"kyc",user.uid),
+{
+
+fullName,
+
+country,
+
+idNumber,
+
+documentType,
+
+status:"pending",
+
+createdAt:new Date().toString()
+
+}
+
+);
+
+document.getElementById("kycStatus")
+.innerHTML =
+"الحالة: قيد المراجعة ⏳";
+
+alert("تم إرسال طلب التوثيق 🚀");
+
+};
+
+window.depositMoney = async function(){
+
+const user = auth.currentUser;
+
+if(!user){
+
+alert("سجل دخول أولاً");
+
+return;
+
+}
+
+const amount =
+document.getElementById("amount").value;
+
+const binanceId =
+document.getElementById("binanceId").value;
+
+await setDoc(
+doc(
+db,
+"deposits",
+user.uid + Date.now()
+),
+{
+
+email:user.email,
+
+amount:amount,
+
+binanceId:binanceId,
+
+status:"pending",
+
+createdAt:new Date().toString()
+
+}
+
+);
+
+alert("تم إرسال طلب الإيداع 🚀");
+
+};
+
+window.withdrawMoney = async function(){
+
+const user = auth.currentUser;
+
+if(!user){
+
+alert("سجل دخول أولاً");
+
+return;
+
+}
+
+const amount =
+document.getElementById("amount").value;
+
+const binanceId =
+document.getElementById("binanceId").value;
+
+await setDoc(
+doc(
+db,
+"withdraws",
+user.uid + Date.now()
+),
+{
+
+email:user.email,
+
+amount:amount,
+
+binanceId:binanceId,
+
+status:"pending",
+
+createdAt:new Date().toString()
+
+}
+
+);
+
+alert("تم إرسال طلب السحب 💸");
+
+};
